@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>~*~ Caleb Kuhlmann // Audio Engineer & Producer ~*~</title>
+    <style>
+        /* --- 90s CLASSIC HTML AESTHETIC --- */
+        body {
+            background-color: #c0c0c0; /* Classic grey background */
+            color: #000000;
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.4;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Container imitating a white document */
+        #container {
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            padding: 20px;
+        }
+
+        header h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+
+        header marquee {
+            font-family: "Times New Roman", Times, serif;
+            color: #ffffff;
+            background-color: #000080; /* Navy blue */
+            font-size: 1.2em;
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        /* Classic Hyperlinks */
+        a:link { color: #0000FF; text-decoration: underline; }
+        a:visited { color: #800080; text-decoration: underline; }
+        a:active { color: #FF0000; text-decoration: underline; }
+        a:hover { color: #0000FF; text-decoration: underline; }
+
+        /* Navigation */
+        nav {
+            margin: 20px 0;
+            padding: 10px;
+            text-align: center;
+            background-color: #c0c0c0;
+            border-top: 2px groove #ffffff;
+            border-bottom: 2px groove #ffffff;
+        }
+        nav a {
+            display: inline-block;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        /* Dynamic Credits Table */
+        .artist-row { cursor: pointer; }
+        .artist-row:hover { background-color: #ffffcc; }
+        .details-box {
+            display: none;
+            margin-top: 10px;
+            font-size: 0.95em;
+            border: 1px dashed #000000;
+            padding: 10px;
+            background-color: #ffffff;
+        }
+        .artist-row.expanded .details-box { display: block; }
+        .hover-hint { color: #800080; font-style: italic; font-size: 0.9em; }
+        .artist-row.expanded .hover-hint { display: none; }
+        .track-entry { margin-bottom: 5px; border-bottom: 1px dotted #c0c0c0; padding-bottom: 2px; }
+
+        /* Basic HTML Data Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #000000;
+            padding: 5px;
+            text-align: left;
+        }
+        th {
+            background-color: #c0c0c0;
+        }
+
+        /* Section Layouts */
+        section {
+            margin-top: 30px;
+            display: none;
+        }
+        section:target {
+            display: block;
+        }
+        #bio { display: block; } /* Default section */
+
+        /* Blog Styling */
+        .blog-post {
+            margin-bottom: 30px;
+        }
+        .post-meta {
+            font-size: 0.9em;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        hr {
+            border: 0;
+            border-top: 2px groove #ffffff;
+            margin: 20px 0;
+        }
+
+        /* Image Placeholder Box */
+        .photo-placeholder {
+            border: 2px solid #000000;
+            background-color: #e0e0e0;
+            color: #000000;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .hit-counter {
+            text-align: center;
+            margin-top: 40px;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+        }
+        .hit-counter span {
+            background-color: #000000;
+            color: #00ff00;
+            font-family: "Courier New", monospace;
+            padding: 2px 5px;
+            border: 2px inset #ffffff;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <header>
+        <h1>~* CALEB KUHLMANN *~</h1>
+        <marquee scrollamount="8">=== AUDIO ENGINEERING // MUSIC PRODUCTION // WEEKLY BLOG===</marquee>
+    </header>
+
+    <nav>
+        [ <a href="#bio">ABOUT</a> ] | 
+        [ <a href="#credits">CREDITS & SERVICES</a> ] | 
+        [ <a href="#blog">BLOG</a> ]
+    </nav>
+
+    <main>
+        
+        <section id="bio">
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="re_4284_portra%20400_014281-r1-072-34a.PNG" alt="Caleb Kuhlmann Studio Promo" width="700" style="max-width: 100%; height: auto;">
+                
+            </div>
+            <p>I’m an audio engineer and music producer based in Nashville, TN. I’ve been working in the industry for more than 8 years, in the studio and on stage, delivering sonic excellence and good vibes wherever I can.</p>
+            <p>I pride myself on my ability to adapt, learn, and grow in pretty much every situation, but I specialize in mixing and producing alternative, pop, and rock music. I also moonlight as a front of house and playback engineer, and have worked on a few specialized recording studio builds as a consulting audio engineer.</p>
+            <p>My philosophy is not controversial: your music should sound great, whatever that means to you. I believe anyone can get to that point without breaking the budget or putting themselves in rooms with assholes. If that sounds like the right attitude, head over to the Credits & Services page to see if we’d be a good fit, and shoot me an e-mail.</p>
+        </section>
+
+        <section id="credits">
+            <h3>SELECTED DISCOGRAPHY</h3>
+            <p>A brief history of projects, tracking sessions, and mixes:</p>
+            
+            <table id="credits-table">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">ARTIST</th>
+                        <th>CREDITS (Click to View Details)</th>
+                    </tr>
+                </thead>
+                <tbody id="credits-body">
+                    <tr>
+                        <td colspan="2"><em>Loading data from satellite link...</em></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <script>
+                // 90s style inline script for fetching data
+                var csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTqcYP2KT4bTN_04WapAapr7aMpEfrLjv4YIMqyBNIYDcjzlwDbKlDnUxg9SlGmqMsLF3UqmGYj8zR6/pub?output=csv';
+                
+                function parseCSV(text) {
+                    var result = [];
+                    var row = [];
+                    var field = '';
+                    var inQuotes = false;
+                    for (var i = 0; i < text.length; i++) {
+                        var char = text[i];
+                        if (inQuotes) {
+                            if (char === '"') {
+                                if (text[i + 1] === '"') { field += '"'; i++; }
+                                else { inQuotes = false; }
+                            } else { field += char; }
+                        } else {
+                            if (char === '"') { inQuotes = true; }
+                            else if (char === ',') { row.push(field); field = ''; }
+                            else if (char === '\n' || char === '\r') {
+                                row.push(field); result.push(row); row = []; field = '';
+                                if (char === '\r' && text[i+1] === '\n') i++;
+                            } else { field += char; }
+                        }
+                    }
+                    if (field !== '') row.push(field);
+                    if (row.length > 0) result.push(row);
+                    return result;
+                }
+
+                fetch(csvUrl)
+                    .then(function(response) { return response.text(); })
+                    .then(function(csvText) {
+                        var parsed = parseCSV(csvText);
+                        var artists = {};
+                        var artistOrder = [];
+                        
+                        // Parse backwards (bottom of CSV to top) to show newest entries first
+                        for(var i = parsed.length - 1; i >= 1; i--) {
+                            var row = parsed[i];
+                            if (row.length < 3) continue;
+                            
+                            var artist = row[0] ? row[0].trim() : 'Unknown Artist';
+                            var song = row[1] ? row[1].trim() : 'Unknown Track';
+                            var role = row[2] ? row[2].trim() : '';
+                            
+                            if (!artist || artist === 'Unknown Artist') continue;
+                            
+                            if (!artists[artist]) {
+                                artists[artist] = [];
+                                artistOrder.push(artist);
+                            }
+                            artists[artist].push({ song: song, role: role });
+                        }
+
+                        var tbody = document.getElementById('credits-body');
+                        tbody.innerHTML = '';
+                        
+                        for (var k = 0; k < artistOrder.length; k++) {
+                            var artist = artistOrder[k];
+                            var tr = document.createElement('tr');
+                            tr.className = 'artist-row';
+                            tr.onclick = function() {
+                                this.className = this.className === 'artist-row' ? 'artist-row expanded' : 'artist-row';
+                            };
+                            
+                            var html = '<td valign="top"><strong>' + artist + '</strong><br><span style="font-size:0.8em">(' + artists[artist].length + ' tracks)</span></td>';
+                            html += '<td valign="top">';
+                            html += '<span class="hover-hint">[ Click to view track details ]</span>';
+                            html += '<div class="details-box">';
+                            
+                            for(var j=0; j<artists[artist].length; j++) {
+                                var track = artists[artist][j];
+                                html += '<div class="track-entry"><strong>"' + track.song + '"</strong> - <em>' + track.role + '</em></div>';
+                            }
+                            
+                            html += '</div></td>';
+                            tr.innerHTML = html;
+                            tbody.appendChild(tr);
+                        }
+                    })
+                    .catch(function(err) {
+                        document.getElementById('credits-body').innerHTML = '<tr><td colspan="2"><strong>Error:</strong> Cannot load data from server.</td></tr>';
+                        console.error(err);
+                    });
+            </script>
+
+            <hr>
+
+            <h3>SERVICES & INQUIRIES</h3>
+            <p>Currently booking projects for mixing, production, tracking, and consultation. Reach out directly via email with your project details and timeline.</p>
+            <p><strong>CONTACT:</strong> <a href="mailto:hometownharry@icloud.com">hometownharry@icloud.com</a></p>
+        </section>
+
+        <section id="blog">
+            <h3>THE WEEKLY BROADCAST</h3>
+            <p>Unfiltered, high-variance takes on the state of music, audio gear, industry politics, and tech culture.</p>
+            
+            <hr>
+
+            <div class="blog-post">
+                <h4>HOT TAKE #002: The Danger of "Safe" Mixing</h4>
+                <div class="post-meta">DATE: May 28, 2026 // CATEGORY: Audio Tech</div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollitia animi id est laborum.</p>
+            </div>
+
+            <div class="blog-post">
+                <h4>HOT TAKE #001: Hardware vs. Software is a Dead Conversation</h4>
+                <div class="post-meta">DATE: May 21, 2026 // CATEGORY: Music Business</div>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+    <script>
+        window.addEventListener('hashchange', function() {
+            var hash = window.location.hash || '#bio';
+            document.querySelectorAll('section').forEach(function(sec) {
+                sec.style.display = 'none';
+            });
+            var activeSec = document.querySelector(hash);
+            if(activeSec) activeSec.style.display = 'block';
+        });
+        if(window.location.hash) window.dispatchEvent(new Event('hashchange'));
+    </script>
+</body>
+</html>

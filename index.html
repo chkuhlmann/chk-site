@@ -3,54 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Engineer & Producer Portfolio</title>
+    <title>PORTFOLIO_OS_V1.0</title>
     <style>
-        /* A quick, temporary retro style block just so it looks cool instantly */
+        /* --- Y2K / WEB 1.0 SYSTEM STYLING --- */
         body {
             background-color: #008080; /* Classic Windows 95 Teal */
             color: #000000;
-            font-family: "Times New Roman", Times, serif;
-            padding: 20px;
+            font-family: "Courier New", Courier, monospace;
+            padding: 15px;
             margin: 0;
+            font-size: 14px;
         }
-        .window {
+
+        a {
+            color: #0000ff;
+            text-decoration: underline;
+        }
+        a:visited { color: #800080; }
+        a:hover { color: #ff0000; }
+
+        /* Main OS Window Container */
+        .desktop-window {
             background-color: #c0c0c0;
             border: 3px solid;
             border-color: #ffffff #808080 #808080 #ffffff;
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 10px;
-            box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+            max-width: 800px;
+            margin: 20px auto;
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.6);
         }
+
+        /* Top Blue Title Bar */
         .title-bar {
             background: linear-gradient(90deg, #000080, #1084d0);
             color: white;
-            padding: 4px 6px;
+            padding: 4px 8px;
             font-weight: bold;
-            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .content {
+
+        .title-bar-controls button {
+            background-color: #c0c0c0;
+            border: 1px solid;
+            border-color: #ffffff #555555 #555555 #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 1px 4px;
+            font-size: 10px;
+        }
+
+        /* Web 1.0 Menu/Navigation Bar */
+        .menu-bar {
+            border-bottom: 2px solid #808080;
+            padding: 6px 10px;
+            background-color: #c0c0c0;
+        }
+        .menu-bar a {
+            color: #000000;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        .menu-bar a:hover {
+            background-color: #000080;
+            color: #ffffff;
+            padding: 2px 4px;
+        }
+
+        /* App Content Window */
+        .workspace {
             padding: 20px;
             background-color: #ffffff;
-            margin-top: 10px;
+            margin: 10px;
             border: 2px inset #ffffff;
+            min-height: 400px;
         }
-        h1 { font-size: 20px; margin-top: 0; }
-        a { color: #0000ff; }
+
+        /* Sections */
+        section {
+            margin-bottom: 40px;
+            display: none; /* Hidden by default, toggled via JavaScript */
+        }
+        section:target {
+            display: block; /* Shows section when clicked in menu */
+        }
+        /* Default visible section if no hash is in URL */
+        #bio { display: block; } 
+
+        h2 {
+            background-color: #808080;
+            color: white;
+            padding: 4px;
+            font-size: 16px;
+            margin-top: 0;
+        }
+
+        /* Retro Data Table for Credits */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #808080;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #dcdcdc;
+        }
+
+        /* Blog Post Layout */
+        .blog-post {
+            border-bottom: 1px dashed #808080;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .post-date {
+            color: #555555;
+            font-size: 12px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
 
-    <div class="window">
-        <div class="title-bar">SITE_INITIALIZATION.EXE</div>
-        <div class="content">
-            <h1>Welcome to the Matrix.</h1>
-            <p>My portfolio and weekly hot takes are spinning up here shortly.</p>
-            <p>If you see this page, your free hosting is officially working.</p>
-            <hr>
-            <p><a href="#">Stay tuned...</a></p>
+    <div class="desktop-window">
+        <!-- Title Bar -->
+        <div class="title-bar">
+            <span>🎛️ PORTFOLIO_MANAGER.EXE</span>
+            <div class="title-bar-controls">
+                <button>_</button>
+                <button>X</button>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="menu-bar">
+            <a href="#bio">[File: About Me]</a>
+            <a href="#credits">[View: Credits & Services]</a>
+            <a href="#blog">[Run: Hot Takes Blog]</a>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="workspace">
+            
+            <!-- SECTION 1: BIO -->
+            <section id="bio">
+                <h2>ABOUT_ME.TXT</h2>
+                <p><strong>[PLACEHOLDER PHOTO GOES HERE]</strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Audio engineer and music producer based out of Lorem Ipsum, TN. Over X years of experience twisting knobs and pushing faders until the music sounds right.</p>
+                <p>Specializing in alternative vibes, but well-versed across the sonic spectrum. If your tracks need polish, grit, or a complete structural overhaul, you've reached the right terminal.</p>
+            </section>
+
+            <!-- SECTION 2: CREDITS & SERVICES -->
+            <section id="credits">
+                <h2>CREDITS_MANIFEST.LST</h2>
+                <p>Select discography and commercial placements:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Artist</th>
+                            <th>Project / Song Title</th>
+                            <th>Role</th>
+                            <th>Notes / Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lorem & The Ipsums</td>
+                            <td>"Sample Song Title"</td>
+                            <td>Mix Engineer, Producer</td>
+                            <td>Over 10M streams / Indie Radio</td>
+                        </tr>
+                        <tr>
+                            <td>The Placeholders</td>
+                            <td>"Fake Track Name"</td>
+                            <td>Mixing, Mastering</td>
+                            <td>Featured on Spotify Editorial</td>
+                        </tr>
+                        <tr>
+                            <td>John Doe Quartet</td>
+                            <td>"Acoustic Session Vol. 4"</td>
+                            <td>Recording Engineer</td>
+                            <td>Live analog tracking</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+                <h2>SERVICES_&_BOOKING.TXT</h2>
+                <p>Currently accepting projects for mixing, full production, and technical consulting. Drop a line to discuss rates and scheduling.</p>
+                <p>📥 Contact: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+            </section>
+
+            <!-- SECTION 3: THE BLOG -->
+            <section id="blog">
+                <h2>WEEKLY_HOT_TAKES.SYS</h2>
+                <p>Welcome to the weekly broadcast. This is where I dump my unfiltered, highly controversial opinions on music, recording gear, technology, and whatever else is annoying me this week.</p>
+                
+                <hr>
+
+                <!-- Blog Post 1 -->
+                <div class="blog-post">
+                    <h3>HOT TAKE #002: Lorem Ipsum Is Actually Good</h3>
+                    <div class="post-date">Posted: May 28, 2026</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="blog-post">
+                    <h3>HOT TAKE #001: The Original Industry Rant</h3>
+                    <div class="post-date">Posted: May 21, 2026</div>
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
+                </div>
+            </section>
+
         </div>
     </div>
 
+    <!-- Tiny CSS Router Hack to handle the tabs seamlessly without complex JS -->
+    <script>
+        window.addEventListener('hashchange', function() {
+            var hash = window.location.hash || '#bio';
+            document.querySelectorAll('section').forEach(function(sec) {
+                sec.style.display = 'none';
+            });
+            var activeSec = document.querySelector(hash);
+            if(activeSec) activeSec.style.display = 'block';
+        });
+        // Run once on load to catch initial hash
+        if(window.location.hash) window.dispatchEvent(new Event('hashchange'));
+    </script>
 </body>
 </html>

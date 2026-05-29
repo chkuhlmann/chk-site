@@ -3,229 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTFOLIO_OS_V1.0</title>
+    <title>Caleb Kuhlmann // Audio Engineer & Producer</title>
     <style>
-        /* --- Y2K / WEB 1.0 SYSTEM STYLING --- */
+        /* --- RAW WEB 1.0 / PLAIN TEXT AESTHETIC --- */
         body {
-            background-color: #008080; /* Classic Windows 95 Teal */
-            color: #000000;
+            background-color: #ffffff; /* Crisp white background */
+            color: #111111; /* Off-black for readability */
             font-family: "Courier New", Courier, monospace;
-            padding: 15px;
-            margin: 0;
-            font-size: 14px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
+        /* Standard Web 1.0 Hyperlinks */
         a {
             color: #0000ff;
             text-decoration: underline;
         }
-        a:visited { color: #800080; }
-        a:hover { color: #ff0000; }
+        a:visited { color: #551a8b; }
+        a:hover { color: #ff0000; background-color: #ffff00; } /* Subtle yellow highlight on hover */
 
-        /* Main OS Window Container */
-        .desktop-window {
-            background-color: #c0c0c0;
-            border: 3px solid;
-            border-color: #ffffff #808080 #808080 #ffffff;
-            max-width: 800px;
-            margin: 20px auto;
-            box-shadow: 6px 6px 0px rgba(0,0,0,0.6);
+        /* Simple Navigation Line */
+        nav {
+            margin: 20px 0;
+            padding: 10px 0;
+            border-top: 1px solid #111111;
+            border-bottom: 1px solid #111111;
         }
-
-        /* Top Blue Title Bar */
-        .title-bar {
-            background: linear-gradient(90deg, #000080, #1084d0);
-            color: white;
-            padding: 4px 8px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .title-bar-controls button {
-            background-color: #c0c0c0;
-            border: 1px solid;
-            border-color: #ffffff #555555 #555555 #ffffff;
-            font-weight: bold;
-            cursor: pointer;
-            padding: 1px 4px;
-            font-size: 10px;
-        }
-
-        /* Web 1.0 Menu/Navigation Bar */
-        .menu-bar {
-            border-bottom: 2px solid #808080;
-            padding: 6px 10px;
-            background-color: #c0c0c0;
-        }
-        .menu-bar a {
-            color: #000000;
+        nav a {
+            margin-right: 20px;
             text-decoration: none;
-            margin-right: 15px;
             font-weight: bold;
         }
-        .menu-bar a:hover {
-            background-color: #000080;
-            color: #ffffff;
-            padding: 2px 4px;
+        nav a:hover {
+            text-decoration: underline;
         }
 
-        /* App Content Window */
-        .workspace {
-            padding: 20px;
-            background-color: #ffffff;
-            margin: 10px;
-            border: 2px inset #ffffff;
-            min-height: 400px;
-        }
-
-        /* Sections */
-        section {
-            margin-bottom: 40px;
-            display: none; /* Hidden by default, toggled via JavaScript */
-        }
-        section:target {
-            display: block; /* Shows section when clicked in menu */
-        }
-        /* Default visible section if no hash is in URL */
-        #bio { display: block; } 
-
-        h2 {
-            background-color: #808080;
-            color: white;
-            padding: 4px;
-            font-size: 16px;
-            margin-top: 0;
-        }
-
-        /* Retro Data Table for Credits */
+        /* Basic HTML Data Table */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            margin: 20px 0;
         }
         th, td {
-            border: 1px solid #808080;
-            padding: 8px;
+            border: 1px solid #111111;
+            padding: 10px;
             text-align: left;
+            font-size: 13px;
         }
         th {
-            background-color: #dcdcdc;
+            background-color: #f0f0f0;
         }
 
-        /* Blog Post Layout */
-        .blog-post {
-            border-bottom: 1px dashed #808080;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+        /* Section Layouts */
+        section {
+            margin-top: 30px;
+            display: none;
         }
-        .post-date {
-            color: #555555;
+        section:target {
+            display: block;
+        }
+        #bio { display: block; } /* Default section */
+
+        /* Blog Styling */
+        .blog-post {
+            margin-bottom: 40px;
+        }
+        .post-meta {
             font-size: 12px;
+            color: #555555;
+            margin-bottom: 10px;
+        }
+        hr {
+            border: 0;
+            border-top: 1px dashed #111111;
+            margin: 30px 0;
+        }
+
+        /* Image Placeholder Box */
+        .photo-placeholder {
+            border: 1px solid #111111;
+            background-color: #fafafa;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 20px 0;
             font-style: italic;
         }
     </style>
 </head>
 <body>
 
-    <div class="desktop-window">
-        <!-- Title Bar -->
-        <div class="title-bar">
-            <span>🎛️ PORTFOLIO_MANAGER.EXE</span>
-            <div class="title-bar-controls">
-                <button>_</button>
-                <button>X</button>
+    <header>
+        <h1>CALEB KUHLMANN</h1>
+        <p>Audio Engineering // Music Production // Sonic Commentary</p>
+    </header>
+
+    <nav>
+        <a href="#bio">01_ABOUT</a>
+        <a href="#credits">02_CREDITS_&_SERVICES</a>
+        <a href="#blog">03_WEEKLY_HOT_TAKES</a>
+    </nav>
+
+    <main>
+        
+        <section id="bio">
+            <div class="photo-placeholder">
+                [ STUDIO_PROMO_PHOTOGRAPHY.JPG // 700x450px ]
             </div>
-        </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Audio engineer and music producer currently operating out of Nashville, TN. Over 8 years of industry experience across alternative, rock, indie, and commercial spaces.</p>
+            <p>The philosophy is simple: serve the song, skip the gimmicks, and capture the raw energy of the performance. Whether handling a full-scale tracking session or finalizing a mix in the box, the focus remains on sonic intent and clarity.</p>
+        </section>
 
-        <!-- Navigation Menu -->
-        <div class="menu-bar">
-            <a href="#bio">[File: About Me]</a>
-            <a href="#credits">[View: Credits & Services]</a>
-            <a href="#blog">[Run: Hot Takes Blog]</a>
-        </div>
-
-        <!-- Main Content Area -->
-        <div class="workspace">
+        <section id="credits">
+            <h3>SELECT DISCOGRAPHY</h3>
+            <p>A brief history of projects, tracking sessions, and mixes:</p>
             
-            <!-- SECTION 1: BIO -->
-            <section id="bio">
-                <h2>ABOUT_ME.TXT</h2>
-                <p><strong>[PLACEHOLDER PHOTO GOES HERE]</strong></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Audio engineer and music producer based out of Lorem Ipsum, TN. Over X years of experience twisting knobs and pushing faders until the music sounds right.</p>
-                <p>Specializing in alternative vibes, but well-versed across the sonic spectrum. If your tracks need polish, grit, or a complete structural overhaul, you've reached the right terminal.</p>
-            </section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ARTIST</th>
+                        <th>PROJECT / SONG</th>
+                        <th>ROLE</th>
+                        <th>IMPACT / NOTES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lorem & The Ipsums</td>
+                        <td>"Sample Single Title"</td>
+                        <td>Mix Engineer, Producer</td>
+                        <td>Over 10M streams / Indie Radio</td>
+                    </tr>
+                    <tr>
+                        <td>The Placeholders</td>
+                        <td>"Fake Track Name"</td>
+                        <td>Mixing, Mastering</td>
+                        <td>Featured on Spotify Editorial</td>
+                    </tr>
+                    <tr>
+                        <td>John Doe Quartet</td>
+                        <td>"Acoustic Session Vol. 4"</td>
+                        <td>Recording Engineer</td>
+                        <td>Live analog tracking</td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <!-- SECTION 2: CREDITS & SERVICES -->
-            <section id="credits">
-                <h2>CREDITS_MANIFEST.LST</h2>
-                <p>Select discography and commercial placements:</p>
-                
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Artist</th>
-                            <th>Project / Song Title</th>
-                            <th>Role</th>
-                            <th>Notes / Impact</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Lorem & The Ipsums</td>
-                            <td>"Sample Song Title"</td>
-                            <td>Mix Engineer, Producer</td>
-                            <td>Over 10M streams / Indie Radio</td>
-                        </tr>
-                        <tr>
-                            <td>The Placeholders</td>
-                            <td>"Fake Track Name"</td>
-                            <td>Mixing, Mastering</td>
-                            <td>Featured on Spotify Editorial</td>
-                        </tr>
-                        <tr>
-                            <td>John Doe Quartet</td>
-                            <td>"Acoustic Session Vol. 4"</td>
-                            <td>Recording Engineer</td>
-                            <td>Live analog tracking</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <hr>
 
-                <br>
-                <h2>SERVICES_&_BOOKING.TXT</h2>
-                <p>Currently accepting projects for mixing, full production, and technical consulting. Drop a line to discuss rates and scheduling.</p>
-                <p>📥 Contact: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-            </section>
+            <h3>SERVICES & INQUIRIES</h3>
+            <p>Currently booking projects for mixing, full production, and specialized technical consultation. Reach out directly via email with your demos and project timeline.</p>
+            <p><strong>CONTACT:</strong> <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        </section>
 
-            <!-- SECTION 3: THE BLOG -->
-            <section id="blog">
-                <h2>WEEKLY_HOT_TAKES.SYS</h2>
-                <p>Welcome to the weekly broadcast. This is where I dump my unfiltered, highly controversial opinions on music, recording gear, technology, and whatever else is annoying me this week.</p>
-                
-                <hr>
+        <section id="blog">
+            <h3>THE WEEKLY BROADCAST</h3>
+            <p>Unfiltered, high-variance takes on the state of music, audio gear, industry politics, and tech culture.</p>
+            
+            <hr>
 
-                <!-- Blog Post 1 -->
-                <div class="blog-post">
-                    <h3>HOT TAKE #002: Lorem Ipsum Is Actually Good</h3>
-                    <div class="post-date">Posted: May 28, 2026</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                </div>
+            <div class="blog-post">
+                <h4>HOT TAKE #002: The Danger of "Safe" Mixing</h4>
+                <div class="post-meta">DATE: May 28, 2026 // CATEGORY: Audio Tech</div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollitia animi id est laborum.</p>
+            </div>
 
-                <!-- Blog Post 2 -->
-                <div class="blog-post">
-                    <h3>HOT TAKE #001: The Original Industry Rant</h3>
-                    <div class="post-date">Posted: May 21, 2026</div>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
-                </div>
-            </section>
+            <div class="blog-post">
+                <h4>HOT TAKE #001: Hardware vs. Software is a Dead Conversation</h4>
+                <div class="post-meta">DATE: May 21, 2026 // CATEGORY: Music Business</div>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
+            </div>
+        </section>
 
-        </div>
-    </div>
+    </main>
 
-    <!-- Tiny CSS Router Hack to handle the tabs seamlessly without complex JS -->
     <script>
         window.addEventListener('hashchange', function() {
             var hash = window.location.hash || '#bio';
@@ -235,7 +188,6 @@
             var activeSec = document.querySelector(hash);
             if(activeSec) activeSec.style.display = 'block';
         });
-        // Run once on load to catch initial hash
         if(window.location.hash) window.dispatchEvent(new Event('hashchange'));
     </script>
 </body>

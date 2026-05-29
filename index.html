@@ -157,12 +157,18 @@
                 font-size: 1em;
             }
             nav {
-                line-height: 2.2;
-                padding: 5px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 5px;
+            }
+            .nav-sep {
+                display: none;
             }
             nav a {
-                padding: 10px 5px;
-                margin: 0 4px;
+                padding: 5px;
+                margin: 0;
             }
             /* Allow horizontal scrolling for table if it gets too wide */
             #credits-table {
@@ -184,9 +190,9 @@
     </header>
 
     <nav>
-        [ <a href="#bio">ABOUT</a> ] | 
-        [ <a href="#credits">CREDITS & SERVICES</a> ] | 
-        [ <a href="#blog">BLOG</a> ]
+        <span class="nav-item">[ <a href="#bio">ABOUT</a> ]</span> <span class="nav-sep">|</span> 
+        <span class="nav-item">[ <a href="#credits">CREDITS & SERVICES</a> ]</span> <span class="nav-sep">|</span> 
+        <span class="nav-item">[ <a href="#blog">BLOG</a> ]</span>
     </nav>
 
     <main>

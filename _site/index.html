@@ -1,147 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>~*~ Caleb Kuhlmann // Audio Engineer & Producer ~*~</title>
-    <!-- Netlify Identity Widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Coral+Pixels&family=Jacquard+12&family=Jacquard+12+Charted&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">    <title>~*~ Caleb Kuhlmann // Audio Engineer & Producer ~*~</title>
     <style>
-        /* --- 90s CLASSIC HTML AESTHETIC --- */
+        /* --- SOPHISTICATED B&W AESTHETIC --- */
+        @font-face {
+            font-family: 'Bitcount Grid Single';
+            src: local('Bitcount Grid Single');
+        }
+
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --border-color: #000000;
+        }
+
+        html {
+            overflow-y: scroll;
+        }
+
         body {
-            background-color: #c0c0c0; /* Classic grey background */
-            color: #000000;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: "Times New Roman", Times, serif;
-            line-height: 1.4;
-            max-width: 800px;
+            line-height: 1.6;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
+            font-size: 1.1em;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Container imitating a white document */
         #container {
-            background-color: #ffffff;
-            border: 2px solid #000000;
-            padding: 20px;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
         }
 
         header h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 0;
-            font-weight: bold;
+            font-size: 1.5em;
+            margin: 0;
+            font-weight: normal;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
         }
 
-        header marquee {
-            font-family: "Times New Roman", Times, serif;
-            color: #ffffff;
-            background-color: #000080; /* Navy blue */
-            font-size: 1.2em;
-            padding: 5px;
-            margin-top: 10px;
+        /* Sophisticated Links */
+        .jacquard-12-regular, a, th {
+            font-family: "Jacquard 12", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.4em;
         }
-
-        /* Classic Hyperlinks */
-        a:link { color: #0000FF; text-decoration: underline; }
-        a:visited { color: #800080; text-decoration: underline; }
-        a:active { color: #FF0000; text-decoration: underline; }
-        a:hover { color: #0000FF; text-decoration: underline; }
+        
+        a:link, a:visited, a:active { 
+            color: var(--text-color); 
+            text-decoration: none; 
+            transition: all 0.2s ease;
+        }
+        a:hover { 
+            color: var(--bg-color); 
+            background-color: var(--text-color);
+        }
 
         /* Navigation */
         nav {
-            margin: 20px 0;
-            padding: 10px;
-            text-align: center;
-            background-color: #c0c0c0;
-            border-top: 2px groove #ffffff;
-            border-bottom: 2px groove #ffffff;
+            text-align: right;
+            letter-spacing: 0.05em;
         }
         nav a {
             display: inline-block;
-            margin: 0 10px;
-            font-weight: bold;
+            margin-left: 20px;
+            font-weight: normal;
         }
+        nav a:hover, a[href^="mailto:"]:hover {
+            background-color: transparent;
+            color: #555;
+            text-decoration: underline;
+        }
+        .nav-item a { color: var(--text-color); }
 
         /* Dynamic Credits Table */
-        .artist-row { cursor: pointer; }
-        .artist-row:hover { background-color: #ffffcc; }
         .details-box {
-            display: none;
-            margin-top: 10px;
-            font-size: 0.95em;
-            border: 1px dashed #000000;
-            padding: 10px;
-            background-color: #ffffff;
+            margin-top: 5px;
+            font-size: 0.9em;
+            background-color: transparent;
         }
-        .artist-row.expanded .details-box { display: block; }
-        .hover-hint { color: #800080; font-style: italic; font-size: 0.9em; }
-        .artist-row.expanded .hover-hint { display: none; }
-        .track-entry { margin-bottom: 5px; border-bottom: 1px dotted #c0c0c0; padding-bottom: 2px; }
+        .track-entry { margin-bottom: 8px; padding-bottom: 4px; }
 
-        /* Basic HTML Data Table */
+        /* Sophisticated Data Table */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 30px 0;
         }
         th, td {
-            border: 1px solid #000000;
-            padding: 5px;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 10px;
             text-align: left;
         }
         th {
-            background-color: #c0c0c0;
+            background-color: transparent;
+            font-weight: normal;
+            letter-spacing: 0.1em;
+            border-bottom: 2px solid var(--border-color);
         }
 
         /* Section Layouts */
         section {
-            margin-top: 30px;
+            margin-top: 50px;
             display: none;
+            animation: fadeIn 0.5s ease-in;
         }
-        section:target {
-            display: block;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        #bio { display: block; } /* Default section */
+        section:target { display: block; }
+        #bio { display: block; }
+
+        /* Titles and Accent Font */
+        h3 {
+            font-size: 1.8em;
+            font-weight: normal;
+            margin-bottom: 20px;
+           
+        }
+
+        .accent, .artist-name {
+            font-family: "Jacquarda Bastarda 9", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        h3 {
+            font-family: "Jacquard 12", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }  
+        
 
         /* Blog Styling */
-        .blog-post {
-            margin-bottom: 30px;
-        }
+        .blog-post { margin-bottom: 40px; }
         .post-meta {
-            font-size: 0.9em;
-            font-style: italic;
-            margin-bottom: 10px;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            margin-bottom: 15px;
         }
         hr {
             border: 0;
-            border-top: 2px groove #ffffff;
-            margin: 20px 0;
+            border-top: 1px solid var(--border-color);
+            margin: 40px 0;
         }
 
         /* Image Placeholder Box */
         .photo-placeholder {
-            border: 2px solid #000000;
-            background-color: #e0e0e0;
-            color: #000000;
-            padding: 40px 20px;
+            border: 1px solid var(--border-color);
+            background-color: #fafafa;
+            color: var(--text-color);
+            padding: 60px 20px;
             text-align: center;
-            margin: 20px 0;
+            margin: 30px 0;
             font-style: italic;
         }
         
         .hit-counter {
             text-align: center;
-            margin-top: 40px;
-            font-family: "Times New Roman", Times, serif;
-            font-weight: bold;
+            margin-top: 60px;
+            font-family: 'Bitcount Grid Single';
+            font-size: 0.9em;
+            text-transform: uppercase;
         }
         .hit-counter span {
-            background-color: #000000;
-            color: #00ff00;
-            font-family: "Courier New", monospace;
-            padding: 2px 5px;
-            border: 2px inset #ffffff;
-            letter-spacing: 3px;
+            background-color: transparent;
+            color: var(--text-color);
+            padding: 5px 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Contact Form */
+        .contact-form { margin-top: 20px; }
+        .contact-form p { margin-bottom: 15px; }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid var(--border-color);
+            background-color: transparent;
+            color: var(--text-color);
+            font-family: inherit;
+            box-sizing: border-box;
+            font-size: 1em;
+            border-radius: 6px;
+        }
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-family: "Jacquard 12", system-ui;
+            font-size: 1.2em;
+            transition: all 0.2s ease;
+            border-radius: 6px;
+        }
+        .contact-form button:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media screen and (max-width: 600px) {
+            body { padding: 20px 15px; }
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding-bottom: 20px;
+            }
+            header h1 { font-size: 1.5em; text-align: center; }
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                text-align: center;
+            }
+            nav a { margin: 0; padding: 5px; }
+            #credits-table { display: block; overflow-x: auto; }
+            th, td { padding: 15px 5px; }
+            h3 { font-size: 1.5em; }
         }
     </style>
 </head>
@@ -149,37 +253,38 @@
 
 <div id="container">
     <header>
-        <h1>~* CALEB KUHLMANN *~</h1>
-        <marquee scrollamount="8">=== AUDIO ENGINEERING // MUSIC PRODUCTION // WEEKLY BLOG===</marquee>
+        <div class="title-container">
+            <h1>CALEB KUHLMANN</h1>
+            <div class="accent subtitle">Audio Engineer & Music Producer</div>
+        </div>
+        <nav>
+            <span class="nav-item"><a href="#bio">About</a></span>
+            <span class="nav-item"><a href="#credits">Credits & Services</a></span>
+            <span class="nav-item"><a href="#blog">Dead Rainbow</a></span>
+        </nav>
     </header>
-
-    <nav>
-        [ <a href="#bio">ABOUT</a> ] | 
-        [ <a href="#credits">CREDITS & SERVICES</a> ] | 
-        [ <a href="#blog">BLOG</a> ]
-    </nav>
 
     <main>
         
         <section id="bio">
             <div style="text-align: center; margin: 20px 0;">
-                <img src="re_4284_portra%20400_014281-r1-072-34a.PNG" alt="Caleb Kuhlmann Studio Promo" width="700" style="max-width: 100%; height: auto;">
+                <img src="re_4284_portra%20400_014281-r1-072-34a.PNG" alt="Caleb Kuhlmann Studio Promo" width="700" style="width: 100%; height: auto;">
                 
             </div>
+            <h3>About</h3>
             <p>I’m an audio engineer and music producer based in Nashville, TN. I’ve been working in the industry for more than 8 years, in the studio and on stage, delivering sonic excellence and good vibes wherever I can.</p>
             <p>I pride myself on my ability to adapt, learn, and grow in pretty much every situation, but I specialize in mixing and producing alternative, pop, and rock music. I also moonlight as a front of house and playback engineer, and have worked on a few specialized recording studio builds as a consulting audio engineer.</p>
             <p>My philosophy is not controversial: your music should sound great, whatever that means to you. I believe anyone can get to that point without breaking the budget or putting themselves in rooms with assholes. If that sounds like the right attitude, head over to the Credits & Services page to see if we’d be a good fit, and shoot me an e-mail.</p>
         </section>
 
         <section id="credits">
-            <h3>SELECTED DISCOGRAPHY</h3>
-            <p>A brief history of projects, tracking sessions, and mixes:</p>
+            <h3>Selected Discography</h3>
             
             <table id="credits-table">
                 <thead>
                     <tr>
-                        <th style="width: 35%;">ARTIST</th>
-                        <th>CREDITS (Click to View Details)</th>
+                        <th style="width: 35%;">Artist</th>
+                        <th>Credits</th>
                     </tr>
                 </thead>
                 <tbody id="credits-body">
@@ -250,14 +355,9 @@
                         for (var k = 0; k < artistOrder.length; k++) {
                             var artist = artistOrder[k];
                             var tr = document.createElement('tr');
-                            tr.className = 'artist-row';
-                            tr.onclick = function() {
-                                this.className = this.className === 'artist-row' ? 'artist-row expanded' : 'artist-row';
-                            };
                             
-                            var html = '<td valign="top"><strong>' + artist + '</strong><br><span style="font-size:0.8em">(' + artists[artist].length + ' tracks)</span></td>';
+                            var html = '<td valign="top"><strong class="artist-name">' + artist + '</strong></td>';
                             html += '<td valign="top">';
-                            html += '<span class="hover-hint">[ Click to view track details ]</span>';
                             html += '<div class="details-box">';
                             
                             for(var j=0; j<artists[artist].length; j++) {
@@ -276,34 +376,30 @@
                     });
             </script>
 
-            <hr>
+            
 
-            <h3>SERVICES & INQUIRIES</h3>
-            <p>Currently booking projects for mixing, production, tracking, and consultation. Reach out directly via email with your project details and timeline.</p>
-            <p><strong>CONTACT:</strong> <a href="mailto:hometownharry@icloud.com">hometownharry@icloud.com</a></p>
+            <h3>Services & Inquiries</h3>
+            <p>Currently booking projects for mixing, production, tracking, and consultation. Fill out the form below with your project details and timeline.</p>
+            <form name="contact" method="POST" data-netlify="true" class="contact-form">
+                <p>
+                    <label>Name: <br><input type="text" name="name" required /></label>
+                </p>
+                <p>
+                    <label>Email: <br><input type="email" name="email" required /></label>
+                </p>
+                <p>
+                    <label>Message: <br><textarea name="message" rows="5" required></textarea></label>
+                </p>
+                <p>
+                    <button type="submit">Send Message</button>
+                </p>
+            </form>
         </section>
 
         <section id="blog">
-            <h3>THE WEEKLY BROADCAST</h3>
-            <p>Unfiltered, high-variance takes on the state of music, audio gear, industry politics, and tech culture.</p>
+            <h3>Dead Rainbow</h3>
+            <p>Weekly blog coming soon...</p>
             
-            <hr>
-
-            
-            <div class="blog-post">
-                <h4>HOT TAKE #002: The Danger of &quot;Safe&quot; Mixing</h4>
-                <div class="post-meta">DATE: May 27, 2026 // CATEGORY: Audio Tech</div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollitia animi id est laborum.</p>
-
-            </div>
-            
-            <div class="blog-post">
-                <h4>HOT TAKE #001: Hardware vs. Software is a Dead Conversation</h4>
-                <div class="post-meta">DATE: May 20, 2026 // CATEGORY: Music Business</div>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
-
-            </div>
             
         </section>
 
@@ -311,18 +407,25 @@
 
 </div>
 
-    <!-- Netlify Identity Widget redirect -->
     <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
+        window.addEventListener('hashchange', function() {
+            var hash = window.location.hash || '#bio';
+            document.querySelectorAll('section').forEach(function(sec) {
+                sec.style.display = 'none';
             });
-          }
+            var activeSec = document.querySelector(hash);
+            if(activeSec) activeSec.style.display = 'block';
         });
-      }
+        if(window.location.hash) window.dispatchEvent(new Event('hashchange'));
     </script>
+</body>
+</html>      
+        </section>
+
+    </main>
+
+</div>
+
     <script>
         window.addEventListener('hashchange', function() {
             var hash = window.location.hash || '#bio';

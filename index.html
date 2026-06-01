@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Coral+Pixels&family=Jacquard+12&family=Jacquard+12+Charted&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">    <title>~*~ Caleb Kuhlmann // Audio Engineer & Producer ~*~</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Coral+Pixels&family=Jacquard+12&family=Jacquard+12+Charted&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">    
+    <title>~*~ Caleb Kuhlmann // Audio Engineer & Producer ~*~</title>
     <style>
         /* --- SOPHISTICATED B&W AESTHETIC --- */
         @font-face {
@@ -19,6 +22,7 @@
 
         html {
             overflow-y: scroll;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -31,9 +35,9 @@
             padding: 40px 20px;
             font-size: 1.1em;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Container imitating a white document */
         #container {
             background-color: transparent;
             border: none;
@@ -57,7 +61,6 @@
             text-transform: uppercase;
         }
 
-        /* Sophisticated Links */
         .jacquard-12-regular, a, th {
             font-family: "Jacquard 12", system-ui;
             font-weight: 400;
@@ -123,10 +126,10 @@
         section {
             margin-top: 50px;
             display: none;
-            animation: fadeIn 0.5s ease-in;
+            animation: fadeIn 0.5s ease-in-out;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(4px); }
             to { opacity: 1; transform: translateY(0); }
         }
         section:target { display: block; }
@@ -137,7 +140,8 @@
             font-size: 1.8em;
             font-weight: normal;
             margin-bottom: 20px;
-           
+            font-family: "Jacquard 12", system-ui;
+            font-style: normal;
         }
 
         .accent, .artist-name {
@@ -146,61 +150,14 @@
             font-style: normal;
         }
 
-        h3 {
-            font-family: "Jacquard 12", system-ui;
-            font-weight: 400;
-            font-style: normal;
-        }  
-        
-
-        /* Blog Styling */
-        .blog-post { margin-bottom: 40px; }
-        .post-meta {
-            font-size: 0.85em;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #888;
-            margin-bottom: 15px;
-        }
-        hr {
-            border: 0;
-            border-top: 1px solid var(--border-color);
-            margin: 40px 0;
-        }
-
-        /* Image Placeholder Box */
-        .photo-placeholder {
-            border: 1px solid var(--border-color);
-            background-color: #fafafa;
-            color: var(--text-color);
-            padding: 60px 20px;
-            text-align: center;
-            margin: 30px 0;
-            font-style: italic;
-        }
-        
-        .hit-counter {
-            text-align: center;
-            margin-top: 60px;
-            font-family: 'Bitcount Grid Single';
-            font-size: 0.9em;
-            text-transform: uppercase;
-        }
-        .hit-counter span {
-            background-color: transparent;
-            color: var(--text-color);
-            padding: 5px 10px;
-            border: 1px solid var(--border-color);
-        }
-
-        /* Contact Form */
+        /* Form Controls */
         .contact-form { margin-top: 20px; }
         .contact-form p { margin-bottom: 15px; }
         .contact-form input[type="text"],
         .contact-form input[type="email"],
         .contact-form textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-top: 5px;
             border: 1px solid var(--border-color);
             background-color: transparent;
@@ -208,64 +165,174 @@
             font-family: inherit;
             box-sizing: border-box;
             font-size: 1em;
-            border-radius: 6px;
+            border-radius: 4px;
+            -webkit-appearance: none;
         }
         .contact-form button {
-            padding: 10px 20px;
+            padding: 10px 24px;
             background-color: transparent;
             color: var(--text-color);
             border: 1px solid var(--border-color);
             cursor: pointer;
             font-family: "Jacquard 12", system-ui;
-            font-size: 1.2em;
+            font-size: 1.3em;
             transition: all 0.2s ease;
-            border-radius: 6px;
+            border-radius: 4px;
         }
         .contact-form button:hover {
             background-color: var(--text-color);
             color: var(--bg-color);
         }
 
+        /* Minimalistic Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+            z-index: 10;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 30px;
+            height: 2px;
+            margin-bottom: 6px;
+            background-color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        .menu-toggle span:last-child {
+            margin-bottom: 0;
+        }
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Menu Opening Animation */
+        nav {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s ease;
+        }
+        nav.show {
+            max-height: 500px; 
+        }
+
         /* --- MOBILE OPTIMIZATION --- */
         @media screen and (max-width: 600px) {
-            body { padding: 20px 15px; }
+            body { 
+                padding: 30px 16px; 
+                font-size: 1.05em;
+            }
             header {
                 flex-direction: column;
-                gap: 20px;
-                padding-bottom: 20px;
+                gap: 12px;
+                padding-bottom: 12px;
+                margin-bottom: 25px;
+                align-items: center;
+                text-align: center;
             }
             .title-container {
                 text-align: center;
             }
             header h1 { 
-                font-size: 2em; 
-                text-align: center; 
-                line-height: 1.2;
+                font-size: 1.6em; 
+                letter-spacing: 0.02em;
             }
             .subtitle {
-                font-size: 1.2em;
-                display: inline-block;
-                margin-top: 5px;
+                font-size: 1.1em;
+                margin-top: 2px;
             }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
             nav {
                 display: flex;
                 flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
                 width: 100%;
-                margin-top: 10px;
+                margin-top: 5px;
+                border-top: 1px dashed var(--border-color);
+                padding-top: 5px;
+            }
+            nav.show {
+                display: flex;
             }
             nav a { 
                 display: block;
                 margin: 0; 
-                padding: 16px 10px; 
+                padding: 10px 0; 
                 text-align: center;
-                border: 1px solid var(--border-color);
-                border-radius: 8px;
+                font-size: 1.5em;
+                border-bottom: 1px solid #f0f0f0;
             }
-            #credits-table { display: block; overflow-x: auto; }
-            th, td { padding: 15px 5px; }
-            h3 { font-size: 1.6em; }
+            nav span:last-child a {
+                border-bottom: none;
+            }
+            
+            /* TRANSFORM TABLE INTO TEXT BLOCK NODES (NO MORE SCROLLING) */
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+            
+            /* Hide the grid-headers completely */
+            thead {
+                display: none;
+            }
+            
+            tr {
+                border-bottom: 1px solid var(--border-color);
+                padding: 15px 0;
+                margin-bottom: 5px;
+            }
+            
+            tr:last-child {
+                border-bottom: none;
+            }
+            
+            td {
+                border: none !important;
+                padding: 0 !important;
+                text-align: left;
+                white-space: normal !important; /* Allow track names to wrap naturally if long */
+            }
+
+            /* Emphasize the Artist name on its own row block */
+            td:first-child {
+                margin-bottom: 8px;
+            }
+            
+            .artist-name {
+                font-size: 1.3em;
+                display: block;
+                border-bottom: 1px dashed #e0e0e0;
+                padding-bottom: 4px;
+            }
+            
+            .details-box {
+                margin-top: 4px;
+                padding-left: 4px;
+            }
+
+            h3 { 
+                font-size: 1.6em; 
+                margin-top: 30px;
+            }
+            .contact-form input[type="text"],
+            .contact-form input[type="email"],
+            .contact-form textarea {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -277,19 +344,22 @@
             <h1>CALEB KUHLMANN</h1>
             <div class="accent subtitle">Audio Engineer & Music Producer</div>
         </div>
-        <nav>
-            <span class="nav-item"><a href="#bio">About</a></span>
-            <span class="nav-item"><a href="#credits">Credits & Services</a></span>
-            <span class="nav-item"><a href="#blog">Dead Rainbow</a></span>
+        <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <span class="nav-item"><a href="#bio" onclick="toggleMenu()">About</a></span>
+            <span class="nav-item"><a href="#credits" onclick="toggleMenu()">Credits & Services</a></span>
+            <span class="nav-item"><a href="#blog" onclick="toggleMenu()">Dead Rainbow</a></span>
         </nav>
     </header>
 
     <main>
-        
         <section id="bio">
             <div style="text-align: center; margin: 20px 0;">
-                <img src="re_4284_portra%20400_014281-r1-072-34a.PNG" alt="Caleb Kuhlmann Studio Promo" width="700" style="width: 100%; height: auto;">
-                
+                <img src="re_4284_portra%20400_014281-r1-072-34a.PNG" alt="Caleb Kuhlmann Studio Promo" width="700" style="width: 100%; height: auto; display: block; margin: 0 auto;">
             </div>
             <h3>About</h3>
             <p>I’m an audio engineer and music producer based in Nashville, TN. I’ve been working in the industry for more than 8 years, in the studio and on stage, delivering sonic excellence and good vibes wherever I can.</p>
@@ -315,7 +385,6 @@
             </table>
 
             <script>
-                // 90s style inline script for fetching data
                 var csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTqcYP2KT4bTN_04WapAapr7aMpEfrLjv4YIMqyBNIYDcjzlwDbKlDnUxg9SlGmqMsLF3UqmGYj8zR6/pub?output=csv';
                 
                 function parseCSV(text) {
@@ -351,7 +420,6 @@
                         var artists = {};
                         var artistOrder = [];
                         
-                        // Parse backwards (bottom of CSV to top) to show newest entries first
                         for(var i = parsed.length - 1; i >= 1; i--) {
                             var row = parsed[i];
                             if (row.length < 3) continue;
@@ -396,8 +464,6 @@
                     });
             </script>
 
-            
-
             <h3>Services & Inquiries</h3>
             <p>Currently booking projects for mixing, production, tracking, and consultation. Fill out the form below with your project details and timeline.</p>
             <form name="contact" method="POST" data-netlify="true" class="contact-form">
@@ -419,34 +485,18 @@
         <section id="blog">
             <h3>Dead Rainbow</h3>
             <p>Weekly blog coming soon...</p>
-            
-            
         </section>
-
     </main>
-
 </div>
 
     <script>
-        window.addEventListener('hashchange', function() {
-            var hash = window.location.hash || '#bio';
-            document.querySelectorAll('section').forEach(function(sec) {
-                sec.style.display = 'none';
-            });
-            var activeSec = document.querySelector(hash);
-            if(activeSec) activeSec.style.display = 'block';
-        });
-        if(window.location.hash) window.dispatchEvent(new Event('hashchange'));
-    </script>
-</body>
-</html>      
-        </section>
+        function toggleMenu() {
+            var toggle = document.querySelector('.menu-toggle');
+            var nav = document.getElementById('nav-menu');
+            toggle.classList.toggle('active');
+            nav.classList.toggle('show');
+        }
 
-    </main>
-
-</div>
-
-    <script>
         window.addEventListener('hashchange', function() {
             var hash = window.location.hash || '#bio';
             document.querySelectorAll('section').forEach(function(sec) {

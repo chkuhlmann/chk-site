@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: your-github-username/your-repo-name  # Path to your blog repo
+  repo: chkuhlmann/chk-site  # Path to your blog repo
   branch: main                               # The branch your site builds from
-  base_url: https://decap-proxy.your-cloudflare-subdomain.workers.dev # Your Worker URL
+  base_url: https://decap-proxy.deadrainbow.workers.dev # Your Worker URL
   auth_endpoint: auth                        # Tells Decap to use the worker's auth route
 
 media_folder: "images"

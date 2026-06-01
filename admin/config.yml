@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: https://github.com/hkuhlmann/chk-site  # Path to your blog repo
+  repo: https://github.com/chkuhlmann/chk-site  # Path to your blog repo
   branch: main                               # The branch your site builds from
   base_url: https://decap-proxy.deadrainbow.workers.dev # Your Worker URL
   auth_endpoint: auth                        # Tells Decap to use the worker's auth route

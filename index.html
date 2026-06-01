@@ -24,6 +24,14 @@
             overflow-y: scroll;
             scroll-behavior: smooth;
         }
+        #bio img {
+            filter: grayscale(100%) contrast(105%);
+            transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        #bio img:hover {
+            filter: grayscale(0%) contrast(100%);
+        }
 
         body {
             background-color: var(--bg-color);
@@ -73,10 +81,15 @@
             text-decoration: none; 
             transition: all 0.2s ease;
         }
-        a:hover { 
-            color: var(--bg-color); 
-            background-color: var(--text-color);
-        }
+        a:hover, .artist-name:hover {
+            background-color: transparent; /* Override your current inverted hover */
+            color: var(--text-color);
+            text-shadow: 
+            -1.5px -1.5px 0 rgba(55, 0, 0, 0.8),  /* Pure Red Shift */
+            1.5px  1.5px 0 rgba(155, 0, 0, 0.8), /* Pure Blue Shift */
+            10px 10px 0   rgba(255, 0, 0, 0.8);  /* Pure Green Shift */
+            
+}
 
         /* Navigation */
         nav {
@@ -93,6 +106,7 @@
             color: #555;
             text-decoration: underline;
         }
+
         .nav-item a { color: var(--text-color); }
 
         /* Dynamic Credits Table */
@@ -148,6 +162,7 @@
             font-family: "Jacquarda Bastarda 9", serif;
             font-weight: 400;
             font-style: normal;
+            transition: all 0.2s ease;
         }
 
         /* Form Controls */
@@ -215,16 +230,6 @@
             transform: translateY(-8px) rotate(-45deg);
         }
 
-        /* Menu Opening Animation */
-        nav {
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.5s ease;
-        }
-        nav.show {
-            max-height: 500px; 
-        }
-
         /* --- MOBILE OPTIMIZATION --- */
         @media screen and (max-width: 600px) {
             body { 
@@ -259,12 +264,12 @@
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                margin-top: 5px;
-                border-top: 1px dashed var(--border-color);
-                padding-top: 5px;
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.5s ease;
             }
             nav.show {
-                display: flex;
+                max-height: 500px;
             }
             nav a { 
                 display: block;
@@ -272,7 +277,7 @@
                 padding: 10px 0; 
                 text-align: center;
                 font-size: 1.5em;
-                border-bottom: 1px solid #f0f0f0;
+                border-bottom: 1px dashed #e0e0e0;
             }
             nav span:last-child a {
                 border-bottom: none;
@@ -427,14 +432,15 @@
                             var artist = row[0] ? row[0].trim() : 'Unknown Artist';
                             var song = row[1] ? row[1].trim() : 'Unknown Track';
                             var role = row[2] ? row[2].trim() : '';
+                            var link = row[3] ? row[3].trim() : '';
                             
                             if (!artist || artist === 'Unknown Artist') continue;
                             
                             if (!artists[artist]) {
-                                artists[artist] = [];
+                                artists[artist] = { tracks: [], link: link };
                                 artistOrder.push(artist);
                             }
-                            artists[artist].push({ song: song, role: role });
+                            artists[artist].tracks.push({ song: song, role: role });
                         }
 
                         var tbody = document.getElementById('credits-body');
@@ -444,12 +450,18 @@
                             var artist = artistOrder[k];
                             var tr = document.createElement('tr');
                             
-                            var html = '<td valign="top"><strong class="artist-name">' + artist + '</strong></td>';
+                            var artistData = artists[artist];
+                            var artistHtml = '<strong class="artist-name">' + artist + '</strong>';
+                            if (artistData.link) {
+                                artistHtml = '<a href="' + artistData.link + '" style="font-size: inherit;" target="_blank" rel="noopener noreferrer">' + artistHtml + '</a>';
+                            }
+                            
+                            var html = '<td valign="top">' + artistHtml + '</td>';
                             html += '<td valign="top">';
                             html += '<div class="details-box">';
                             
-                            for(var j=0; j<artists[artist].length; j++) {
-                                var track = artists[artist][j];
+                            for(var j=0; j<artistData.tracks.length; j++) {
+                                var track = artistData.tracks[j];
                                 html += '<div class="track-entry"><strong>"' + track.song + '"</strong> - <em>' + track.role + '</em></div>';
                             }
                             

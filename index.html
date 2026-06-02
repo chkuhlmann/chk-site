@@ -1,3 +1,8 @@
+
+---
+layout: base.njk  # If you are using a layout file, otherwise leave blank
+title: Caleb Kuhlmann // Audio Engineer & Producer
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -546,7 +551,22 @@
 
         <section id="blog">
             <h3>Dead Rainbow</h3>
-            <p>Weekly blog coming soon...</p>
+            <div class="blog-posts">
+                {% for post in collections.blog %}
+                <article style="margin-bottom: 40px; border-bottom: 1px dashed var(--border-color); padding-bottom: 20px;">
+                    <h4 style="margin: 0 0 5px 0; font-size: 1.4em; font-family: 'Jacquard 12', system-ui; font-weight: normal;">{{ post.data.title }}</h4>
+                    <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 15px; font-family: 'Jacquarda Bastarda 9', serif;">
+                        {{ post.date | formatDate }}
+                        {% if post.data.category %} &bull; {{ post.data.category }}{% endif %}
+                    </div>
+                    <div class="post-content">
+                        {{ post.content }}
+                    </div>
+                </article>
+                {% else %}
+                <p>Weekly blog coming soon...</p>
+                {% endfor %}
+            </div>
         </section>
     </main>
 </div>

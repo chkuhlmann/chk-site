@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Coral+Pixels&family=Jacquard+12&family=Jacquard+12+Charted&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">    
-    <title>~*~ Caleb Kuhlmann // Audio Engineer & Producer ~*~</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Coral+Pixels&family=Jacquard+12&family=Jacquard+12+Charted&family=Jacquard+24&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">    <title>~*~ Caleb Kuhlmann // Audio Engineer & Producer ~*~</title>
     <style>
         /* --- SOPHISTICATED B&W AESTHETIC --- */
         @font-face {
@@ -62,11 +61,11 @@
         }
 
         header h1 {
-            font-size: 1.5em;
+            font-family: "Jacquard 24", system-ui;
+            font-weight: 400;
+            font-style: normal;
             margin: 0;
-            font-weight: normal;
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
+            line-height: 1;
         }
 
         .jacquard-12-regular, a, th {
@@ -81,15 +80,57 @@
             text-decoration: none; 
             transition: all 0.2s ease;
         }
-        a:hover, .artist-name:hover {
-            background-color: transparent; /* Override your current inverted hover */
-            color: var(--text-color);
-            text-shadow: 
-            -1.5px -1.5px 0 rgba(55, 0, 0, 0.8),  /* Pure Red Shift */
-            1.5px  1.5px 0 rgba(155, 0, 0, 0.8), /* Pure Blue Shift */
-            10px 10px 0   rgba(255, 0, 0, 0.8);  /* Pure Green Shift */
-            
-}
+        /* --- STAGGERED ENTRANCE FLASH (NO BLACK BASE TEXT) --- */
+        @keyframes lockGlitch {
+            0% {
+                /* Frame 1: Only Red snaps in */
+                text-shadow: -1.5px -1.5px 0 rgba(55, 0, 0, 0.8);
+            }
+            33% {
+                /* Frame 2: Blue snaps in alongside Red */
+                text-shadow: 
+                    -1.5px -1.5px 0 rgb(255, 0, 0),
+                    1.5px  1.5px 0 rgb(255, 127.5, 0);
+            }
+            66% {
+                /* Frame 3: Green snaps in slightly off-target for an instant flash */
+                text-shadow: 
+                    -1.5px -1.5px 0 rgb(255, 255, 0),
+                    1.5px  1.5px 0 rgb(0, 255, 0),
+                    5px    5px   0 rgba(0, 0, 255);
+            }
+            100% {
+                /* Frame 4: Locks entirely into your original static coordinates */
+                text-shadow: 
+                    -1.5px -1.5px 0 rgb(255, 0, 0),
+                    1.5px  1.5px 0 rgba(0, 255, 0),
+                    10px   10px  0 rgba(0, 0, 255);
+
+            }
+        }
+
+        a:hover {
+            background-color: transparent;
+            /* This hides the original solid black text string */
+            color: transparent; 
+            /* Runs the sequence instantly in 0.12 seconds and holds the final look */
+            animation: lockGlitch 0.12s steps(1) forwards;
+            font-size: 1.8em;
+        }
+
+        .artist-name:hover {
+            background-color: transparent;
+            /* This hides the original solid black text string */
+            color: transparent; 
+            /* Runs the sequence instantly in 0.12 seconds and holds the final look */
+            animation: lockGlitch 0.12s steps(1) forwards;
+            font-size: 1.4em;
+        }
+
+        /* Kills the sliding interpolation when the mouse leaves */
+        a, .artist-name {
+            transition: none !important;
+        }
 
         /* Navigation */
         nav {
@@ -101,13 +142,8 @@
             margin-left: 20px;
             font-weight: normal;
         }
-        nav a:hover, a[href^="mailto:"]:hover {
-            background-color: transparent;
-            color: #555;
-            text-decoration: underline;
-        }
 
-        .nav-item a { color: var(--text-color); }
+        
 
         /* Dynamic Credits Table */
         .details-box {
@@ -156,6 +192,11 @@
             margin-bottom: 20px;
             font-family: "Jacquard 12", system-ui;
             font-style: normal;
+            color: transparent;
+            text-shadow: 
+                    -1.5px -1.5px 0 rgb(255, 0, 0),
+                    1.5px  1.5px 0 rgba(0, 255, 0),
+                    10px   10px  0 rgba(0, 0, 255);
         }
 
         .accent, .artist-name {
@@ -163,6 +204,10 @@
             font-weight: 400;
             font-style: normal;
             transition: all 0.2s ease;
+        }
+
+        .subtitle {
+            margin-top: 5px;
         }
 
         /* Form Controls */
@@ -193,10 +238,15 @@
             font-size: 1.3em;
             transition: all 0.2s ease;
             border-radius: 4px;
+            
         }
         .contact-form button:hover {
             background-color: var(--text-color);
             color: var(--bg-color);
+            text-shadow: 
+                    -1.5px -1.5px 0 rgb(255, 0, 0),
+                    1.5px  1.5px 0 rgba(0, 255, 0),
+                    0px   0px  0 rgba(0, 0, 255);
         }
 
         /* Minimalistic Hamburger Menu */
@@ -346,7 +396,7 @@
 <div id="container">
     <header>
         <div class="title-container">
-            <h1>CALEB KUHLMANN</h1>
+            <h1>Caleb Kuhlmann</h1>
             <div class="accent subtitle">Audio Engineer & Music Producer</div>
         </div>
         <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">
@@ -478,7 +528,7 @@
 
             <h3>Services & Inquiries</h3>
             <p>Currently booking projects for mixing, production, tracking, and consultation. Fill out the form below with your project details and timeline.</p>
-            <form name="contact" method="POST" data-netlify="true" class="contact-form">
+            <form action="https://formspree.io/f/xjgznrlq" method="POST" class="contact-form">
                 <p>
                     <label>Name: <br><input type="text" name="name" required /></label>
                 </p>

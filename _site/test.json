@@ -1,0 +1,1 @@
+{% for post in collections.blog %}{{ post.data.title }},{% endfor %}

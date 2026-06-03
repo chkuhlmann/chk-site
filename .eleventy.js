@@ -18,7 +18,7 @@ module.exports = function(eleventyConfig) {
 
   // Create a blog collection from the 'blog' folder
   eleventyConfig.addCollection("blog", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("blog/*.md").sort((a, b) => {
+    return collectionApi.getFilteredByGlob("blog/*.{md,MD}").sort((a, b) => {
       return b.date - a.date; // sort descending
     });
   });

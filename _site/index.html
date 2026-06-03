@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Coral+Pixels&family=Jacquard+12&family=Jacquard+12+Charted&family=Jacquard+24&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">    
-    <title>~*~ Caleb Kuhlmann // Audio Engineer & Producer ~*~</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Coral+Pixels&family=Jacquard+12&family=Jacquard+12+Charted&family=Jacquard+24&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">    <title>~*~ Caleb Kuhlmann // Audio Engineer & Producer ~*~</title>
     <style>
         /* --- SOPHISTICATED B&W AESTHETIC --- */
+        @font-face {
+            font-family: 'Bitcount Grid Single';
+            src: local('Bitcount Grid Single');
+        }
+
         :root {
             --bg-color: #ffffff;
             --text-color: #111111;
@@ -17,8 +21,8 @@
 
         html {
             overflow-y: scroll;
+            scroll-behavior: smooth;
         }
-        
         #bio img {
             filter: grayscale(100%) contrast(105%);
             transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -76,21 +80,54 @@
             text-decoration: none; 
             transition: all 0.2s ease;
         }
-        
         /* --- STAGGERED ENTRANCE FLASH (NO BLACK BASE TEXT) --- */
         @keyframes lockGlitch {
-            0% { text-shadow: -1.5px -1.5px 0 rgba(55, 0, 0, 0.8); }
-            33% { text-shadow: -1.5px -1.5px 0 rgb(255, 0, 0), 1.5px 1.5px 0 rgb(255, 127.5, 0); }
-            66% { text-shadow: -1.5px -1.5px 0 rgb(255, 255, 0), 1.5px 1.5px 0 rgb(0, 255, 0), 5px 5px 0 rgba(0, 0, 255); }
-            100% { text-shadow: -1.5px -1.5px 0 rgb(255, 0, 0), 1.5px 1.5px 0 rgba(0, 255, 0), 10px 10px 0 rgba(0, 0, 255); }
+            0% {
+                /* Frame 1: Only Red snaps in */
+                text-shadow: -1.5px -1.5px 0 rgba(55, 0, 0, 0.8);
+            }
+            33% {
+                /* Frame 2: Blue snaps in alongside Red */
+                text-shadow: 
+                    -1.5px -1.5px 0 rgb(255, 0, 0),
+                    1.5px  1.5px 0 rgb(255, 127.5, 0);
+            }
+            66% {
+                /* Frame 3: Green snaps in slightly off-target for an instant flash */
+                text-shadow: 
+                    -1.5px -1.5px 0 rgb(255, 255, 0),
+                    1.5px  1.5px 0 rgb(0, 255, 0),
+                    5px    5px   0 rgba(0, 0, 255);
+            }
+            100% {
+                /* Frame 4: Locks entirely into your original static coordinates */
+                text-shadow: 
+                    -1.5px -1.5px 0 rgb(255, 0, 0),
+                    1.5px  1.5px 0 rgba(0, 255, 0),
+                    10px   10px  0 rgba(0, 0, 255);
+
+            }
         }
 
-        a:hover, .artist-name:hover {
+        a:hover {
+            background-color: transparent;
+            /* This hides the original solid black text string */
             color: transparent; 
+            /* Runs the sequence instantly in 0.12 seconds and holds the final look */
+            animation: lockGlitch 0.12s steps(1) forwards;
+            font-size: 1.8em;
+        }
+
+        .artist-name:hover {
+            background-color: transparent;
+            /* This hides the original solid black text string */
+            color: transparent; 
+            /* Runs the sequence instantly in 0.12 seconds and holds the final look */
             animation: lockGlitch 0.12s steps(1) forwards;
             font-size: 1.4em;
         }
 
+        /* Kills the sliding interpolation when the mouse leaves */
         a, .artist-name {
             transition: none !important;
         }
@@ -105,6 +142,8 @@
             margin-left: 20px;
             font-weight: normal;
         }
+
+        
 
         /* Dynamic Credits Table */
         .details-box {
@@ -143,6 +182,8 @@
             from { opacity: 0; transform: translateY(4px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        section:target { display: block; }
+        #bio { display: block; }
 
         /* Titles and Accent Font */
         h3 {
@@ -152,7 +193,10 @@
             font-family: "Jacquard 12", system-ui;
             font-style: normal;
             color: transparent;
-            text-shadow: -1.5px -1.5px 0 rgb(255, 0, 0), 1.5px 1.5px 0 rgba(0, 255, 0), 10px 10px 0 rgba(0, 0, 255);
+            text-shadow: 
+                    -1.5px -1.5px 0 rgb(255, 0, 0),
+                    1.5px  1.5px 0 rgba(0, 255, 0),
+                    10px   10px  0 rgba(0, 0, 255);
         }
 
         .accent, .artist-name {
@@ -194,11 +238,15 @@
             font-size: 1.3em;
             transition: all 0.2s ease;
             border-radius: 4px;
+            
         }
         .contact-form button:hover {
             background-color: var(--text-color);
             color: var(--bg-color);
-            text-shadow: -1.5px -1.5px 0 rgb(255, 0, 0), 1.5px 1.5px 0 rgba(0, 255, 0), 0px 0px 0 rgba(0, 0, 255);
+            text-shadow: 
+                    -1.5px -1.5px 0 rgb(255, 0, 0),
+                    1.5px  1.5px 0 rgba(0, 255, 0),
+                    0px   0px  0 rgba(0, 0, 255);
         }
 
         /* Minimalistic Hamburger Menu */
@@ -219,10 +267,18 @@
             background-color: var(--text-color);
             transition: all 0.3s ease;
         }
-        .menu-toggle span:last-child { margin-bottom: 0; }
-        .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .menu-toggle span:last-child {
+            margin-bottom: 0;
+        }
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
 
         /* --- MOBILE OPTIMIZATION --- */
         @media screen and (max-width: 600px) {
@@ -238,10 +294,21 @@
                 align-items: center;
                 text-align: center;
             }
-            .title-container { text-align: center; }
-            header h1 { font-size: 1.6em; letter-spacing: 0.02em; }
-            .subtitle { font-size: 1.1em; margin-top: 2px; }
-            .menu-toggle { display: block; }
+            .title-container {
+                text-align: center;
+            }
+            header h1 { 
+                font-size: 1.6em; 
+                letter-spacing: 0.02em;
+            }
+            .subtitle {
+                font-size: 1.1em;
+                margin-top: 2px;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
             
             nav {
                 display: flex;
@@ -251,7 +318,9 @@
                 max-height: 0;
                 transition: max-height 0.5s ease;
             }
-            nav.show { max-height: 500px; }
+            nav.show {
+                max-height: 500px;
+            }
             nav a { 
                 display: block;
                 margin: 0; 
@@ -260,38 +329,65 @@
                 font-size: 1.5em;
                 border-bottom: 1px dashed #e0e0e0;
             }
-            nav span:last-child a { border-bottom: none; }
+            nav span:last-child a {
+                border-bottom: none;
+            }
             
+            /* TRANSFORM TABLE INTO TEXT BLOCK NODES (NO MORE SCROLLING) */
             table, thead, tbody, th, td, tr {
                 display: block;
                 width: 100% !important;
                 box-sizing: border-box;
             }
-            thead { display: none; }
+            
+            /* Hide the grid-headers completely */
+            thead {
+                display: none;
+            }
+            
             tr {
                 border-bottom: 1px solid var(--border-color);
                 padding: 15px 0;
                 margin-bottom: 5px;
             }
-            tr:last-child { border-bottom: none; }
+            
+            tr:last-child {
+                border-bottom: none;
+            }
+            
             td {
                 border: none !important;
                 padding: 0 !important;
                 text-align: left;
-                white-space: normal !important;
+                white-space: normal !important; /* Allow track names to wrap naturally if long */
             }
-            td:first-child { margin-bottom: 8px; }
+
+            /* Emphasize the Artist name on its own row block */
+            td:first-child {
+                margin-bottom: 8px;
+            }
+            
             .artist-name {
                 font-size: 1.3em;
                 display: block;
                 border-bottom: 1px dashed #e0e0e0;
                 padding-bottom: 4px;
             }
-            .details-box { margin-top: 4px; padding-left: 4px; }
-            h3 { font-size: 1.6em; margin-top: 30px; }
+            
+            .details-box {
+                margin-top: 4px;
+                padding-left: 4px;
+            }
+
+            h3 { 
+                font-size: 1.6em; 
+                margin-top: 30px;
+            }
             .contact-form input[type="text"],
             .contact-form input[type="email"],
-            .contact-form textarea { font-size: 16px; }
+            .contact-form textarea {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -309,9 +405,9 @@
             <span></span>
         </button>
         <nav id="nav-menu">
-            <span class="nav-item"><a href="#bio" onclick="navigateToSection(event, '#bio')">About</a></span>
-            <span class="nav-item"><a href="#credits" onclick="navigateToSection(event, '#credits')">Credits & Services</a></span>
-            <span class="nav-item"><a href="#blog" onclick="navigateToSection(event, '#blog')">Dead Rainbow</a></span>
+            <span class="nav-item"><a href="#bio" onclick="toggleMenu()">About</a></span>
+            <span class="nav-item"><a href="#credits" onclick="toggleMenu()">Credits & Services</a></span>
+            <span class="nav-item"><a href="#blog" onclick="toggleMenu()">Dead Rainbow</a></span>
         </nav>
     </header>
 
@@ -328,6 +424,7 @@
 
         <section id="credits">
             <h3>Selected Discography</h3>
+            
             <table id="credits-table">
                 <thead>
                     <tr>
@@ -346,7 +443,10 @@
                 var csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTqcYP2KT4bTN_04WapAapr7aMpEfrLjv4YIMqyBNIYDcjzlwDbKlDnUxg9SlGmqMsLF3UqmGYj8zR6/pub?output=csv';
                 
                 function parseCSV(text) {
-                    var result = []; var row = []; var field = ''; var inQuotes = false;
+                    var result = [];
+                    var row = [];
+                    var field = '';
+                    var inQuotes = false;
                     for (var i = 0; i < text.length; i++) {
                         var char = text[i];
                         if (inQuotes) {
@@ -369,48 +469,58 @@
                 }
 
                 fetch(csvUrl)
-                    .then(response => response.text())
-                    .then(csvText => {
-                        const parsed = parseCSV(csvText);
-                        const artists = {}; const artistOrder = [];
-                        const dataRows = parsed.slice(1).reverse();
+                    .then(function(response) { return response.text(); })
+                    .then(function(csvText) {
+                        var parsed = parseCSV(csvText);
+                        var artists = {};
+                        var artistOrder = [];
                         
-                        dataRows.forEach(row => {
-                            if (row.length < 3) return;
-                            const artist = row[0]?.trim() || 'Unknown Artist';
-                            const song = row[1]?.trim() || 'Unknown Track';
-                            const role = row[2]?.trim() || '';
-                            const link = row[4]?.trim() || '';
+                        for(var i = parsed.length - 1; i >= 1; i--) {
+                            var row = parsed[i];
+                            if (row.length < 3) continue;
                             
-                            if (artist === 'Unknown Artist') return;
+                            var artist = row[0] ? row[0].trim() : 'Unknown Artist';
+                            var song = row[1] ? row[1].trim() : 'Unknown Track';
+                            var role = row[2] ? row[2].trim() : '';
+                            var link = row[4] ? row[4].trim() : '';
+                            
+                            if (!artist || artist === 'Unknown Artist') continue;
+                            
                             if (!artists[artist]) {
                                 artists[artist] = { tracks: [], link: link };
                                 artistOrder.push(artist);
                             }
-                            artists[artist].tracks.push({ song, role });
-                        });
+                            artists[artist].tracks.push({ song: song, role: role });
+                        }
 
-                        const tbody = document.getElementById('credits-body');
-                        tbody.innerHTML = ''; 
-                        const fragment = document.createDocumentFragment();
+                        var tbody = document.getElementById('credits-body');
+                        tbody.innerHTML = '';
                         
-                        artistOrder.forEach(artist => {
-                            const tr = document.createElement('tr');
-                            const artistData = artists[artist];
-                            let artistHtml = `<strong class="artist-name">${artist}</strong>`;
+                        for (var k = 0; k < artistOrder.length; k++) {
+                            var artist = artistOrder[k];
+                            var tr = document.createElement('tr');
+                            
+                            var artistData = artists[artist];
+                            var artistHtml = '<strong class="artist-name">' + artist + '</strong>';
                             if (artistData.link) {
-                                artistHtml = `<a href="${artistData.link}" style="font-size: inherit;" target="_blank" rel="noopener noreferrer">${artistHtml}</a>`;
+                                artistHtml = '<a href="' + artistData.link + '" style="font-size: inherit;" target="_blank" rel="noopener noreferrer">' + artistHtml + '</a>';
                             }
-                            const tracksHtml = artistData.tracks
-                                .map(track => `<div class="track-entry"><strong>"${track.song}"</strong> - <em>${track.role}</em></div>`)
-                                .join('');
-                                
-                            tr.innerHTML = `<td valign="top">${artistHtml}</td><td valign="top"><div class="details-box">${tracksHtml}</div></td>`;
-                            fragment.appendChild(tr);
-                        });
-                        tbody.appendChild(fragment);
+                            
+                            var html = '<td valign="top">' + artistHtml + '</td>';
+                            html += '<td valign="top">';
+                            html += '<div class="details-box">';
+                            
+                            for(var j=0; j<artistData.tracks.length; j++) {
+                                var track = artistData.tracks[j];
+                                html += '<div class="track-entry"><strong>"' + track.song + '"</strong> - <em>' + track.role + '</em></div>';
+                            }
+                            
+                            html += '</div></td>';
+                            tr.innerHTML = html;
+                            tbody.appendChild(tr);
+                        }
                     })
-                    .catch(err => {
+                    .catch(function(err) {
                         document.getElementById('credits-body').innerHTML = '<tr><td colspan="2"><strong>Error:</strong> Cannot load data from server.</td></tr>';
                         console.error(err);
                     });
@@ -419,17 +529,25 @@
             <h3>Services & Inquiries</h3>
             <p>Currently booking projects for mixing, production, tracking, and consultation. Fill out the form below with your project details and timeline.</p>
             <form action="https://formspree.io/f/xjgznrlq" method="POST" class="contact-form">
-                <p><label>Name: <br><input type="text" name="name" required /></label></p>
-                <p><label>Email: <br><input type="email" name="email" required /></label></p>
-                <p><label>Message: <br><textarea name="message" rows="5" required></textarea></label></p>
-                <p><button type="submit">Send Message</button></p>
+                <p>
+                    <label>Name: <br><input type="text" name="name" required /></label>
+                </p>
+                <p>
+                    <label>Email: <br><input type="email" name="email" required /></label>
+                </p>
+                <p>
+                    <label>Message: <br><textarea name="message" rows="5" required></textarea></label>
+                </p>
+                <p>
+                    <button type="submit">Send Message</button>
+                </p>
             </form>
         </section>
 
         <section id="blog">
             <h3>Dead Rainbow</h3>
-            <div id="blog-posts-container" class="blog-posts">
-                <p>Loading the feed...</p>
+            <div class="blog-posts">
+                <p>Weekly blog coming soon...</p>
             </div>
         </section>
     </main>
@@ -437,75 +555,21 @@
 
     <script>
         function toggleMenu() {
-            if (window.getComputedStyle(document.querySelector('.menu-toggle')).display !== 'none') {
-                var toggle = document.querySelector('.menu-toggle');
-                var nav = document.getElementById('nav-menu');
-                toggle.classList.toggle('active');
-                nav.classList.toggle('show');
-            }
+            var toggle = document.querySelector('.menu-toggle');
+            var nav = document.getElementById('nav-menu');
+            toggle.classList.toggle('active');
+            nav.classList.toggle('show');
         }
 
-        function navigateToSection(e, targetHash) {
-            if (e) e.preventDefault(); 
+        window.addEventListener('hashchange', function() {
+            var hash = window.location.hash || '#bio';
             document.querySelectorAll('section').forEach(function(sec) {
                 sec.style.display = 'none';
             });
-            var activeSec = document.querySelector(targetHash);
-            if (activeSec) activeSec.style.display = 'block';
-            
-            window.scrollTo(0, 0);
-            history.pushState(null, null, targetHash);
-            toggleMenu();
-        }
-
-        window.addEventListener('popstate', function() {
-            var currentHash = window.location.hash || '#bio';
-            document.querySelectorAll('section').forEach(function(sec) {
-                sec.style.display = 'none';
-            });
-            var activeSec = document.querySelector(currentHash);
-            if (activeSec) activeSec.style.display = 'block';
-            window.scrollTo(0, 0);
+            var activeSec = document.querySelector(hash);
+            if(activeSec) activeSec.style.display = 'block';
         });
-
-        // Initialize view states and query markdown payload outputs asynchronously
-        window.addEventListener('DOMContentLoaded', function() {
-            var initialHash = window.location.hash || '#bio';
-            navigateToSection(null, initialHash);
-
-            fetch('blog.json')
-                .then(response => {
-                    if (!response.ok) throw new Error('Network file error');
-                    return response.json();
-                })
-                .then(posts => {
-                    const container = document.getElementById('blog-posts-container');
-                    if (!posts || posts.length === 0) {
-                        container.innerHTML = '<p>No entries found. Check back soon.</p>';
-                        return;
-                    }
-                    container.innerHTML = posts.map(post => {
-                        // Safe fallback padding block for raw unquoted numeric YAML titles
-                        const displayTitle = String(post.title).padStart(3, '0');
-                        
-                        return `
-                            <article class="blog-entry" style="margin-bottom: 40px; border-bottom: 1px dashed var(--border-color); padding-bottom: 30px;">
-                                <header class="blog-entry-header" style="display: block; border: none; margin-bottom: 15px; padding-bottom: 0;">
-                                    <h4 style="font-family: 'Jacquard 12', system-ui; font-size: 1.6em; margin: 0 0 5px 0; font-weight: normal;">${displayTitle}</h4>
-                                    <time style="font-family: 'Times New Roman', serif; font-size: 0.9em; font-style: italic; opacity: 0.8;">${post.date}</time>
-                                </header>
-                                <div class="blog-entry-content" style="font-family: 'Times New Roman', Times, serif; line-height: 1.6;">
-                                    ${post.content}
-                                </div>
-                            </article>
-                        `;
-                    }).join('');
-                })
-                .catch(err => {
-                    console.error('Error fetching entries:', err);
-                    document.getElementById('blog-posts-container').innerHTML = '<p><strong>Error:</strong> Failed to connect to the blog engine.</p>';
-                });
-        });
+        if(window.location.hash) window.dispatchEvent(new Event('hashchange'));
     </script>
 </body>
 </html>

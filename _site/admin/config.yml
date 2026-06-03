@@ -15,8 +15,6 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/blog.njk" }
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Category", name: "category", widget: "string", default: "General"}

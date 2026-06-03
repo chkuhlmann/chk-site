@@ -445,7 +445,8 @@
             }
         }
 
-        function navigateToSection(e, targetHash) {
+        // ADDED: An extra boolean parameter (isInitialLoad) to prevent automatic menu toggling on startup
+        function navigateToSection(e, targetHash, isInitialLoad) {
             if (e) e.preventDefault(); 
             document.querySelectorAll('section').forEach(function(sec) {
                 sec.style.display = 'none';
@@ -455,7 +456,11 @@
             
             window.scrollTo(0, 0);
             history.pushState(null, null, targetHash);
-            toggleMenu();
+            
+            // Only toggle the mobile menu if this action came from an explicit click
+            if (!isInitialLoad) {
+                toggleMenu();
+            }
         }
 
         window.addEventListener('popstate', function() {
@@ -468,10 +473,11 @@
             window.scrollTo(0, 0);
         });
 
-        // RESTORED: DOM parser script executing backend payload queries
         window.addEventListener('DOMContentLoaded', function() {
             var initialHash = window.location.hash || '#bio';
-            navigateToSection(null, initialHash);
+            
+            // FIXED: Passed `true` here so the layout builds cleanly without kicking off menu animations
+            navigateToSection(null, initialHash, true);
 
             fetch('blog.json')
                 .then(response => {
@@ -490,7 +496,7 @@
                         return `
                             <article class="blog-entry" style="margin-bottom: 40px; border-bottom: 1px dashed var(--border-color); padding-bottom: 30px;">
                                 <header class="blog-entry-header" style="display: block; border: none; margin-bottom: 15px; padding-bottom: 0;">
-                                    <h4 style="font-family: 'Jacquard 12', system-ui; font-size: 1.6em; margin: 0 0 5px 0; font-weight: normal;">${displayTitle}</h4>
+                                    <h4 style="font-family: 'Jacquard 12', system-ui; font-size: 2em; margin: 0 0 5px 0; font-weight: normal;">${displayTitle}</h4>
                                     <time style="font-family: 'Times New Roman', serif; font-size: 0.9em; font-style: italic; opacity: 0.8;">${post.date}</time>
                                 </header>
                                 <div class="blog-entry-content" style="font-family: 'Times New Roman', Times, serif; line-height: 1.6;">

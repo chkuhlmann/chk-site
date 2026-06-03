@@ -479,7 +479,7 @@
             // FIXED: Passed `true` here so the layout builds cleanly without kicking off menu animations
             navigateToSection(null, initialHash, true);
 
-            fetch('blog.json')
+            fetch('./blog.json')
                 .then(response => {
                     if (!response.ok) throw new Error('Network file error');
                     return response.json();

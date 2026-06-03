@@ -1,0 +1,14 @@
+---
+permalink: /blog.json
+eleventyExcludeFromCollections: true
+---
+[
+  {%- for post in collections.blog %}
+  {
+    "title": "{{ post.data.title | escape }}",
+    "date": "{{ post.date | formatDate }}",
+    "category": "{{ post.data.category | escape }}",
+    "content": "{{ post.templateContent | encodePostContent }}"
+  }{% if not loop.last %},{% endif %}
+  {%- endfor %}
+]

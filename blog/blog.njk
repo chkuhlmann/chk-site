@@ -1,0 +1,12 @@
+---
+permalink: /blog.json
+---
+[
+  {% for post in collections.blog %}
+  {
+    "title": {{ post.data.title | dump | safe }},
+    "date": "{{ post.date | formatDate }}",
+    "content": {{ post.templateContent | dump | safe }}
+  }{% if not loop.last %},{% endif %}
+  {% endfor %}
+]

@@ -16,6 +16,17 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  // Clean up HTML content so it doesn't break a JSON string
+  eleventyConfig.addFilter("encodePostContent", function(content) {
+    if (!content) return "";
+    return content
+      .replace(/\\/g, '\\\\')
+      .replace(/"/g, '\\"')
+      .replace(/\n/g, '\\n')
+      .replace(/\r/g, '\\r')
+      .replace(/\t/g, '\\t');
+  });
+
   // Create a blog collection from the 'blog' folder
   eleventyConfig.addCollection("blog", function(collectionApi) {
     return collectionApi.getFilteredByGlob("blog/*.{md,MD}").sort((a, b) => {

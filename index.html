@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Coral+Pixels&family=Jacquard+12&family=Jacquard+12+Charted&family=Jacquard+24&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">    
@@ -316,7 +321,7 @@
     </header>
 
     <main>
-        <section id="bio">
+        <section id="section-bio" data-route="bio">
             <div style="text-align: center; margin: 20px 0;">
                 <img src="re_4284_portra%20400_014281-r1-072-34a.PNG" alt="Caleb Kuhlmann Studio Promo" width="700" style="width: 100%; height: auto; display: block; margin: 0 auto;">
             </div>
@@ -326,7 +331,7 @@
             <p>My philosophy is not controversial: your music should sound great, whatever that means to you. I believe anyone can get to that point without breaking the budget or putting themselves in rooms with assholes. If that sounds like the right attitude, head over to the Credits & Services page to see if we’d be a good fit, and shoot me a message.</p>
         </section>
 
-        <section id="credits">
+        <section id="section-credits" data-route="credits">
             <h3>Selected Discography</h3>
             <table id="credits-table">
                 <thead>
@@ -426,7 +431,7 @@
             </form>
         </section>
 
-        <section id="blog">
+        <section id="section-blog" data-route="blog">
             <h3>Dead Rainbow</h3>
             <div id="blog-posts-container" class="blog-posts">
                 <p>Loading the feed...</p>
@@ -445,19 +450,28 @@
             }
         }
 
-        // ADDED: An extra boolean parameter (isInitialLoad) to prevent automatic menu toggling on startup
+        function getRouteFromHash(hash) {
+            var route = (hash || '#bio').replace(/^#/, '');
+            return /^(bio|credits|blog)$/.test(route) ? route : 'bio';
+        }
+
+        function setActiveSection(route) {
+            document.querySelectorAll('section[data-route]').forEach(function(sec) {
+                sec.style.display = sec.dataset.route === route ? 'block' : 'none';
+            });
+        }
+
         function navigateToSection(e, targetHash, isInitialLoad) {
             if (e) e.preventDefault(); 
-            document.querySelectorAll('section').forEach(function(sec) {
-                sec.style.display = 'none';
-            });
-            var activeSec = document.querySelector(targetHash);
-            if (activeSec) activeSec.style.display = 'block';
+            var route = getRouteFromHash(targetHash);
+
+            setActiveSection(route);
             
             window.scrollTo(0, 0);
-            history.pushState(null, null, targetHash);
+            if (!isInitialLoad) {
+                history.pushState(null, '', '#' + route);
+            }
             
-            // Only toggle the mobile menu if this action came from an explicit click
             if (!isInitialLoad) {
                 toggleMenu();
             }
@@ -465,18 +479,13 @@
 
         window.addEventListener('popstate', function() {
             var currentHash = window.location.hash || '#bio';
-            document.querySelectorAll('section').forEach(function(sec) {
-                sec.style.display = 'none';
-            });
-            var activeSec = document.querySelector(currentHash);
-            if (activeSec) activeSec.style.display = 'block';
+            setActiveSection(getRouteFromHash(currentHash));
             window.scrollTo(0, 0);
         });
 
         window.addEventListener('DOMContentLoaded', function() {
             var initialHash = window.location.hash || '#bio';
             
-            // FIXED: Passed `true` here so the layout builds cleanly without kicking off menu animations
             navigateToSection(null, initialHash, true);
 
             fetch('./blog.json')

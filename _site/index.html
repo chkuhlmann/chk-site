@@ -10,7 +10,7 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Coral+Pixels&family=Jacquard+12&family=Jacquard+12+Charted&family=Jacquard+24&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&family=Jacquarda+Bastarda+9&display=swap" rel="stylesheet">
     <title>~*~ Caleb Kuhlmann // Audio Engineer & Producer ~*~</title>
     <style>
         /* --- SOPHISTICATED B&W AESTHETIC --- */
@@ -27,10 +27,6 @@
         #section-bio img {
             filter: grayscale(100%) contrast(105%);
             transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        #section-bio img:hover {
-            filter: grayscale(0%) contrast(100%);
         }
 
         body {
@@ -79,7 +75,6 @@
         a:link, a:visited, a:active { 
             color: var(--text-color); 
             text-decoration: none; 
-            transition: all 0.2s ease;
         }
         
         /* --- STAGGERED ENTRANCE FLASH (NO BLACK BASE TEXT) --- */
@@ -90,10 +85,23 @@
             100% { text-shadow: -1.5px -1.5px 0 rgb(255, 0, 0), 1.5px 1.5px 0 rgba(0, 255, 0), 10px 10px 0 rgba(0, 0, 255); }
         }
 
-        a:hover, .artist-name:hover {
-            color: transparent; 
-            animation: lockGlitch 0.12s steps(1) forwards;
-            font-size: 1.4em;
+        @media (hover: hover) and (pointer: fine) {
+            #section-bio img:hover {
+                filter: grayscale(0%) contrast(100%);
+            }
+
+            a:hover, .artist-name:hover {
+                color: transparent;
+                animation: lockGlitch 0.12s steps(1) forwards;
+            }
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--text-color);
+            outline-offset: 4px;
         }
 
         a, .artist-name {
@@ -108,13 +116,21 @@
         nav a {
             display: inline-block;
             margin-left: 20px;
+            padding: 4px 0;
             font-weight: normal;
+        }
+        nav a[aria-current="page"] {
+            color: transparent;
+            text-shadow: -1px -1px 0 rgb(255, 0, 0),
+                1px 1px 0 rgba(0, 255, 0),
+                4px 4px 0 rgba(0, 0, 255);
         }
 
         /* Dynamic Credits Table */
         .details-box {
             margin-top: 5px;
-            font-size: 0.9em;
+            font-size: 0.95em;
+            line-height: 1.45;
             background-color: transparent;
         }
         .track-entry { margin-bottom: 8px; padding-bottom: 4px; }
@@ -134,6 +150,7 @@
         th {
             background-color: transparent;
             font-weight: normal;
+            font-size: 1.25em;
             letter-spacing: 0.1em;
             border-bottom: 2px solid var(--border-color);
         }
@@ -167,43 +184,157 @@
             transition: all 0.2s ease;
         }
 
+        .artist-name {
+            display: inline-block;
+            font-size: 1.12em;
+            line-height: 1.2;
+        }
+
         .subtitle {
             margin-top: 5px;
         }
 
+        /* Blog Entries */
+        .blog-entry {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .blog-entry-header {
+            display: block;
+            border: none;
+            margin-bottom: 15px;
+            padding-bottom: 0;
+        }
+
+        .blog-entry-title {
+            margin: 0 0 5px 0;
+            font-family: "Jacquard 12", system-ui;
+            font-size: 1.65em;
+            font-weight: normal;
+            line-height: 1.05;
+        }
+
+        .blog-entry time {
+            font-size: 0.95em;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .blog-entry-content {
+            font-size: 1em;
+            line-height: 1.65;
+        }
+
+        .blog-entry-content p {
+            margin: 0 0 1em;
+        }
+
+        .blog-entry-content p:last-child {
+            margin-bottom: 0;
+        }
+
         /* Form Controls */
-        .contact-form { margin-top: 20px; }
-        .contact-form p { margin-bottom: 15px; }
+        .contact-form {
+            margin-top: 24px;
+            padding: 18px 0 20px;
+        }
+        .contact-form p {
+            margin: 0 0 18px;
+        }
+        .contact-form p:last-child {
+            margin: 22px 0 0;
+        }
+        .contact-form label {
+            display: block;
+            font-family: "Jacquard 12", system-ui;
+            font-size: 1.3em;
+            line-height: 1.15;
+        }
         .contact-form input[type="text"],
         .contact-form input[type="email"],
         .contact-form textarea {
             width: 100%;
-            padding: 12px;
-            margin-top: 5px;
-            border: 1px solid var(--border-color);
+            padding: 9px 0 8px;
+            margin-top: 6px;
+            border: 0;
+            border-bottom: 1px solid var(--border-color);
             background-color: transparent;
             color: var(--text-color);
-            font-family: inherit;
+            font-family: "Times New Roman", Times, serif;
             box-sizing: border-box;
-            font-size: 1em;
-            border-radius: 4px;
+            font-size: 1rem;
+            border-radius: 0;
             -webkit-appearance: none;
         }
+        .contact-form input[type="text"]:focus-visible,
+        .contact-form input[type="email"]:focus-visible,
+        .contact-form textarea:focus-visible {
+            border-bottom-color: transparent;
+            box-shadow: -1px 1px 0 rgb(255, 0, 0),
+                1px 2px 0 rgba(0, 255, 0),
+                5px 5px 0 rgba(0, 0, 255);
+            outline: none;
+        }
+        .contact-form textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
         .contact-form button {
-            padding: 10px 24px;
+            position: relative;
+            min-width: 160px;
+            min-height: 44px;
+            padding: 8px 24px 9px;
             background-color: transparent;
-            color: var(--text-color);
+            color: black;
             border: 1px solid var(--border-color);
             cursor: pointer;
             font-family: "Jacquard 12", system-ui;
-            font-size: 1.3em;
+            font-size: 1.35em;
             transition: all 0.2s ease;
-            border-radius: 4px;
+            border-radius: 0;
         }
-        .contact-form button:hover {
-            background-color: var(--text-color);
-            color: var(--bg-color);
-            text-shadow: -1.5px -1.5px 0 rgb(255, 0, 0), 1.5px 1.5px 0 rgba(0, 255, 0), 0px 0px 0 rgba(0, 0, 255);
+        .contact-form button::before,
+        .contact-form button::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            pointer-events: none;
+            opacity: 0;
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .contact-form button:hover {
+                background-color: transparent;
+                color: transparent;
+                border-color: transparent;
+                text-shadow: -1.5px -1.5px 0 rgb(255, 0, 0),
+                    1.5px 1.5px 0 rgba(0, 255, 0),
+                    10px 10px 0 rgba(0, 0, 255);
+            }
+            .contact-form button:hover::before {
+                border: 1px solid rgb(255, 0, 0);
+                filter: drop-shadow(3px 3px 0 rgba(0, 255, 0));
+                opacity: 1;
+                transform: translate(-1.5px, -1.5px);
+            }
+            .contact-form button:hover::after {
+                border: 1px solid rgba(0, 0, 255);
+                opacity: 1;
+                transform: translate(10px, 10px);
+            }
+            .contact-form button:hover:active {
+                transform: translate(1px, 1px);
+                text-shadow: -1px -1px 0 rgb(255, 0, 0),
+                    1px 1px 0 rgba(0, 255, 0),
+                    3px 3px 0 rgba(0, 0, 255);
+            }
+            .contact-form button:hover:active::before {
+                transform: translate(-1px, -1px);
+            }
+            .contact-form button:hover:active::after {
+                transform: translate(3px, 3px);
+            }
         }
 
         /* Minimalistic Hamburger Menu */
@@ -212,6 +343,8 @@
             background: transparent;
             border: none;
             cursor: pointer;
+            min-width: 44px;
+            min-height: 44px;
             padding: 10px;
             position: relative;
             z-index: 10;
@@ -287,16 +420,26 @@
             }
             td:first-child { margin-bottom: 8px; }
             .artist-name {
-                font-size: 1.3em;
+                font-size: 1.2em;
                 display: block;
                 border-bottom: 1px dashed #e0e0e0;
                 padding-bottom: 4px;
             }
             .details-box { margin-top: 4px; padding-left: 4px; }
             h3 { font-size: 1.6em; margin-top: 30px; }
+            .blog-entry-title { font-size: 1.5em; }
             .contact-form input[type="text"],
             .contact-form input[type="email"],
             .contact-form textarea { font-size: 16px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
@@ -308,10 +451,10 @@
             <h1>Caleb Kuhlmann</h1>
             <div class="accent subtitle">Audio Engineer & Music Producer</div>
         </div>
-        <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+        <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-controls="nav-menu" aria-expanded="false" onclick="toggleMenu()">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
         </button>
         <nav id="nav-menu">
             <span class="nav-item"><a href="#bio" onclick="navigateToSection(event, '#bio')">About</a></span>
@@ -424,8 +567,8 @@
             <h3>Services & Inquiries</h3>
             <p>Currently booking projects for mixing, production, tracking, and consultation. Fill out the form below with your project details and timeline.</p>
             <form action="https://formspree.io/f/xjgznrlq" method="POST" class="contact-form">
-                <p><label>Name: <br><input type="text" name="name" required /></label></p>
-                <p><label>Email: <br><input type="email" name="email" required /></label></p>
+                <p><label>Name: <br><input type="text" name="name" autocomplete="name" required /></label></p>
+                <p><label>Email: <br><input type="email" name="email" autocomplete="email" required /></label></p>
                 <p><label>Message: <br><textarea name="message" rows="5" required></textarea></label></p>
                 <p><button type="submit">Send Message</button></p>
             </form>
@@ -447,6 +590,7 @@
                 var nav = document.getElementById('nav-menu');
                 toggle.classList.toggle('active');
                 nav.classList.toggle('show');
+                toggle.setAttribute('aria-expanded', nav.classList.contains('show') ? 'true' : 'false');
             }
         }
 
@@ -458,6 +602,13 @@
         function setActiveSection(route) {
             document.querySelectorAll('section[data-route]').forEach(function(sec) {
                 sec.style.display = sec.dataset.route === route ? 'block' : 'none';
+            });
+            document.querySelectorAll('#nav-menu a').forEach(function(link) {
+                if (getRouteFromHash(link.getAttribute('href')) === route) {
+                    link.setAttribute('aria-current', 'page');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
             });
         }
 
@@ -503,12 +654,12 @@
                         const displayTitle = String(post.title).padStart(3, '0');
                         
                         return `
-                            <article class="blog-entry" style="margin-bottom: 40px; border-bottom: 1px dashed var(--border-color); padding-bottom: 30px;">
-                                <header class="blog-entry-header" style="display: block; border: none; margin-bottom: 15px; padding-bottom: 0;">
-                                    <h4 style="font-family: 'Jacquard 12', system-ui; font-size: 2em; margin: 0 0 5px 0; font-weight: normal;">${displayTitle}</h4>
-                                    <time style="font-family: 'Times New Roman', serif; font-size: 0.9em; font-style: italic; opacity: 0.8;">${post.date}</time>
+                            <article class="blog-entry">
+                                <header class="blog-entry-header">
+                                    <h4 class="blog-entry-title">${displayTitle}</h4>
+                                    <time>${post.date}</time>
                                 </header>
-                                <div class="blog-entry-content" style="font-family: 'Times New Roman', Times, serif; line-height: 1.6;">
+                                <div class="blog-entry-content">
                                     ${post.content}
                                 </div>
                             </article>

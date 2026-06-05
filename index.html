@@ -155,6 +155,44 @@
             border-bottom: 2px solid var(--border-color);
         }
 
+        .spotify-inline-widget {
+            position: relative;
+            isolation: isolate;
+            width: 100%;
+            height: 152px;
+            margin: 36px 0 46px;
+            line-height: 0;
+            overflow: visible;
+        }
+        .spotify-inline-widget::before,
+        .spotify-inline-widget::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            pointer-events: none;
+        }
+        .spotify-inline-widget::before {
+            border: 2px solid rgb(255, 0, 0);
+            filter: drop-shadow(2px 2px 0 rgba(0, 255, 0));
+            transform: translate(-1px, -1px);
+            z-index: -2;
+        }
+        .spotify-inline-widget::after {
+            border: 2px solid rgba(0, 0, 255);
+            transform: translate(10px, 10px);
+            z-index: -1;
+        }
+        .spotify-inline-widget iframe {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 152px;
+            border: 0;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
         /* Section Layouts */
         section {
             margin-top: 50px;
@@ -426,6 +464,16 @@
                 padding-bottom: 4px;
             }
             .details-box { margin-top: 4px; padding-left: 4px; }
+            .spotify-inline-widget {
+                margin: 30px 0 38px;
+            }
+            .spotify-inline-widget::before {
+                filter: drop-shadow(2px 2px 0 rgba(0, 255, 0));
+                transform: translate(-1px, -1px);
+            }
+            .spotify-inline-widget::after {
+                transform: translate(5px, 5px);
+            }
             h3 { font-size: 1.6em; margin-top: 30px; }
             .blog-entry-title { font-size: 1.5em; }
             .contact-form input[type="text"],
@@ -563,6 +611,10 @@
                         console.error(err);
                     });
             </script>
+
+            <div class="spotify-inline-widget">
+                <iframe title="Spotify playlist player" src="https://open.spotify.com/embed/playlist/0PJMUIuUsP40FAZhpW473e?utm_source=generator&theme=0" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
 
             <h3>Services & Inquiries</h3>
             <p>Currently booking projects for mixing, production, tracking, and consultation. Fill out the form below with your project details and timeline.</p>

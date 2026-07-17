@@ -232,6 +232,49 @@
             margin-top: 5px;
         }
 
+        .lesson-heading {
+            display: inline-block;
+            margin: 0 0 8px;
+            font-family: "Jacquarda Bastarda 9", serif;
+            font-size: 1.12em;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 1.2;
+        }
+
+        .lesson-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px 34px;
+            padding-left: 0;
+            list-style-position: inside;
+        }
+
+        .lesson-photo-placeholder {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin: 28px 0 8px;
+            min-height: 230px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .lesson-faq-item {
+            border-bottom: 1px dashed var(--border-color);
+            padding: 16px 0;
+        }
+
+        .lesson-faq-item:first-of-type {
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .lesson-faq-item p {
+            margin: 0;
+        }
+
         /* Blog Entries */
         .blog-entry {
             margin-bottom: 40px;
@@ -319,8 +362,11 @@
             min-height: 140px;
             resize: vertical;
         }
-        .contact-form button {
+        .contact-form button,
+        .button-link {
             position: relative;
+            display: inline-block;
+            box-sizing: border-box;
             min-width: 160px;
             min-height: 44px;
             padding: 8px 24px 9px;
@@ -332,9 +378,13 @@
             font-size: 1.35em;
             transition: all 0.2s ease;
             border-radius: 0;
+            line-height: 1.35;
+            text-align: center;
         }
         .contact-form button::before,
-        .contact-form button::after {
+        .contact-form button::after,
+        .button-link::before,
+        .button-link::after {
             content: "";
             position: absolute;
             inset: -1px;
@@ -342,7 +392,8 @@
             opacity: 0;
         }
         @media (hover: hover) and (pointer: fine) {
-            .contact-form button:hover {
+            .contact-form button:hover,
+            .button-link:hover {
                 background-color: transparent;
                 color: transparent;
                 border-color: transparent;
@@ -350,27 +401,32 @@
                     1.5px 1.5px 0 rgba(0, 255, 0),
                     10px 10px 0 rgba(0, 0, 255);
             }
-            .contact-form button:hover::before {
+            .contact-form button:hover::before,
+            .button-link:hover::before {
                 border: 1px solid rgb(255, 0, 0);
                 filter: drop-shadow(3px 3px 0 rgba(0, 255, 0));
                 opacity: 1;
                 transform: translate(-1.5px, -1.5px);
             }
-            .contact-form button:hover::after {
+            .contact-form button:hover::after,
+            .button-link:hover::after {
                 border: 1px solid rgba(0, 0, 255);
                 opacity: 1;
                 transform: translate(10px, 10px);
             }
-            .contact-form button:hover:active {
+            .contact-form button:hover:active,
+            .button-link:hover:active {
                 transform: translate(1px, 1px);
                 text-shadow: -1px -1px 0 rgb(255, 0, 0),
                     1px 1px 0 rgba(0, 255, 0),
                     3px 3px 0 rgba(0, 0, 255);
             }
-            .contact-form button:hover:active::before {
+            .contact-form button:hover:active::before,
+            .button-link:hover:active::before {
                 transform: translate(-1px, -1px);
             }
-            .contact-form button:hover:active::after {
+            .contact-form button:hover:active::after,
+            .button-link:hover:active::after {
                 transform: translate(3px, 3px);
             }
         }
@@ -475,6 +531,13 @@
                 transform: translate(5px, 5px);
             }
             h3 { font-size: 1.6em; margin-top: 30px; }
+            .lesson-list {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .lesson-photo-placeholder {
+                min-height: 180px;
+            }
             .blog-entry-title { font-size: 1.5em; }
             .contact-form input[type="text"],
             .contact-form input[type="email"],
@@ -507,7 +570,8 @@
         <nav id="nav-menu">
             <span class="nav-item"><a href="#bio" onclick="navigateToSection(event, '#bio')">About</a></span>
             <span class="nav-item"><a href="#credits" onclick="navigateToSection(event, '#credits')">Credits & Services</a></span>
-            <span class="nav-item"><a href="#blog" onclick="navigateToSection(event, '#blog')">Dead Rainbow</a></span>
+            <!-- <span class="nav-item"><a href="#blog" onclick="navigateToSection(event, '#blog')">Dead Rainbow</a></span> -->
+            <!-- <span class="nav-item"><a href="#lessons" onclick="navigateToSection(event, '#lessons')">Lessons</a></span> -->
         </nav>
     </header>
 
@@ -519,9 +583,9 @@
             <h3>About</h3>
             <p>I’m an audio engineer and music producer based in Nashville, TN. I’ve been working in the industry for more than 8 years, in the studio and on stage, delivering sonic excellence and good vibes wherever I can.</p>
             <p>I pride myself on my ability to adapt, learn, and grow in pretty much every situation, but I specialize in mixing and producing alternative, pop, and rock music. I also moonlight as a front of house and playback engineer, and have worked on a few specialized recording studio builds as a consulting audio engineer.</p>
-            <p>My philosophy is not controversial: your music should sound great, whatever that means to you. I believe anyone can get to that point without breaking the budget or putting themselves in rooms with assholes. If that sounds like the right attitude, head over to the Credits & Services page to see if we’d be a good fit, and shoot me a message.</p>
+            <!-- <p>Beyond professional audio work, I also teach private Music Production and Mixing lessons to students of all levels. Visit the <a href="#lessons" onclick="navigateToSection(event, '#lessons')">Lessons</a> page for more information.</p> -->
+            <p>My philosophy is not controversial: your music should sound great, whatever that means to you. I believe anyone can get to that point without breaking the budget or putting themselves in rooms with people that don't understand the vision. If that sounds like the right attitude, head over to the <a href="#credits" onclick="navigateToSection(event, '#credits')">Credits & Services</a> page to see if we’d be a good fit, and shoot me a message.</p>
         </section>
-
         <section id="section-credits" data-route="credits">
             <h3>Selected Discography</h3>
             <table id="credits-table">
@@ -632,6 +696,152 @@
                 <p>Loading the feed...</p>
             </div>
         </section>
+
+        <section id="section-lessons" data-route="lessons">
+            <h3>Private Music Production & Mixing Lessons</h3>
+            <p>One-on-one, project-based lessons for high-school students, aspiring college audio majors, independent artists, and adult learners in Nashville.</p>
+            <p>My goal is to help students understand what they are hearing, use their tools intentionally, and build a creative process they can eventually carry on without me.</p>
+            <p><a class="button-link" href="#lessons" onclick="document.getElementById('lessons-inquiry').scrollIntoView({ behavior: 'smooth' }); return false;">Request a Consultation</a></p>
+
+            <h3>Who I Teach</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Student</th>
+                        <th>Focus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="lesson-heading">High-School & College-Prep Students</div></td>
+                        <td>For students considering audio engineering, music production, recording technology, or commercial music programs.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="lesson-heading">Artists & Developing Producers</div></td>
+                        <td>For musicians who want to record themselves more effectively, develop unfinished ideas, improve arrangements, or build a more dependable production process.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="lesson-heading">Mixing Students</div></td>
+                        <td>For producers and engineers working on balance, EQ, compression, depth, automation, reference listening, and mix translation.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Complete beginners are welcome. Students do not need to play an instrument or already own professional equipment.</p>
+
+            <h3>What We Can Work On</h3>
+            <ul class="lesson-list">
+                <li>Ableton Live and Pro Tools</li>
+                <li>Studio signal flow and gain staging</li>
+                <li>Audio and MIDI recording</li>
+                <li>Microphone technique</li>
+                <li>Editing and session organization</li>
+                <li>Arrangement and production</li>
+                <li>EQ, compression, reverb, and delay</li>
+                <li>Vocal and instrument production</li>
+                <li>Critical listening and reference tracks</li>
+                <li>Mix workflow, revisions, and delivery</li>
+            </ul>
+            <p>Lessons stay within my professional experience in recording, production, mixing, and studio workflow. If a student needs advanced help outside that lane, I will be honest about the boundary and recommend a specialist when possible.</p>
+
+            <h3>How Lessons Work</h3>
+            <p>We start with a free 20-minute phone or video consultation and a short intake form. The first lesson includes an informal assessment and a practical hands-on activity.</p>
+            <p>From there, we build a learning direction around essential audio concepts and a real project or clearly defined goal. Students operate the DAW for most of the lesson; my job is to demonstrate, guide, ask useful questions, and help them understand their choices.</p>
+
+            <h3>Lesson Options</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Option</th>
+                        <th>Best For</th>
+                        <th style="width: 20%;">Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="lesson-heading">60-Minute Lesson</div></td>
+                        <td>Regular instruction, technical development, and ongoing project work.</td>
+                        <td>$75</td>
+                    </tr>
+                    <tr>
+                        <td><div class="lesson-heading">90-Minute Lesson</div></td>
+                        <td>Recording, detailed mixing work, and larger project sessions.</td>
+                        <td>$100</td>
+                    </tr>
+                    <tr>
+                        <td><div class="lesson-heading">Four-Lesson Package</div></td>
+                        <td>Four 60 to 90-minute lessons for students who want a consistent schedule and defined short-term goal.</td>
+                        <td>$250-350</td>
+                    </tr>
+                    <tr>
+                        <td><div class="lesson-heading">College Prep Curriculum</div></td>
+                        <td>A comprehensive, 12-week program for students preparing for college-level music programs.</td>
+                        <td>$700</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Lessons are offered one-on-one and by appointment.</p>
+
+            <h3>The Studio</h3>
+            <p>In-person lessons take place in a detached, finished private studio at my residential property in East Nashville. The exact address and arrival instructions are provided after enrollment and appointment confirmation.</p>
+            <ul>
+                <li>Dedicated entrance</li>
+                <li>Private bathroom</li>
+                <li>Professional recording and monitoring equipment</li>
+                <li>Hands-on student workstation</li>
+                <li>Space for a parent or guardian to observe</li>
+            </ul>
+            <div class="lesson-photo-placeholder">Studio photo placeholder</div>
+            <p>Cats live on the property but are kept outside the studio during lessons. Please mention any significant animal allergies before scheduling.</p>
+
+            <h3>For Parents</h3>
+            <p>Parents and guardians are welcome to observe lessons. Students under 16 must have a parent or authorized adult remain on the property.</p>
+            <ul>
+                <li>A parent or guardian completes enrollment and manages payment for students under 18.</li>
+                <li>Parents are included in scheduling and substantive communication.</li>
+                <li>Emergency contact information is required.</li>
+                <li>Private social-media communication is not used.</li>
+                <li>Students are not transported by the instructor.</li>
+                <li>Photography, recordings, testimonials, and public sharing require separate written permission.</li>
+                <li>A current background check is available to parents upon request.</li>
+            </ul>
+            <p>The studio is maintained as a professional, substance-free learning environment with clear safety, hearing-protection, and conduct policies.</p>
+
+            <h3>FAQ</h3>
+            <div class="lesson-faq-item">
+                <div class="lesson-heading">What ages do you teach?</div>
+                <p>I primarily teach students age 14 and older. Younger students may be considered depending on their interests, maturity, and previous musical experience.</p>
+            </div>
+            <div class="lesson-faq-item">
+                <div class="lesson-heading">Does a student need previous experience?</div>
+                <p>No. Complete beginners are welcome, as are experienced musicians who are new to recording or production.</p>
+            </div>
+            <div class="lesson-faq-item">
+                <div class="lesson-heading">Which software do you teach?</div>
+                <p>I teach Ableton Live and Pro Tools directly. Most recording, production, and mixing principles also transfer to other DAWs.</p>
+            </div>
+            <div class="lesson-faq-item">
+                <div class="lesson-heading">Does a student need their own computer or equipment?</div>
+                <p>Not to begin. Students can use the studio system during lessons. Regular access to a computer and DAW will become helpful as they progress.</p>
+            </div>
+            <div class="lesson-faq-item">
+                <div class="lesson-heading">Can students bring their own music?</div>
+                <p>Yes. Students are encouraged to bring original songs, recordings, mixes, demos, and unfinished projects. I can also provide exercises and practice material.</p>
+            </div>
+            <div class="lesson-faq-item">
+                <div class="lesson-heading">What is the cancellation policy?</div>
+                <p>At least 24 hours' notice is required to reschedule without charge. Complete payment, cancellation, and studio policies are provided before enrollment.</p>
+            </div>
+
+            <h3 id="lessons-inquiry">Request a Consultation</h3>
+            <p>The first step is a free 20-minute phone or video consultation. Submitting an inquiry does not commit you to purchasing lessons.</p>
+            <form action="https://formspree.io/f/xjgznrlq" method="POST" class="contact-form">
+                <input type="hidden" name="inquiry_type" value="Lessons consultation">
+                <p><label>Name: <br><input type="text" name="name" autocomplete="name" required /></label></p>
+                <p><label>Email: <br><input type="email" name="email" autocomplete="email" required /></label></p>
+                <p><label>Student age, experience, and goals: <br><textarea name="message" rows="5" required></textarea></label></p>
+                <p><button type="submit">Send Inquiry</button></p>
+            </form>
+        </section>
     </main>
 </div>
 
@@ -648,7 +858,7 @@
 
         function getRouteFromHash(hash) {
             var route = (hash || '#bio').replace(/^#/, '');
-            return /^(bio|credits|blog)$/.test(route) ? route : 'bio';
+            return /^(bio|credits|blog|lessons)$/.test(route) ? route : null;
         }
 
         function setActiveSection(route) {
@@ -656,7 +866,8 @@
                 sec.style.display = sec.dataset.route === route ? 'block' : 'none';
             });
             document.querySelectorAll('#nav-menu a').forEach(function(link) {
-                if (getRouteFromHash(link.getAttribute('href')) === route) {
+                var linkRoute = getRouteFromHash(link.getAttribute('href'));
+                if (linkRoute && linkRoute === route) {
                     link.setAttribute('aria-current', 'page');
                 } else {
                     link.removeAttribute('aria-current');
@@ -666,7 +877,7 @@
 
         function navigateToSection(e, targetHash, isInitialLoad) {
             if (e) e.preventDefault(); 
-            var route = getRouteFromHash(targetHash);
+            var route = getRouteFromHash(targetHash) || 'bio';
 
             setActiveSection(route);
             
@@ -682,7 +893,7 @@
 
         window.addEventListener('popstate', function() {
             var currentHash = window.location.hash || '#bio';
-            setActiveSection(getRouteFromHash(currentHash));
+            setActiveSection(getRouteFromHash(currentHash) || 'bio');
             window.scrollTo(0, 0);
         });
 

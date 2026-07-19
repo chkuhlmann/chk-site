@@ -76,7 +76,7 @@
             color: var(--text-color); 
             text-decoration: none; 
         }
-        
+
         /* --- STAGGERED ENTRANCE FLASH (NO BLACK BASE TEXT) --- */
         @keyframes lockGlitch {
             0% { text-shadow: -1.5px -1.5px 0 rgba(55, 0, 0, 0.8); }
@@ -273,6 +273,14 @@
 
         .lesson-faq-item p {
             margin: 0;
+        }
+
+        .inline-link {
+            color: var(--text-color);
+            font-family: "Jacquard 12", system-ui;
+            font-size: 1.1em;
+            text-decoration: underline;
+            text-decoration-color: var(--text-color);
         }
 
         /* Blog Entries */
@@ -583,8 +591,8 @@
             <h3>About</h3>
             <p>I’m an audio engineer and music producer based in Nashville, TN. I’ve been working in the industry for more than 8 years, in the studio and on stage, delivering sonic excellence and good vibes wherever I can.</p>
             <p>I pride myself on my ability to adapt, learn, and grow in pretty much every situation, but I specialize in mixing and producing alternative, pop, and rock music. I also moonlight as a front of house and playback engineer, and have worked on a few specialized recording studio builds as a consulting audio engineer.</p>
-            <!-- <p>Beyond professional audio work, I also teach private Music Production and Mixing lessons to students of all levels. Visit the <a href="#lessons" onclick="navigateToSection(event, '#lessons')">Lessons</a> page for more information.</p> -->
-            <p>My philosophy is not controversial: your music should sound great, whatever that means to you. I believe anyone can get to that point without breaking the budget or putting themselves in rooms with people that don't understand the vision. If that sounds like the right attitude, head over to the <a href="#credits" onclick="navigateToSection(event, '#credits')">Credits & Services</a> page to see if we’d be a good fit, and shoot me a message.</p>
+            <!-- <p>Beyond professional audio work, I also teach private Music Production and Mixing lessons to students of all levels. Visit the <a href="#lessons" onclick="navigateToSection(event, '#lessons')" class="inline-link">Lessons</a> page for more information.</p> -->
+            <p>My philosophy is not controversial: your music should sound great, whatever that means to you. I believe anyone can get to that point without breaking the budget or putting themselves in rooms with people that don't understand the vision. If that sounds like the right attitude, head over to the <a href="#credits" onclick="navigateToSection(event, '#credits')" class="inline-link">Credits & Services</a> page to see if we’d be a good fit, and shoot me a message.</p>
         </section>
         <section id="section-credits" data-route="credits">
             <h3>Selected Discography</h3>

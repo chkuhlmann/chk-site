@@ -1,10 +1,10 @@
 module.exports = function(eleventyConfig) {
   // Pass through images and the admin folder
-  eleventyConfig.addPassthroughCopy("admin");
-  eleventyConfig.addPassthroughCopy("*.PNG");
-  eleventyConfig.addPassthroughCopy("*.jpg");
-  eleventyConfig.addPassthroughCopy("*.png");
-  eleventyConfig.addPassthroughCopy("*.gif");
+  eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/images/re_4284_portra 400_014281-r1-072-34a.PNG":
+      "re_4284_portra 400_014281-r1-072-34a.PNG"
+  });
 
   // Format date for the blog
   eleventyConfig.addFilter("formatDate", function(dateObj) {
@@ -29,14 +29,16 @@ module.exports = function(eleventyConfig) {
 
   // Create a blog collection from the 'blog' folder
   eleventyConfig.addCollection("blog", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("blog/*.{md,MD}").sort((a, b) => {
+    return collectionApi.getFilteredByGlob("src/blog/*.{md,MD}").sort((a, b) => {
       return b.date - a.date; // sort descending
     });
   });
 
   return {
     dir: {
-      input: ".",
+      input: "src",
+      includes: "_includes",
+      data: "_data",
       output: "_site"
     }
   };

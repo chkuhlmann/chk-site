@@ -1,0 +1,5 @@
+---
+permalink: /test.json
+eleventyExcludeFromCollections: true
+---
+{% raw %}{% for post in collections.blog %}{{ post.data.title }},{% endfor %}{% endraw %}

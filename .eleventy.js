@@ -1,10 +1,14 @@
+const { excerptText } = require("./lib/blog-utils");
+
 module.exports = function(eleventyConfig) {
   // Pass through images and the admin folder
-  eleventyConfig.addPassthroughCopy("admin");
-  eleventyConfig.addPassthroughCopy("*.PNG");
-  eleventyConfig.addPassthroughCopy("*.jpg");
-  eleventyConfig.addPassthroughCopy("*.png");
-  eleventyConfig.addPassthroughCopy("*.gif");
+  eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPassthroughCopy("src/assets/css");
+  eleventyConfig.addPassthroughCopy("src/assets/js");
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/images/re_4284_portra 400_014281-r1-072-34a.PNG":
+      "re_4284_portra 400_014281-r1-072-34a.PNG"
+  });
 
   // Format date for the blog
   eleventyConfig.addFilter("formatDate", function(dateObj) {
@@ -16,27 +20,26 @@ module.exports = function(eleventyConfig) {
     });
   });
 
-  // Clean up HTML content so it doesn't break a JSON string
-  eleventyConfig.addFilter("encodePostContent", function(content) {
-    if (!content) return "";
-    return content
-      .replace(/\\/g, '\\\\')
-      .replace(/"/g, '\\"')
-      .replace(/\n/g, '\\n')
-      .replace(/\r/g, '\\r')
-      .replace(/\t/g, '\\t');
+  eleventyConfig.addFilter("dateToIso", function(dateObj) {
+    return dateObj ? new Date(dateObj).toISOString() : "";
+  });
+
+  eleventyConfig.addFilter("excerptText", function(html, limit = 240) {
+    return excerptText(html, limit);
   });
 
   // Create a blog collection from the 'blog' folder
   eleventyConfig.addCollection("blog", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("blog/*.{md,MD}").sort((a, b) => {
+    return collectionApi.getFilteredByGlob("src/blog/*.{md,MD}").sort((a, b) => {
       return b.date - a.date; // sort descending
     });
   });
 
   return {
     dir: {
-      input: ".",
+      input: "src",
+      includes: "_includes",
+      data: "_data",
       output: "_site"
     }
   };

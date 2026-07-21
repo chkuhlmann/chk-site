@@ -1,9 +1,9 @@
 {
   "name": "chk-site",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run build",
     "build": "eleventy",
     "start": "eleventy --serve"
   },
@@ -11,14 +11,12 @@
     "type": "git",
     "url": "git+https://github.com/chkuhlmann/chk-site.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/chkuhlmann/chk-site/issues"
   },
-  "homepage": "https://github.com/chkuhlmann/chk-site#readme",
-  "description": "",
+  "homepage": "https://calebkuhlmann.studio",
+  "description": "Eleventy source for Caleb Kuhlmann's audio engineering and music production website.",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5"
   }

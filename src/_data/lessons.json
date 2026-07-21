@@ -1,0 +1,92 @@
+{
+  "audiences": [
+    {
+      "label": "High-School & College-Prep Students",
+      "focus": "For students considering audio engineering, music production, recording technology, or commercial music programs."
+    },
+    {
+      "label": "Artists & Developing Producers",
+      "focus": "For musicians who want to record themselves more effectively, develop unfinished ideas, improve arrangements, or build a more dependable production process."
+    },
+    {
+      "label": "Mixing Students",
+      "focus": "For producers and engineers working on balance, EQ, compression, depth, automation, reference listening, and mix translation."
+    }
+  ],
+  "topics": [
+    "Ableton Live and Pro Tools",
+    "Studio signal flow and gain staging",
+    "Audio and MIDI recording",
+    "Microphone technique",
+    "Editing and session organization",
+    "Arrangement and production",
+    "EQ, compression, reverb, and delay",
+    "Vocal and instrument production",
+    "Critical listening and reference tracks",
+    "Mix workflow, revisions, and delivery"
+  ],
+  "lessonOptions": [
+    {
+      "label": "60-Minute Lesson",
+      "bestFor": "Regular instruction, technical development, and ongoing project work.",
+      "rate": "$75"
+    },
+    {
+      "label": "90-Minute Lesson",
+      "bestFor": "Recording, detailed mixing work, and larger project sessions.",
+      "rate": "$100"
+    },
+    {
+      "label": "Four-Lesson Package",
+      "bestFor": "Four 60 to 90-minute lessons for students who want a consistent schedule and defined short-term goal.",
+      "rate": "$250-350"
+    },
+    {
+      "label": "College Prep Curriculum",
+      "bestFor": "A comprehensive, 12-week program for students preparing for college-level music programs.",
+      "rate": "$700"
+    }
+  ],
+  "studioFeatures": [
+    "Dedicated entrance",
+    "Private bathroom",
+    "Professional recording and monitoring equipment",
+    "Hands-on student workstation",
+    "Space for a parent or guardian to observe"
+  ],
+  "parentPolicies": [
+    "A parent or guardian completes enrollment and manages payment for students under 18.",
+    "Parents are included in scheduling and substantive communication.",
+    "Emergency contact information is required.",
+    "Private social-media communication is not used.",
+    "Students are not transported by the instructor.",
+    "Photography, recordings, testimonials, and public sharing require separate written permission.",
+    "A current background check is available to parents upon request."
+  ],
+  "faqs": [
+    {
+      "question": "What ages do you teach?",
+      "answer": "I primarily teach students age 14 and older. Younger students may be considered depending on their interests, maturity, and previous musical experience."
+    },
+    {
+      "question": "Does a student need previous experience?",
+      "answer": "No. Complete beginners are welcome, as are experienced musicians who are new to recording or production."
+    },
+    {
+      "question": "Which software do you teach?",
+      "answer": "I teach Ableton Live and Pro Tools directly. Most recording, production, and mixing principles also transfer to other DAWs."
+    },
+    {
+      "question": "Does a student need their own computer or equipment?",
+      "answer": "Not to begin. Students can use the studio system during lessons. Regular access to a computer and DAW will become helpful as they progress."
+    },
+    {
+      "question": "Can students bring their own music?",
+      "answer": "Yes. Students are encouraged to bring original songs, recordings, mixes, demos, and unfinished projects. I can also provide exercises and practice material."
+    },
+    {
+      "question": "What is the cancellation policy?",
+      "answer": "At least 24 hours' notice is required to reschedule without charge. Complete payment, cancellation, and studio policies are provided before enrollment."
+    }
+  ]
+}

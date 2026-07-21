@@ -9,8 +9,9 @@
             <span aria-hidden="true"></span>
         </button>
         <nav id="nav-menu">
-            <span class="nav-item"><a href="#bio" onclick="navigateToSection(event, '#bio')">About</a></span>
-            <span class="nav-item"><a href="#credits" onclick="navigateToSection(event, '#credits')">Credits & Services</a></span>
+            {% for item in navigation %}
+            <span class="nav-item"><a href="{{ item.href }}" onclick="navigateToSection(event, '{{ item.href }}')">{{ item.label | safe }}</a></span>
+            {% endfor %}
             <!-- <span class="nav-item"><a href="#blog" onclick="navigateToSection(event, '#blog')">Dead Rainbow</a></span> -->
             <!-- <span class="nav-item"><a href="#lessons" onclick="navigateToSection(event, '#lessons')">Lessons</a></span> -->
         </nav>

@@ -13,34 +13,21 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for audience in lessons.audiences %}
                     <tr>
-                        <td><div class="lesson-heading">High-School & College-Prep Students</div></td>
-                        <td>For students considering audio engineering, music production, recording technology, or commercial music programs.</td>
+                        <td><div class="lesson-heading">{{ audience.label | safe }}</div></td>
+                        <td>{{ audience.focus | safe }}</td>
                     </tr>
-                    <tr>
-                        <td><div class="lesson-heading">Artists & Developing Producers</div></td>
-                        <td>For musicians who want to record themselves more effectively, develop unfinished ideas, improve arrangements, or build a more dependable production process.</td>
-                    </tr>
-                    <tr>
-                        <td><div class="lesson-heading">Mixing Students</div></td>
-                        <td>For producers and engineers working on balance, EQ, compression, depth, automation, reference listening, and mix translation.</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
             <p>Complete beginners are welcome. Students do not need to play an instrument or already own professional equipment.</p>
 
             <h3>What We Can Work On</h3>
             <ul class="lesson-list">
-                <li>Ableton Live and Pro Tools</li>
-                <li>Studio signal flow and gain staging</li>
-                <li>Audio and MIDI recording</li>
-                <li>Microphone technique</li>
-                <li>Editing and session organization</li>
-                <li>Arrangement and production</li>
-                <li>EQ, compression, reverb, and delay</li>
-                <li>Vocal and instrument production</li>
-                <li>Critical listening and reference tracks</li>
-                <li>Mix workflow, revisions, and delivery</li>
+                {% for topic in lessons.topics %}
+                <li>{{ topic | safe }}</li>
+                {% endfor %}
             </ul>
             <p>Lessons stay within my professional experience in recording, production, mixing, and studio workflow. If a student needs advanced help outside that lane, I will be honest about the boundary and recommend a specialist when possible.</p>
 
@@ -58,26 +45,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for option in lessons.lessonOptions %}
                     <tr>
-                        <td><div class="lesson-heading">60-Minute Lesson</div></td>
-                        <td>Regular instruction, technical development, and ongoing project work.</td>
-                        <td>$75</td>
+                        <td><div class="lesson-heading">{{ option.label | safe }}</div></td>
+                        <td>{{ option.bestFor | safe }}</td>
+                        <td>{{ option.rate | safe }}</td>
                     </tr>
-                    <tr>
-                        <td><div class="lesson-heading">90-Minute Lesson</div></td>
-                        <td>Recording, detailed mixing work, and larger project sessions.</td>
-                        <td>$100</td>
-                    </tr>
-                    <tr>
-                        <td><div class="lesson-heading">Four-Lesson Package</div></td>
-                        <td>Four 60 to 90-minute lessons for students who want a consistent schedule and defined short-term goal.</td>
-                        <td>$250-350</td>
-                    </tr>
-                    <tr>
-                        <td><div class="lesson-heading">College Prep Curriculum</div></td>
-                        <td>A comprehensive, 12-week program for students preparing for college-level music programs.</td>
-                        <td>$700</td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
             <p>Lessons are offered one-on-one and by appointment.</p>
@@ -85,11 +59,9 @@
             <h3>The Studio</h3>
             <p>In-person lessons take place in a detached, finished private studio at my residential property in East Nashville. The exact address and arrival instructions are provided after enrollment and appointment confirmation.</p>
             <ul>
-                <li>Dedicated entrance</li>
-                <li>Private bathroom</li>
-                <li>Professional recording and monitoring equipment</li>
-                <li>Hands-on student workstation</li>
-                <li>Space for a parent or guardian to observe</li>
+                {% for feature in lessons.studioFeatures %}
+                <li>{{ feature | safe }}</li>
+                {% endfor %}
             </ul>
             <div class="lesson-photo-placeholder">Studio photo placeholder</div>
             <p>Cats live on the property but are kept outside the studio during lessons. Please mention any significant animal allergies before scheduling.</p>
@@ -97,41 +69,19 @@
             <h3>For Parents</h3>
             <p>Parents and guardians are welcome to observe lessons. Students under 16 must have a parent or authorized adult remain on the property.</p>
             <ul>
-                <li>A parent or guardian completes enrollment and manages payment for students under 18.</li>
-                <li>Parents are included in scheduling and substantive communication.</li>
-                <li>Emergency contact information is required.</li>
-                <li>Private social-media communication is not used.</li>
-                <li>Students are not transported by the instructor.</li>
-                <li>Photography, recordings, testimonials, and public sharing require separate written permission.</li>
-                <li>A current background check is available to parents upon request.</li>
+                {% for policy in lessons.parentPolicies %}
+                <li>{{ policy | safe }}</li>
+                {% endfor %}
             </ul>
             <p>The studio is maintained as a professional, substance-free learning environment with clear safety, hearing-protection, and conduct policies.</p>
 
             <h3>FAQ</h3>
+            {% for faq in lessons.faqs %}
             <div class="lesson-faq-item">
-                <div class="lesson-heading">What ages do you teach?</div>
-                <p>I primarily teach students age 14 and older. Younger students may be considered depending on their interests, maturity, and previous musical experience.</p>
+                <div class="lesson-heading">{{ faq.question | safe }}</div>
+                <p>{{ faq.answer | safe }}</p>
             </div>
-            <div class="lesson-faq-item">
-                <div class="lesson-heading">Does a student need previous experience?</div>
-                <p>No. Complete beginners are welcome, as are experienced musicians who are new to recording or production.</p>
-            </div>
-            <div class="lesson-faq-item">
-                <div class="lesson-heading">Which software do you teach?</div>
-                <p>I teach Ableton Live and Pro Tools directly. Most recording, production, and mixing principles also transfer to other DAWs.</p>
-            </div>
-            <div class="lesson-faq-item">
-                <div class="lesson-heading">Does a student need their own computer or equipment?</div>
-                <p>Not to begin. Students can use the studio system during lessons. Regular access to a computer and DAW will become helpful as they progress.</p>
-            </div>
-            <div class="lesson-faq-item">
-                <div class="lesson-heading">Can students bring their own music?</div>
-                <p>Yes. Students are encouraged to bring original songs, recordings, mixes, demos, and unfinished projects. I can also provide exercises and practice material.</p>
-            </div>
-            <div class="lesson-faq-item">
-                <div class="lesson-heading">What is the cancellation policy?</div>
-                <p>At least 24 hours' notice is required to reschedule without charge. Complete payment, cancellation, and studio policies are provided before enrollment.</p>
-            </div>
+            {% endfor %}
 
             <h3 id="lessons-inquiry">Request a Consultation</h3>
             <p>The first step is a free 20-minute phone or video consultation. Submitting an inquiry does not commit you to purchasing lessons.</p>

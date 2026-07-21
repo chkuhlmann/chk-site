@@ -23,8 +23,25 @@
                     return result;
                 }
 
-                fetch(csvUrl)
-                    .then(response => response.text())
+                var creditsBody = document.getElementById('credits-body');
+
+                function setCreditsState(message, isError) {
+                    creditsBody.innerHTML = '';
+                    var row = document.createElement('tr');
+                    var cell = document.createElement('td');
+                    cell.colSpan = 2;
+                    cell.textContent = message;
+                    if (isError) cell.setAttribute('role', 'alert');
+                    row.appendChild(cell);
+                    creditsBody.appendChild(row);
+                    creditsBody.setAttribute('aria-busy', 'false');
+                }
+
+                fetchWithTimeout(csvUrl)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Credits request failed');
+                        return response.text();
+                    })
                     .then(csvText => {
                         const parsed = parseCSV(csvText);
                         const artists = {}; const artistOrder = [];
@@ -45,27 +62,68 @@
                             artists[artist].tracks.push({ song, role });
                         });
 
-                        const tbody = document.getElementById('credits-body');
-                        tbody.innerHTML = ''; 
+                        if (artistOrder.length === 0) {
+                            setCreditsState('No credits are available right now. Please check back soon.', false);
+                            return;
+                        }
+
+                        creditsBody.innerHTML = '';
                         const fragment = document.createDocumentFragment();
                         
                         artistOrder.forEach(artist => {
                             const tr = document.createElement('tr');
                             const artistData = artists[artist];
-                            let artistHtml = `<strong class="artist-name">${artist}</strong>`;
+                            const artistCell = document.createElement('td');
+                            const creditsCell = document.createElement('td');
+                            const artistName = document.createElement('strong');
+                            const details = document.createElement('div');
+
+                            artistCell.setAttribute('valign', 'top');
+                            creditsCell.setAttribute('valign', 'top');
+                            artistName.className = 'artist-name';
+                            artistName.textContent = artist;
+                            details.className = 'details-box';
+
+                            var artistNameContainer = artistName;
                             if (artistData.link) {
-                                artistHtml = `<a href="${artistData.link}" style="font-size: inherit;" target="_blank" rel="noopener noreferrer">${artistHtml}</a>`;
+                                try {
+                                    const artistUrl = new URL(artistData.link);
+                                    if (artistUrl.protocol === 'http:' || artistUrl.protocol === 'https:') {
+                                        const artistLink = document.createElement('a');
+                                        artistLink.href = artistUrl.href;
+                                        artistLink.style.fontSize = 'inherit';
+                                        artistLink.target = '_blank';
+                                        artistLink.rel = 'noopener noreferrer';
+                                        artistLink.appendChild(artistName);
+                                        artistNameContainer = artistLink;
+                                    }
+                                } catch (_) {
+                                    // Ignore invalid optional artist links.
+                                }
                             }
-                            const tracksHtml = artistData.tracks
-                                .map(track => `<div class="track-entry"><strong>"${track.song}"</strong> - <em>${track.role}</em></div>`)
-                                .join('');
-                                
-                            tr.innerHTML = `<td valign="top">${artistHtml}</td><td valign="top"><div class="details-box">${tracksHtml}</div></td>`;
+
+                            artistCell.appendChild(artistNameContainer);
+                            artistData.tracks.forEach(track => {
+                                const trackEntry = document.createElement('div');
+                                const trackName = document.createElement('strong');
+                                const role = document.createElement('em');
+                                trackEntry.className = 'track-entry';
+                                trackName.textContent = `"${track.song}"`;
+                                role.textContent = track.role;
+                                trackEntry.appendChild(trackName);
+                                trackEntry.appendChild(document.createTextNode(' - '));
+                                trackEntry.appendChild(role);
+                                details.appendChild(trackEntry);
+                            });
+                            creditsCell.appendChild(details);
+                            tr.appendChild(artistCell);
+                            tr.appendChild(creditsCell);
                             fragment.appendChild(tr);
                         });
-                        tbody.appendChild(fragment);
+                        creditsBody.appendChild(fragment);
+                        creditsBody.setAttribute('aria-busy', 'false');
                     })
-                    .catch(err => {
-                        document.getElementById('credits-body').innerHTML = '<tr><td colspan="2"><strong>Error:</strong> Cannot load data from server.</td></tr>';
-                        console.error(err);
+                    .catch(() => {
+                        setCreditsState('Credits are temporarily unavailable. Please try again later.', true);
+                        console.error('Credits request failed.');
                     });

@@ -1,10 +1,10 @@
         <section id="section-lessons" data-route="lessons">
-            <h3>Private Music Production & Mixing Lessons</h3>
+            <h2 class="section-heading">Private Music Production & Mixing Lessons</h2>
             <p>One-on-one, project-based lessons for high-school students, aspiring college audio majors, independent artists, and adult learners in Nashville.</p>
             <p>My goal is to help students understand what they are hearing, use their tools intentionally, and build a creative process they can eventually carry on without me.</p>
             <p><a class="button-link" href="#lessons" onclick="document.getElementById('lessons-inquiry').scrollIntoView({ behavior: 'smooth' }); return false;">Request a Consultation</a></p>
 
-            <h3>Who I Teach</h3>
+            <h2 class="section-heading">Who I Teach</h2>
             <table>
                 <thead>
                     <tr>
@@ -23,7 +23,7 @@
             </table>
             <p>Complete beginners are welcome. Students do not need to play an instrument or already own professional equipment.</p>
 
-            <h3>What We Can Work On</h3>
+            <h2 class="section-heading">What We Can Work On</h2>
             <ul class="lesson-list">
                 {% for topic in lessons.topics %}
                 <li>{{ topic | safe }}</li>
@@ -31,11 +31,11 @@
             </ul>
             <p>Lessons stay within my professional experience in recording, production, mixing, and studio workflow. If a student needs advanced help outside that lane, I will be honest about the boundary and recommend a specialist when possible.</p>
 
-            <h3>How Lessons Work</h3>
+            <h2 class="section-heading">How Lessons Work</h2>
             <p>We start with a free 20-minute phone or video consultation and a short intake form. The first lesson includes an informal assessment and a practical hands-on activity.</p>
             <p>From there, we build a learning direction around essential audio concepts and a real project or clearly defined goal. Students operate the DAW for most of the lesson; my job is to demonstrate, guide, ask useful questions, and help them understand their choices.</p>
 
-            <h3>Lesson Options</h3>
+            <h2 class="section-heading">Lesson Options</h2>
             <table>
                 <thead>
                     <tr>
@@ -56,7 +56,7 @@
             </table>
             <p>Lessons are offered one-on-one and by appointment.</p>
 
-            <h3>The Studio</h3>
+            <h2 class="section-heading">The Studio</h2>
             <p>In-person lessons take place in a detached, finished private studio at my residential property in East Nashville. The exact address and arrival instructions are provided after enrollment and appointment confirmation.</p>
             <ul>
                 {% for feature in lessons.studioFeatures %}
@@ -66,7 +66,7 @@
             <div class="lesson-photo-placeholder">Studio photo placeholder</div>
             <p>Cats live on the property but are kept outside the studio during lessons. Please mention any significant animal allergies before scheduling.</p>
 
-            <h3>For Parents</h3>
+            <h2 class="section-heading">For Parents</h2>
             <p>Parents and guardians are welcome to observe lessons. Students under 16 must have a parent or authorized adult remain on the property.</p>
             <ul>
                 {% for policy in lessons.parentPolicies %}
@@ -75,7 +75,7 @@
             </ul>
             <p>The studio is maintained as a professional, substance-free learning environment with clear safety, hearing-protection, and conduct policies.</p>
 
-            <h3>FAQ</h3>
+            <h2 class="section-heading">FAQ</h2>
             {% for faq in lessons.faqs %}
             <div class="lesson-faq-item">
                 <div class="lesson-heading">{{ faq.question | safe }}</div>
@@ -83,7 +83,7 @@
             </div>
             {% endfor %}
 
-            <h3 id="lessons-inquiry">Request a Consultation</h3>
+            <h2 class="section-heading" id="lessons-inquiry">Request a Consultation</h2>
             <p>The first step is a free 20-minute phone or video consultation. Submitting an inquiry does not commit you to purchasing lessons.</p>
             <form action="https://formspree.io/f/xjgznrlq" method="POST" class="contact-form">
                 <input type="hidden" name="inquiry_type" value="Lessons consultation">

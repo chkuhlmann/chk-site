@@ -50,7 +50,7 @@
             line-height: 1;
         }
 
-        .jacquard-12-regular, a, th {
+        a, th {
             font-family: "Jacquard 12", system-ui;
             font-weight: 400;
             font-style: normal;
@@ -190,7 +190,7 @@
         }
 
         /* Titles and Accent Font */
-        h3 {
+        .section-heading {
             font-size: 1.8em;
             font-weight: normal;
             margin-bottom: 20px;
@@ -477,6 +477,7 @@
                 transition: max-height 0.5s ease;
             }
             nav.show { max-height: 500px; }
+            nav.content-nav { max-height: none; }
             nav a { 
                 display: block;
                 margin: 0; 
@@ -523,7 +524,7 @@
             .spotify-inline-widget::after {
                 transform: translate(5px, 5px);
             }
-            h3 { font-size: 1.6em; margin-top: 30px; }
+            .section-heading { font-size: 1.6em; margin-top: 30px; }
             .lesson-list {
                 grid-template-columns: 1fr;
                 gap: 0;

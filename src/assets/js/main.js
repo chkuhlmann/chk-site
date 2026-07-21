@@ -13,6 +13,15 @@
             return /^(bio|credits|blog|lessons)$/.test(route) ? route : null;
         }
 
+        function escapeHtml(value) {
+            return String(value ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
         function setActiveSection(route) {
             document.querySelectorAll('section[data-route]').forEach(function(sec) {
                 sec.style.display = sec.dataset.route === route ? 'block' : 'none';
@@ -54,25 +63,21 @@
             
             navigateToSection(null, initialHash, true);
 
-            fetch('./blog.json')
+            var blogContainer = document.getElementById('blog-posts-container');
+
+            fetchWithTimeout('./blog.json')
                 .then(response => {
-                    if (!response.ok) throw new Error('Network file error');
+                    if (!response.ok) throw new Error('Blog request failed');
                     return response.json();
                 })
                 .then(posts => {
-                    const container = document.getElementById('blog-posts-container');
-                    if (!posts || posts.length === 0) {
-                        container.innerHTML = '<p>No entries found. Check back soon.</p>';
+                    if (!Array.isArray(posts) || posts.length === 0) {
+                        blogContainer.innerHTML = '<p>No entries found. Check back soon.</p>';
+                        blogContainer.setAttribute('aria-busy', 'false');
                         return;
                     }
-                    container.innerHTML = posts.map(post => {
+                    blogContainer.innerHTML = posts.map(post => {
                         const displayTitle = String(post.title).padStart(3, '0');
-                        const escapeHtml = value => String(value ?? '')
-                            .replace(/&/g, '&amp;')
-                            .replace(/</g, '&lt;')
-                            .replace(/>/g, '&gt;')
-                            .replace(/"/g, '&quot;')
-                            .replace(/'/g, '&#39;');
                         
                         return `
                             <article class="blog-entry">
@@ -86,9 +91,11 @@
                             </article>
                         `;
                     }).join('');
+                    blogContainer.setAttribute('aria-busy', 'false');
                 })
-                .catch(err => {
-                    console.error('Error fetching entries:', err);
-                    document.getElementById('blog-posts-container').innerHTML = '<p><strong>Error:</strong> Failed to connect to the blog engine.</p>';
+                .catch(() => {
+                    console.error('Blog feed request failed.');
+                    blogContainer.innerHTML = '<p role="alert">Blog entries are temporarily unavailable. Please try again later.</p>';
+                    blogContainer.setAttribute('aria-busy', 'false');
                 });
         });

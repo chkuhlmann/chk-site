@@ -41,10 +41,14 @@ The generated `_site/` directory is build output and is not committed.
 
 Blog posts are Markdown files in `src/blog/`. Each post builds to its own HTML page, `src/blog/index.njk` generates the blog index, and `src/blog/feed.11ty.js` generates the homepage JSON feed.
 
-Decap CMS is available from `/admin/`. Its configuration is in `admin/config.yml`, and its entry page is `admin/index.html`.
+Decap CMS is available from `/admin/`. Its configuration is in `src/admin/config.yml`, and its entry page is `src/admin/index.html`.
+
+Site-wide data lives in `src/_data/`, layouts and reusable templates live in `src/_includes/`, and browser assets live in `src/assets/`.
 
 ## Deployment
 
 GitHub Actions runs `.github/workflows/pages.yml` for pushes to `main` and for manual workflow dispatches. The workflow installs dependencies with `npm ci`, builds the Eleventy site, adds `.nojekyll`, and deploys `_site/` through GitHub Pages.
 
 The custom domain is emitted as `/CNAME` during the Eleventy build.
+
+Dependabot checks npm and GitHub Actions dependencies weekly and opens update pull requests against `site-overhaul`.

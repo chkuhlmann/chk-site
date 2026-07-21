@@ -7,4 +7,13 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>https://calebkuhlmann.studio/</loc>
   </url>
+  <url>
+    <loc>https://calebkuhlmann.studio/blog/</loc>
+  </url>
+  {% for post in collections.blog %}
+  <url>
+    <loc>https://calebkuhlmann.studio{{ post.url }}</loc>
+    <lastmod>{{ post.date | dateToIso }}</lastmod>
+  </url>
+  {% endfor %}
 </urlset>

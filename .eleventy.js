@@ -1,3 +1,5 @@
+const { excerptText } = require("./lib/blog-utils");
+
 module.exports = function(eleventyConfig) {
   // Pass through images and the admin folder
   eleventyConfig.addPassthroughCopy("src/admin");
@@ -23,31 +25,7 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("excerptText", function(html, limit = 240) {
-    if (!html) return "";
-    const text = html
-      .replace(/<[^>]*>/g, " ")
-      .replace(/&amp;/g, "&")
-      .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">")
-      .replace(/&quot;/g, '"')
-      .replace(/&#39;/g, "'")
-      .replace(/\s+/g, " ")
-      .trim();
-    if (text.length <= limit) return text;
-    const shortened = text.slice(0, limit + 1);
-    const lastSpace = shortened.lastIndexOf(" ");
-    return `${shortened.slice(0, lastSpace > 0 ? lastSpace : limit).trim()}…`;
-  });
-
-  // Clean up HTML content so it doesn't break a JSON string
-  eleventyConfig.addFilter("encodePostContent", function(content) {
-    if (!content) return "";
-    return content
-      .replace(/\\/g, '\\\\')
-      .replace(/"/g, '\\"')
-      .replace(/\n/g, '\\n')
-      .replace(/\r/g, '\\r')
-      .replace(/\t/g, '\\t');
+    return excerptText(html, limit);
   });
 
   // Create a blog collection from the 'blog' folder

@@ -21,9 +21,10 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to content</a>
 <div id="container">
 {% include "components/site-header.njk" %}
-    <main>
+    <main id="main-content">
 {{ content | safe }}
     </main>
 </div>

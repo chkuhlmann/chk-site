@@ -2,12 +2,77 @@
 layout: layouts/base.njk
 permalink: /
 isHomepage: true
+title: Caleb Kuhlmann — Music Producer and Audio Engineer
+description: Nashville music producer and audio engineer Caleb Kuhlmann offers production, mixing, recording, and audio consulting for alternative, pop, rock, and independent artists.
+image: /assets/images/caleb-kuhlmann-studio-1400.jpg
 ---
 {% include "components/site-header.njk" %}
 
-<main>
-  {% include "sections/about.njk" %}
-  {% include "sections/credits.njk" %}
-  {% include "sections/blog.njk" %}
-  {% include "sections/lessons.njk" %}
+<main id="main-content" class="homepage">
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">Nashville, TN · available locally and remotely</p>
+    <h1 id="hero-title">Music production, mixing, and audio engineering with a human point of view.</h1>
+    <p class="hero-intro">Caleb Kuhlmann is a Nashville-based producer and audio engineer helping artists realize their sonic dreams.</p>
+    <div class="cta-group">
+      <a class="button-link" href="#selected-work">Hear Selected Work</a>
+      <a class="text-cta" href="/contact/#project-inquiry">Start a Project <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section id="about" class="homepage-section about-section" aria-labelledby="about-title">
+    <div>
+      <h2 id="about-title" class="section-heading">About</h2>
+      <p>I’m a Nashville-based music producer, mix engineer, and audio technician with experience across studio recording, live production, artist development, and creative technology.</p>
+      <p>That range has made me attentive to both musical decisions and the practical systems around them: how a room feels, how a session moves, and what helps an artist stay present.</p>
+      <p>My work is grounded in performance, arrangement, tone, and collaboration. I’m less interested in forcing every project toward the same polished template than in finding what makes a song or artist distinct and building around it.</p>
+      <p>I work primarily across alternative, pop, rock, singer-songwriter, and adjacent styles, both locally and remotely.</p>
+    </div>
+    <picture class="about-image">
+      <source srcset="/assets/images/caleb-kuhlmann-studio-800.webp 800w, /assets/images/caleb-kuhlmann-studio-1400.webp 1400w" type="image/webp" sizes="(max-width: 700px) 100vw, 38vw">
+      <img src="/assets/images/caleb-kuhlmann-studio-1400.jpg" srcset="/assets/images/caleb-kuhlmann-studio-800.jpg 800w, /assets/images/caleb-kuhlmann-studio-1400.jpg 1400w" sizes="(max-width: 700px) 100vw, 38vw" alt="Caleb Kuhlmann working in a recording studio" width="1400" height="1750" loading="lazy">
+    </picture>
+  </section>
+
+  <section id="selected-work" class="homepage-section" aria-labelledby="work-title">
+    <p class="section-number" aria-hidden="true">01</p>
+    <h2 id="work-title" class="section-heading">Featured Work</h2>
+    <div class="featured-work">
+      {% for project in featuredWork %}
+      <article class="work-item">
+        <div class="work-index" aria-hidden="true">0{{ loop.index }}</div>
+        <div>
+          <p class="work-artist">{{ project.artist }}</p>
+          <h3>{{ project.title }}</h3>
+          <p class="work-role">{{ project.role }}</p>
+          <p>{{ project.description }}</p>
+          {% if project.url %}<a class="inline-link" href="{{ project.url }}" target="_blank" rel="noopener noreferrer">Listen to project <span class="visually-hidden">by {{ project.artist }}</span> <span aria-hidden="true">↗</span></a>{% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="section-link"><a class="inline-link" href="/credits/">View Full Credits <span aria-hidden="true">→</span></a></p>
+  </section>
+
+  <section class="homepage-section" aria-labelledby="services-title">
+    <p class="section-number" aria-hidden="true">02</p>
+    <h2 id="services-title" class="section-heading">Services</h2>
+    <div class="services-list">
+      <article><h3>Production</h3><p>Collaborative song, arrangement, recording, and sonic development from early demos through to finished records.</p></article>
+      <article><h3>Mixing</h3><p>Detailed, emotionally driven mixes that preserve the character and intent of the original performance.</p></article>
+      <article><h3>Engineering</h3><p>Tracking, editing, studio workflow, system troubleshooting, and practical technical support for artists and small creative spaces.</p></article>
+    </div>
+    <p class="section-link"><a class="inline-link" href="/contact/#project-inquiry">Ask About a Project <span aria-hidden="true">→</span></a></p>
+  </section>
+
+  <aside class="listening-for" aria-labelledby="listening-title">
+    <p class="eyebrow">Working philosophy</p>
+    <h2 id="listening-title">In the end...</h2>
+    <p>It all starts with a great song and a good hang. No matter the genre, every hit record is about good people telling a great story.</p>
+  </aside>
+
+  <section class="final-cta" aria-labelledby="project-title">
+    <h2 id="project-title">Making something that needs the right set of ears?</h2>
+    <p>Tell me what you’re working on, where the project stands, and what kind of help you’re looking for.</p>
+    <a class="button-link" href="/contact/#project-inquiry">Start a Project</a>
+  </section>
 </main>

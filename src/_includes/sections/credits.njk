@@ -1,5 +1,5 @@
-        <section id="section-credits" data-route="credits">
-            <h2 class="section-heading">Selected Discography</h2>
+        <section aria-labelledby="credits-title">
+            <h1 id="credits-title" class="section-heading">Selected Discography</h1>
             <table id="credits-table">
                 <thead>
                     <tr>
@@ -14,18 +14,12 @@
                 </tbody>
             </table>
 
+            <script src="/assets/js/fetch-utils.js"></script>
             <script src="/assets/js/credits.js"></script>
 
             <div class="spotify-inline-widget">
                 <iframe title="Spotify playlist player" src="https://open.spotify.com/embed/playlist/0PJMUIuUsP40FAZhpW473e?utm_source=generator&theme=0" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
 
-            <h2 class="section-heading">Services & Inquiries</h2>
-            <p>Currently booking projects for mixing, production, tracking, and consultation. Fill out the form below with your project details and timeline.</p>
-            <form action="https://formspree.io/f/xjgznrlq" method="POST" class="contact-form">
-                <p><label>Name: <br><input type="text" name="name" autocomplete="name" required /></label></p>
-                <p><label>Email: <br><input type="email" name="email" autocomplete="email" required /></label></p>
-                <p><label>Message: <br><textarea name="message" rows="5" required></textarea></label></p>
-                <p><button type="submit">Send Message</button></p>
-            </form>
+            <p class="section-link"><a class="inline-link" href="/contact/#project-inquiry">Start a Project <span aria-hidden="true">→</span></a></p>
         </section>

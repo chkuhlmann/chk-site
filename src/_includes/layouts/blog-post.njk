@@ -4,7 +4,7 @@ socialType: article
 ---
         <article class="blog-entry">
             <header class="blog-entry-header">
-                <h2 class="blog-entry-title">{{ title | default('Untitled') }}</h2>
+                <h1 class="blog-entry-title">{{ title | default('Untitled') }}</h1>
                 <time datetime="{{ date | dateToIso }}">{{ date | formatDate }}</time>
                 <div>{{ category | default('General') }}</div>
             </header>

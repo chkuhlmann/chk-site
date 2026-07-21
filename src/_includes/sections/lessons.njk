@@ -1,95 +1,125 @@
-        <section id="section-lessons" data-route="lessons">
-            <h2 class="section-heading">Private Music Production & Mixing Lessons</h2>
+<article id="lessons" class="lessons-page" aria-labelledby="lessons-title">
+    <header class="lessons-hero">
+        <p class="eyebrow">Nashville, TN · One on one</p>
+        <h1 id="lessons-title">Private Music Production &amp; Mixing Lessons</h1>
+        <div class="lessons-intro">
             <p>One-on-one, project-based lessons for high-school students, aspiring college audio majors, independent artists, and adult learners in Nashville.</p>
             <p>My goal is to help students understand what they are hearing, use their tools intentionally, and build a creative process they can eventually carry on without me.</p>
-            <p><a class="button-link" href="#lessons" onclick="document.getElementById('lessons-inquiry').scrollIntoView({ behavior: 'smooth' }); return false;">Request a Consultation</a></p>
+        </div>
+        <a class="button-link" href="#lessons-inquiry">Request a Consultation</a>
+    </header>
 
-            <h2 class="section-heading">Who I Teach</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th style="width: 35%;">Student</th>
-                        <th>Focus</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for audience in lessons.audiences %}
-                    <tr>
-                        <td><div class="lesson-heading">{{ audience.label | safe }}</div></td>
-                        <td>{{ audience.focus | safe }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <p>Complete beginners are welcome. Students do not need to play an instrument or already own professional equipment.</p>
+    <section class="lesson-section" aria-labelledby="students-title">
+        <p class="section-number" aria-hidden="true">01</p>
+        <h2 id="students-title" class="section-heading">Who I Teach</h2>
+        <div class="lesson-audiences">
+            {% for audience in lessons.audiences %}
+            <article>
+                <p class="lesson-item-number" aria-hidden="true">0{{ loop.index }}</p>
+                <h3>{{ audience.label | safe }}</h3>
+                <p>{{ audience.focus | safe }}</p>
+            </article>
+            {% endfor %}
+        </div>
+        <p class="lesson-note">Complete beginners are welcome. Students do not need to play an instrument or already own professional equipment.</p>
+    </section>
 
-            <h2 class="section-heading">What We Can Work On</h2>
-            <ul class="lesson-list">
-                {% for topic in lessons.topics %}
-                <li>{{ topic | safe }}</li>
-                {% endfor %}
-            </ul>
+    <section class="lesson-section lesson-topics-section" aria-labelledby="topics-title">
+        <div>
+            <p class="section-number" aria-hidden="true">02</p>
+            <h2 id="topics-title" class="section-heading">What We Can Work On</h2>
             <p>Lessons stay within my professional experience in recording, production, mixing, and studio workflow. If a student needs advanced help outside that lane, I will be honest about the boundary and recommend a specialist when possible.</p>
+        </div>
+        <ul class="lesson-list">
+            {% for topic in lessons.topics %}
+            <li>{{ topic | safe }}</li>
+            {% endfor %}
+        </ul>
+    </section>
 
-            <h2 class="section-heading">How Lessons Work</h2>
+    <aside class="lesson-manifesto" aria-label="Teaching philosophy">
+        <p class="eyebrow">The approach</p>
+        <p>Understand what you’re hearing. Use the tools intentionally. Build a process you can carry on without me.</p>
+    </aside>
+
+    <section class="lesson-section lesson-process" aria-labelledby="process-title">
+        <p class="section-number" aria-hidden="true">03</p>
+        <h2 id="process-title" class="section-heading">How Lessons Work</h2>
+        <div class="lesson-process-grid">
             <p>We start with a free 20-minute phone or video consultation and a short intake form. The first lesson includes an informal assessment and a practical hands-on activity.</p>
             <p>From there, we build a learning direction around essential audio concepts and a real project or clearly defined goal. Students operate the DAW for most of the lesson; my job is to demonstrate, guide, ask useful questions, and help them understand their choices.</p>
+        </div>
+    </section>
 
-            <h2 class="section-heading">Lesson Options</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th style="width: 35%;">Option</th>
-                        <th>Best For</th>
-                        <th style="width: 20%;">Rate</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for option in lessons.lessonOptions %}
-                    <tr>
-                        <td><div class="lesson-heading">{{ option.label | safe }}</div></td>
-                        <td>{{ option.bestFor | safe }}</td>
-                        <td>{{ option.rate | safe }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <p>Lessons are offered one-on-one and by appointment.</p>
+    <section class="lesson-section" aria-labelledby="options-title">
+        <p class="section-number" aria-hidden="true">04</p>
+        <h2 id="options-title" class="section-heading">Lesson Options</h2>
+        <div class="lesson-options">
+            {% for option in lessons.lessonOptions %}
+            <article>
+                <div>
+                    <h3>{{ option.label | safe }}</h3>
+                    <p>{{ option.bestFor | safe }}</p>
+                </div>
+                <p class="lesson-rate">{{ option.rate | safe }}</p>
+            </article>
+            {% endfor %}
+        </div>
+        <p class="lesson-note">Lessons are offered one-on-one and by appointment.</p>
+    </section>
 
-            <h2 class="section-heading">The Studio</h2>
+    <section class="lesson-section studio-section" aria-labelledby="studio-title">
+        <div class="studio-marker" aria-hidden="true"></div>
+        <div>
+            <p class="section-number" aria-hidden="true">05</p>
+            <h2 id="studio-title" class="section-heading">The Studio</h2>
             <p>In-person lessons take place in a detached, finished private studio at my residential property in East Nashville. The exact address and arrival instructions are provided after enrollment and appointment confirmation.</p>
-            <ul>
+            <ul class="studio-features">
                 {% for feature in lessons.studioFeatures %}
                 <li>{{ feature | safe }}</li>
                 {% endfor %}
             </ul>
-            <div class="lesson-photo-placeholder">Studio photo placeholder</div>
-            <p>Cats live on the property but are kept outside the studio during lessons. Please mention any significant animal allergies before scheduling.</p>
+            <p class="lesson-note">Cats live on the property but are kept outside the studio during lessons. Please mention any significant animal allergies before scheduling.</p>
+        </div>
+    </section>
 
-            <h2 class="section-heading">For Parents</h2>
+    <section class="lesson-section parents-section" aria-labelledby="parents-title">
+        <div>
+            <p class="section-number" aria-hidden="true">06</p>
+            <h2 id="parents-title" class="section-heading">For Parents</h2>
             <p>Parents and guardians are welcome to observe lessons. Students under 16 must have a parent or authorized adult remain on the property.</p>
-            <ul>
-                {% for policy in lessons.parentPolicies %}
-                <li>{{ policy | safe }}</li>
-                {% endfor %}
-            </ul>
             <p>The studio is maintained as a professional, substance-free learning environment with clear safety, hearing-protection, and conduct policies.</p>
+        </div>
+        <ul class="parent-policies">
+            {% for policy in lessons.parentPolicies %}
+            <li>{{ policy | safe }}</li>
+            {% endfor %}
+        </ul>
+    </section>
 
-            <h2 class="section-heading">FAQ</h2>
+    <section class="lesson-section faq-section" aria-labelledby="faq-title">
+        <p class="section-number" aria-hidden="true">07</p>
+        <h2 id="faq-title" class="section-heading">FAQ</h2>
+        <div class="lesson-faq-list">
             {% for faq in lessons.faqs %}
             <details class="lesson-faq-item">
-                <summary class="lesson-heading">{{ faq.question | safe }}</summary>
+                <summary>{{ faq.question | safe }}</summary>
                 <p>{{ faq.answer | safe }}</p>
             </details>
             {% endfor %}
+        </div>
+    </section>
 
-            <h2 class="section-heading" id="lessons-inquiry">Request a Consultation</h2>
-            <p>The first step is a free 20-minute phone or video consultation. Submitting an inquiry does not commit you to purchasing lessons.</p>
-            <form action="https://formspree.io/f/xjgznrlq" method="POST" class="contact-form">
-                <input type="hidden" name="inquiry_type" value="Lessons consultation">
-                <p><label>Name: <br><input type="text" name="name" autocomplete="name" required /></label></p>
-                <p><label>Email: <br><input type="email" name="email" autocomplete="email" required /></label></p>
-                <p><label>Student age, experience, and goals: <br><textarea name="message" rows="5" required></textarea></label></p>
-                <p><button type="submit">Send Inquiry</button></p>
-            </form>
-        </section>
+    <section class="lesson-inquiry" id="lessons-inquiry" aria-labelledby="inquiry-title">
+        <p class="eyebrow">Start here</p>
+        <h2 id="inquiry-title">Request a Consultation</h2>
+        <p>The first step is a free 20-minute phone or video consultation. Submitting an inquiry does not commit you to purchasing lessons.</p>
+        <form action="https://formspree.io/f/xjgznrlq" method="POST" class="contact-form">
+            <input type="hidden" name="inquiry_type" value="Lessons consultation">
+            <p><label for="lesson-name">Name</label><input id="lesson-name" type="text" name="name" autocomplete="name" required></p>
+            <p><label for="lesson-email">Email</label><input id="lesson-email" type="email" name="email" autocomplete="email" required></p>
+            <p><label for="lesson-message">Student age, experience, and goals</label><textarea id="lesson-message" name="message" rows="5" required></textarea></p>
+            <p><button type="submit">Send Inquiry</button></p>
+        </form>
+    </section>
+</article>

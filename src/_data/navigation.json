@@ -1,10 +1,14 @@
 [
   {
-    "href": "#credits",
-    "label": "Credits & Services"
+    "href": "#about",
+    "label": "About"
   },
   {
-    "href": "#blog",
-    "label": "Blog"
+    "href": "/credits/",
+    "label": "Credits"
+  },
+  {
+    "href": "/contact/",
+    "label": "Contact"
   }
 ]

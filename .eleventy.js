@@ -1,10 +1,11 @@
 const { excerptText } = require("./lib/blog-utils");
 
 module.exports = function(eleventyConfig) {
-  // Pass through images and the admin folder
+  // Pass through the admin interface and all browser assets.
   eleventyConfig.addPassthroughCopy("src/admin");
-  eleventyConfig.addPassthroughCopy("src/assets/css");
-  eleventyConfig.addPassthroughCopy("src/assets/js");
+  eleventyConfig.addPassthroughCopy("src/assets");
+
+  // Preserve the portrait's original public URL for compatibility.
   eleventyConfig.addPassthroughCopy({
     "src/assets/images/re_4284_portra 400_014281-r1-072-34a.PNG":
       "re_4284_portra 400_014281-r1-072-34a.PNG"
@@ -16,7 +17,8 @@ module.exports = function(eleventyConfig) {
     return new Date(dateObj).toLocaleDateString('en-US', {
       month: 'long',
       day: 'numeric',
-      year: 'numeric'
+      year: 'numeric',
+      timeZone: 'UTC'
     });
   });
 

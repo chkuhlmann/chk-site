@@ -1,10 +1,10 @@
 [
   {
-    "href": "#bio",
-    "label": "About"
-  },
-  {
     "href": "#credits",
     "label": "Credits & Services"
+  },
+  {
+    "href": "#blog",
+    "label": "Blog"
   }
 ]

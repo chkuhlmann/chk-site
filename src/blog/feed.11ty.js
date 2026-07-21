@@ -19,7 +19,8 @@ module.exports = class BlogFeed {
         displayDate: post.date.toLocaleDateString("en-US", {
           month: "long",
           day: "numeric",
-          year: "numeric"
+          year: "numeric",
+          timeZone: "UTC"
         }),
         category: post.data.category || "General",
         description: post.data.description || excerpt,

@@ -5,8 +5,8 @@ backend:
   base_url: https://decap-proxy.deadrainbow.workers.dev # Your Worker URL
   auth_endpoint: auth                        # Tells Decap to use the worker's auth route
 
-media_folder: "images"
-public_folder: "/images"
+media_folder: "src/assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
 collections:
   - name: "blog"

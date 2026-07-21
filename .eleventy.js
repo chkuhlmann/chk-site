@@ -18,6 +18,27 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  eleventyConfig.addFilter("dateToIso", function(dateObj) {
+    return dateObj ? new Date(dateObj).toISOString() : "";
+  });
+
+  eleventyConfig.addFilter("excerptText", function(html, limit = 240) {
+    if (!html) return "";
+    const text = html
+      .replace(/<[^>]*>/g, " ")
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (text.length <= limit) return text;
+    const shortened = text.slice(0, limit + 1);
+    const lastSpace = shortened.lastIndexOf(" ");
+    return `${shortened.slice(0, lastSpace > 0 ? lastSpace : limit).trim()}…`;
+  });
+
   // Clean up HTML content so it doesn't break a JSON string
   eleventyConfig.addFilter("encodePostContent", function(content) {
     if (!content) return "";

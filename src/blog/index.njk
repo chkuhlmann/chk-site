@@ -1,0 +1,26 @@
+---
+layout: layouts/content-page.njk
+title: Dead Rainbow
+description: Weekly takes, odes, and rumination from Caleb Kuhlmann.
+permalink: /blog/
+eleventyExcludeFromCollections: true
+---
+        <div id="blog-index">
+            <h3>Dead Rainbow</h3>
+            {% if collections.blog.length %}
+            {% for post in collections.blog %}
+            <article class="blog-entry">
+                <header class="blog-entry-header">
+                    <h2 class="blog-entry-title"><a href="{{ post.url }}">{{ post.data.title | default('Untitled') }}</a></h2>
+                    <time datetime="{{ post.date | dateToIso }}">{{ post.date | formatDate }}</time>
+                    <div>{{ post.data.category | default('General') }}</div>
+                </header>
+                <div class="blog-entry-content">
+                    <p>{{ post.data.description | default(post.templateContent | excerptText) }}</p>
+                </div>
+            </article>
+            {% endfor %}
+            {% else %}
+            <p>No entries found. Check back soon.</p>
+            {% endif %}
+        </div>

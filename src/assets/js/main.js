@@ -67,15 +67,21 @@
                     }
                     container.innerHTML = posts.map(post => {
                         const displayTitle = String(post.title).padStart(3, '0');
+                        const escapeHtml = value => String(value ?? '')
+                            .replace(/&/g, '&amp;')
+                            .replace(/</g, '&lt;')
+                            .replace(/>/g, '&gt;')
+                            .replace(/"/g, '&quot;')
+                            .replace(/'/g, '&#39;');
                         
                         return `
                             <article class="blog-entry">
                                 <header class="blog-entry-header">
-                                    <h4 class="blog-entry-title">${displayTitle}</h4>
-                                    <time>${post.date}</time>
+                                    <h4 class="blog-entry-title"><a href="${escapeHtml(post.url)}">${escapeHtml(displayTitle)}</a></h4>
+                                    <time datetime="${escapeHtml(post.date)}">${escapeHtml(post.displayDate)}</time>
                                 </header>
                                 <div class="blog-entry-content">
-                                    ${post.content}
+                                    <p>${escapeHtml(post.excerpt)}</p>
                                 </div>
                             </article>
                         `;

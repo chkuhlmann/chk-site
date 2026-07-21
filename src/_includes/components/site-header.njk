@@ -1,6 +1,6 @@
     <header>
         <div class="title-container">
-            <h1>Caleb Kuhlmann</h1>
+            <h1><a href="/">Caleb Kuhlmann</a></h1>
             <div class="accent subtitle">Audio Engineer & Music Producer</div>
         </div>
         <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-controls="nav-menu" aria-expanded="false" onclick="toggleMenu()">
@@ -10,9 +10,12 @@
         </button>
         <nav id="nav-menu">
             {% for item in navigation %}
-            <span class="nav-item"><a href="{{ item.href }}" onclick="navigateToSection(event, '{{ item.href }}')">{{ item.label | safe }}</a></span>
+            {% if not isHomepage and item.href[0] == "#" %}
+            {% set itemHref = "/" ~ item.href %}
+            {% else %}
+            {% set itemHref = item.href %}
+            {% endif %}
+            <span class="nav-item"><a href="{{ itemHref }}"{% if isHomepage and item.href[0] == "#" %} onclick="navigateToSection(event, '{{ item.href }}')"{% endif %}>{{ item.label | safe }}</a></span>
             {% endfor %}
-            <!-- <span class="nav-item"><a href="#blog" onclick="navigateToSection(event, '#blog')">Dead Rainbow</a></span> -->
-            <!-- <span class="nav-item"><a href="#lessons" onclick="navigateToSection(event, '#lessons')">Lessons</a></span> -->
         </nav>
     </header>

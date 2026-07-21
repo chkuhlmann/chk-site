@@ -77,10 +77,10 @@
 
             <h2 class="section-heading">FAQ</h2>
             {% for faq in lessons.faqs %}
-            <div class="lesson-faq-item">
-                <div class="lesson-heading">{{ faq.question | safe }}</div>
+            <details class="lesson-faq-item">
+                <summary class="lesson-heading">{{ faq.question | safe }}</summary>
                 <p>{{ faq.answer | safe }}</p>
-            </div>
+            </details>
             {% endfor %}
 
             <h2 class="section-heading" id="lessons-inquiry">Request a Consultation</h2>

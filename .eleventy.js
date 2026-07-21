@@ -1,6 +1,8 @@
 module.exports = function(eleventyConfig) {
   // Pass through images and the admin folder
   eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPassthroughCopy("src/assets/css");
+  eleventyConfig.addPassthroughCopy("src/assets/js");
   eleventyConfig.addPassthroughCopy({
     "src/assets/images/re_4284_portra 400_014281-r1-072-34a.PNG":
       "re_4284_portra 400_014281-r1-072-34a.PNG"

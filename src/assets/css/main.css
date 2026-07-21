@@ -12,6 +12,14 @@
         #section-bio img {
             filter: grayscale(100%) contrast(105%);
             transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: scale(1.08);
+        }
+
+        #section-bio .about-image {
+            overflow: hidden;
+            box-shadow: -5px -5px 0 rgb(255, 0, 0),
+                5px 5px 0 rgba(0, 255, 0),
+                10px 10px 0 rgba(0, 0, 255);
         }
 
         body {
@@ -79,9 +87,7 @@
         }
 
         @media (hover: hover) and (pointer: fine) {
-            #section-bio img:hover {
-                filter: grayscale(0%) contrast(100%);
-            }
+            
 
             a:hover, .artist-name:hover {
                 color: transparent;
@@ -329,6 +335,24 @@
 
         .blog-entry-content p:last-child {
             margin-bottom: 0;
+        }
+
+        .blog-entry img {
+            display: block;
+            width: 100%;
+            max-width: none;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-bottom-color: transparent;
+            filter: grayscale(100%);
+            outline: none;
+        }
+
+        .blog-entry-content p:has(> img:only-child) {
+            margin-bottom: 2rem;
+            box-shadow: -5px -5px 0 rgb(255, 0, 0),
+                5px 5px 0 rgba(0, 255, 0),
+                10px 10px 0 rgba(0, 0, 255);
         }
 
         /* Form Controls */

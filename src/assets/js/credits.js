@@ -78,8 +78,8 @@
                             const artistName = document.createElement('strong');
                             const details = document.createElement('div');
 
-                            artistCell.setAttribute('valign', 'top');
-                            creditsCell.setAttribute('valign', 'top');
+                            artistCell.dataset.label = 'Artist';
+                            creditsCell.dataset.label = 'Credits';
                             artistName.className = 'artist-name';
                             artistName.textContent = artist;
                             details.className = 'details-box';
@@ -91,7 +91,7 @@
                                     if (artistUrl.protocol === 'http:' || artistUrl.protocol === 'https:') {
                                         const artistLink = document.createElement('a');
                                         artistLink.href = artistUrl.href;
-                                        artistLink.style.fontSize = 'inherit';
+                                        artistLink.className = 'artist-link';
                                         artistLink.target = '_blank';
                                         artistLink.rel = 'noopener noreferrer';
                                         artistLink.appendChild(artistName);

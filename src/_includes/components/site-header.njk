@@ -1,4 +1,4 @@
-    <header>
+    <header class="site-header">
         <div class="title-container">
             <div class="site-title"><a href="/">Caleb Kuhlmann</a></div>
             <div class="accent subtitle">Audio Engineer & Music Producer</div>
@@ -8,10 +8,11 @@
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
         </button>
-        <nav id="nav-menu">
+        <nav id="nav-menu" class="site-nav" aria-label="Primary">
             {% for item in navigation %}
             {% if not isHomepage and item.href[0] == "#" %}{% set itemHref = "/" ~ item.href %}{% else %}{% set itemHref = item.href %}{% endif %}
-            <span class="nav-item"><a href="{{ itemHref }}">{{ item.label | safe }}</a></span>
+            {% set itemPath = item.href.split("#")[0] %}
+            <span class="nav-item"><a href="{{ itemHref }}"{% if itemPath and page.url == itemPath %} aria-current="page"{% endif %}>{{ item.label | safe }}</a></span>
             {% endfor %}
         </nav>
     </header>

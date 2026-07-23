@@ -276,6 +276,10 @@
             line-height: 1.25;
         }
 
+        .text-cta:hover {
+            border-bottom-color: transparent;
+        }
+
         .homepage-section {
             position: relative;
             padding: 72px 0;

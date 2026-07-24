@@ -2,6 +2,14 @@
 permalink: /robots.txt
 eleventyExcludeFromCollections: true
 ---
+# Allow ChatGPT Search to index and surface the site.
+User-agent: OAI-SearchBot
+Allow: /
+
+# Allow visits initiated by ChatGPT users and Custom GPTs.
+User-agent: ChatGPT-User
+Allow: /
+
 User-agent: *
 Allow: /
 

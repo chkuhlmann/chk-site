@@ -1,6 +1,21 @@
 # Caleb Kuhlmann Studio
 
-This repository contains the Eleventy website for Caleb Kuhlmann's audio engineering and music production work. The production site is published at [calebkuhlmann.studio](https://calebkuhlmann.studio).
+This repository contains the Eleventy website for Caleb Kuhlmann's audio
+engineering, music production, and private-instruction work. The production
+site is published at
+[calebkuhlmann.studio](https://calebkuhlmann.studio).
+
+The website is the public surface of the broader **Caleb Kuhlmann Studio**
+product program, which also includes the private Lesson Manager application and
+future business workflow tools. They share a brand and product direction while
+remaining separate applications with separate privacy and deployment
+boundaries.
+
+Read [docs/PRODUCT_VISION.md](docs/PRODUCT_VISION.md) for the consolidated
+cross-project mission and context,
+[docs/PLATFORM_ROADMAP.md](docs/PLATFORM_ROADMAP.md) for the current stack and
+prioritized roadmap, and [AGENTS.md](AGENTS.md) before broad product,
+architecture, lessons, or design changes.
 
 ## Technology stack
 

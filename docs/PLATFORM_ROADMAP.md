@@ -449,6 +449,22 @@ Extract a product from proven practice later.
 | Content operations tool | Caleb | Turn real work and notes into reviewable public drafts | Phase 4 |
 | Instructor product | Other teachers | Reuse a proven teaching operating system | Phase 5 |
 
+## Cross-surface copy and authority rule
+
+The public site may summarize reviewed services, prices, packages, and policies
+for marketing and inquiry context. It does not establish an operational
+catalog, agreement acceptance, Student record, instructional assignment,
+progress state, or Client authority. Those facts remain in the applicable
+private system and reach a portal only through an explicit, versioned
+publication boundary.
+
+Before changing a price, package, cancellation statement, safeguarding claim,
+or other policy language, identify the reviewed business/agreement source and
+check the private presentation vocabulary for contradictions. Record
+discrepancies instead of silently harmonizing copy. See
+`docs/CROSS_SURFACE_AUTHORITY.md` and
+`docs/PUBLIC_COPY_PARITY_AUDIT.md`.
+
 ## Service and technology decision guide
 
 These are candidates, not blanket approvals.
@@ -504,4 +520,3 @@ Score proposed work against these questions:
 
 Prefer the smallest feature that removes a repeated burden and preserves a
 clear escape hatch.
-

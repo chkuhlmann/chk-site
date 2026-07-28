@@ -81,6 +81,14 @@ on stacks suited to their jobs:
   decision.
 - Refer to `lesson-manager/AGENTS.md` for authoritative application rules and
   to its `lesson-materials/` directory for curriculum authority.
+- Instructional copy and Student-specific records originate in Lesson Manager.
+  Public marketing copy never becomes assigned-plan, milestone, assignment,
+  recap, resource, product-policy, or Student-record authority.
+- Lesson Manager and Student Portal share a versioned private-app design
+  contract derived from this site’s direction. They must not import this
+  site’s CSS at runtime. Cross-surface copy, structure, or styling changes
+  require an authority and parity review; see
+  `docs/CROSS_SURFACE_AUTHORITY.md`.
 
 ## Repository conventions
 

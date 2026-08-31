@@ -10,5 +10,9 @@
   {
     "href": "/contact/",
     "label": "Contact"
+  },
+  {
+    "href": "/blog/"
+    "label": "Blog"
   }
 ]

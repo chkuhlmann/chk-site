@@ -24,6 +24,27 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('#nav-menu a').forEach(function(link) {
         link.addEventListener('click', closeMenu);
     });
+    updateHomepageNavigation();
 });
 
 window.addEventListener('pageshow', closeMenu);
+
+function updateHomepageNavigation() {
+    if (window.location.pathname !== '/') return;
+    var aboutIsActive = window.location.hash === '#about';
+    document.querySelectorAll('#nav-menu a').forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === '#about') {
+            link.removeAttribute('aria-current');
+            if (href === '#about' && aboutIsActive) link.setAttribute('aria-current', 'location');
+        }
+    });
+}
+
+window.addEventListener('hashchange', updateHomepageNavigation);
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && document.getElementById('nav-menu')?.classList.contains('show')) {
+        closeMenu();
+        document.querySelector('.menu-toggle')?.focus();
+    }
+});

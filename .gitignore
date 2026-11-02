@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Personal-use font files used for local design evaluation only
+.local-fonts/
+
 # Eleventy output and cache
 _site/
 .cache/

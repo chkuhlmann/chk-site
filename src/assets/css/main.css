@@ -1,3 +1,43 @@
+@font-face {
+    font-family: "Doto";
+    src: url("../fonts/doto-600.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Doto";
+    src: url("../fonts/doto-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Jacquard 12";
+    src: url("../fonts/jacquard-12-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Jacquard 24";
+    src: url("../fonts/jacquard-24-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Jacquarda Bastarda 9";
+    src: url("../fonts/jacquarda-bastarda-9-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
         /* --- SOPHISTICATED B&W AESTHETIC --- */
         :root {
             --bg-color: #ffffff;
@@ -7,7 +47,8 @@
             --glitch-red: rgb(255, 0, 0);
             --glitch-green: rgb(0, 255, 0);
             --glitch-blue: rgb(0, 0, 255);
-            --font-body: "Redaction 35", Helvetica, Arial, sans-serif;
+            --font-body: "Doto", ui-monospace, Menlo, monospace;
+            --font-headline: "Redaction 35", Helvetica, Arial, sans-serif;
             --font-title: "Jacquard 24", system-ui;
             --font-display: "Jacquard 12", system-ui;
             --font-label: "Jacquarda Bastarda 9", serif;
@@ -31,6 +72,7 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: var(--font-body);
+            font-weight: 600;
             line-height: 1.6;
             max-width: var(--content-width);
             margin: 0 auto;
@@ -259,6 +301,10 @@
 
         }
 
+        .hero h1, .final-cta h2, .lesson-inquiry h2, .lesson-manifesto p:last-child {
+            font-family: var(--font-headline);
+        }
+
         .hero h1 {
             max-width: 790px;
             margin: 0;
@@ -348,6 +394,7 @@
         .work-index {
             font-family: var(--font-label);
             font-size: 1.15em;
+            padding-left: 8px;
         }
 
         .work-item h3,
@@ -373,11 +420,11 @@
         }
 
         .services-list article {
-            padding: 26px 28px 18px 0;
+            padding: 26px 28px 18px 8px;
         }
 
         .services-list article + article {
-            padding-left: 28px;
+            padding-left: 8px;
             border-left: var(--rule-dashed);
         }
 
@@ -772,6 +819,7 @@
             color: var(--text-color);
             font-family: var(--font-body);
             box-sizing: border-box;
+            font-weight: 600;
             font-size: 1rem;
             border-radius: 0;
             -webkit-appearance: none;
@@ -896,9 +944,9 @@
             .lesson-audiences { grid-template-columns: 1fr; }
             .services-list article,
             .lesson-audiences article { padding: 24px 0; }
+            .services-list article { padding-left: 8px; }
             .services-list article + article,
             .lesson-audiences article + article {
-                padding-left: 0;
                 border-left: 0;
                 border-top: var(--rule-dashed);
             }

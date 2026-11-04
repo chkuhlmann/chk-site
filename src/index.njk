@@ -27,10 +27,15 @@ image: /assets/images/caleb-kuhlmann-studio-1400.jpg
       <p>My work is grounded in performance, arrangement, tone, and collaboration. I’m less interested in forcing every project toward the same polished template than in finding what makes a song or artist distinct and building around it.</p>
       <p data-cursor-tail>I work primarily across alternative, pop, rock, singer-songwriter, and adjacent styles, both locally and remotely.</p>
     </div>
-    <picture class="about-image">
-      <source srcset="/assets/images/caleb-kuhlmann-studio-800.webp 800w, /assets/images/caleb-kuhlmann-studio-1400.webp 1400w" type="image/webp" sizes="(max-width: 700px) 100vw, 38vw">
-      <img src="/assets/images/caleb-kuhlmann-studio-1400.jpg" srcset="/assets/images/caleb-kuhlmann-studio-800.jpg 800w, /assets/images/caleb-kuhlmann-studio-1400.jpg 1400w" sizes="(max-width: 700px) 100vw, 38vw" alt="Caleb Kuhlmann working in a recording studio" width="1400" height="1750" loading="lazy">
-    </picture>
+    <figure class="about-image" tabindex="0">
+      <picture>
+        {% set portraitSizes = "auto, (max-width: 760px) calc(100vw - 40px), 300px" %}
+        <source type="image/avif" sizes="{{ portraitSizes }}" srcset="/assets/images/caleb-kuhlmann-studio-400.avif 400w, /assets/images/caleb-kuhlmann-studio-800.avif 800w, /assets/images/caleb-kuhlmann-studio-1120.avif 1120w, /assets/images/caleb-kuhlmann-studio-1400.avif 1400w">
+        <source type="image/webp" sizes="{{ portraitSizes }}" srcset="/assets/images/caleb-kuhlmann-studio-400.webp 400w, /assets/images/caleb-kuhlmann-studio-800.webp 800w, /assets/images/caleb-kuhlmann-studio-1400.webp 1400w">
+        <img src="/assets/images/caleb-kuhlmann-studio-800.jpg" srcset="/assets/images/caleb-kuhlmann-studio-400.jpg 400w, /assets/images/caleb-kuhlmann-studio-800.jpg 800w, /assets/images/caleb-kuhlmann-studio-1400.jpg 1400w" sizes="{{ portraitSizes }}" alt="Caleb Kuhlmann working in a recording studio" width="1400" height="1750" loading="lazy" decoding="async">
+      </picture>
+      <figcaption class="eyebrow">Portra 400</figcaption>
+    </figure>
   </section>
 
   <section id="selected-work" class="homepage-section" aria-labelledby="work-title">

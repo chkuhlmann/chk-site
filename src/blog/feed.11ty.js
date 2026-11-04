@@ -10,7 +10,7 @@ module.exports = class BlogFeed {
   }
 
   render({ collections }) {
-    const posts = collections.blog.map((post) => {
+    const posts = collections.blog.filter((post) => !post.data.unlisted).map((post) => {
       const excerpt = post.data.description || excerptText(post.templateContent);
 
       return {

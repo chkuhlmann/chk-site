@@ -7,15 +7,25 @@
                         <th scope="col">Credits</th>
                     </tr>
                 </thead>
-                <tbody id="credits-body" aria-live="polite" aria-busy="true">
+                <tbody id="credits-body">
+                    {% for artist in credits %}
                     <tr>
-                        <td colspan="2"><em>Loading data from satellite link...</em></td>
+                        <td data-label="Artist">
+                            {% if artist.url %}<a class="artist-link" href="{{ artist.url | escape }}" target="_blank" rel="noopener noreferrer">{% endif %}
+                            <strong class="artist-name">{{ artist.name | escape }}{% if artist.url %}<svg class="artist-link-arrow" aria-hidden="true" focusable="false" viewBox="0 0 12 12"><path d="M7 1h4v4M11 1 5 7M9 7v4H1V3h4"/></svg>{% endif %}</strong>
+                            {% if artist.url %}</a>{% endif %}
+                        </td>
+                        <td data-label="Credits">
+                            <div class="details-box">
+                                {% for track in artist.tracks %}
+                                <div class="track-entry"><strong>"{{ track.title | escape }}"</strong> - <em>{{ track.role | escape }}</em></div>
+                                {% endfor %}
+                            </div>
+                        </td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
-
-            <script src="/assets/js/fetch-utils.js"></script>
-            <script src="/assets/js/credits.js"></script>
 
             <div class="spotify-inline-widget">
                 <iframe title="Spotify playlist player" src="https://open.spotify.com/embed/playlist/0PJMUIuUsP40FAZhpW473e?utm_source=generator&theme=0" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

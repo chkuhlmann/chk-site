@@ -33,50 +33,28 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Refresh published credits
+        if: github.event_name != 'pull_request'
+        run: python3 scripts/sync-credits.py
+
       - name: Build with Eleventy
         run: npm run build
 
       - name: Verify production output
         run: |
           test -f _site/index.html
+          grep -q 'class="track-entry"' _site/credits/index.html
           test -f _site/CNAME
           test -f _site/blog.json
           test -f _site/sitemap.xml
           test -f _site/robots.txt
           test -f _site/admin/index.html
 
-  package:
-    if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    needs: build
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build with Eleventy
-        run: npm run build
-
       - name: Disable Jekyll
         run: touch _site/.nojekyll
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
       - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
@@ -88,7 +66,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    needs: package
+    needs: build
     permissions:
       pages: write
       id-token: write

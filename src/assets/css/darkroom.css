@@ -177,6 +177,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline-color: va
         color: var(--phosphor);
         animation: chromatic-lock .5s steps(1, end) forwards;
     }
+    .artist-link:hover .artist-link-arrow {
+        animation: chromatic-lock-icon .5s steps(1, end) forwards;
+    }
     .contact-form button:hover, .button-link:hover {
         color: var(--phosphor);
         border-color: var(--phosphor);
@@ -195,6 +198,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline-color: va
     0%, 28% { text-shadow: -2px 0 var(--edge-a), 2px 0 var(--edge-b), 0 0 10px rgba(var(--glow), .4); }
     14%, 42% { text-shadow: 1px 0 var(--edge-a), -1px 0 var(--edge-b); }
     60%, 100% { text-shadow: calc(-1 * var(--rgb-offset)) 0 var(--edge-a), var(--rgb-offset) 0 var(--edge-b), 0 0 16px rgba(var(--glow), .65); }
+}
+@keyframes chromatic-lock-icon {
+    0%, 28% { filter: drop-shadow(-2px 0 var(--edge-a)) drop-shadow(2px 0 var(--edge-b)) drop-shadow(0 0 10px rgba(var(--glow), .4)); }
+    14%, 42% { filter: drop-shadow(1px 0 var(--edge-a)) drop-shadow(-1px 0 var(--edge-b)); }
+    60%, 100% { filter: drop-shadow(calc(-1 * var(--rgb-offset)) 0 var(--edge-a)) drop-shadow(var(--rgb-offset) 0 var(--edge-b)) drop-shadow(0 0 16px rgba(var(--glow), .65)); }
 }
 
 @media (max-width: 800px) and (min-width: 601px) {

@@ -6,6 +6,7 @@
     <script src="/assets/js/head.js"></script>
     <title>{{ title | default(site.title) }} | {{ site.name }}</title>
     <meta name="description" content="{{ description | default(site.defaultDescription) }}">
+    {% if unlisted %}<meta name="robots" content="noindex">{% endif %}
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <meta property="og:title" content="{{ title | default(site.title) }}">
     <meta property="og:description" content="{{ description | default(site.defaultDescription) }}">

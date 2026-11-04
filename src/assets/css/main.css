@@ -140,6 +140,7 @@
                 color: transparent;
                 animation: lockGlitch 0.12s steps(1) forwards;
             }
+
         }
 
         a:focus-visible,
@@ -365,17 +366,76 @@
         .about-image {
             display: block;
             margin: 8px 10px 18px 5px;
+            padding: 6px 6px 0;
+            border: var(--rule);
+            background: var(--bg-color);
+        }
+
+        .about-image picture {
+            display: block;
             overflow: hidden;
-            line-height: 0;
-            border: 1px solid #454545;
         }
 
         .about-image img {
             display: block;
             width: 100%;
             height: auto;
-            filter: grayscale(1);
-            transform: scale(1.08); /* Crop the white edges of the original print. */
+            transform: scale(1.06); /* Crop the white edges of the original print. */
+        }
+
+        .about-image figcaption {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1em;
+            margin: 0;
+            padding: 5px 2px;
+        }
+
+        /* Ink samples from the portrait. */
+        .about-image figcaption::after {
+            content: "";
+            width: 3.25rem;
+            height: 0.375rem;
+            background: linear-gradient(to right, #1a3d4a 20%, #435a59 20% 40%,
+                #489fc3 40% 60%, #c9d6df 60% 80%, #794a02 80%);
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .about-image {
+                position: relative;
+                isolation: isolate;
+                border-color: transparent;
+                background: transparent;
+            }
+
+            /* Open the mount behind the print without moving the photo or the copy. */
+            .about-image::before {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                inset: 6px 6px 2rem;
+                border: var(--rule);
+                background: var(--bg-color);
+                opacity: 0;
+                transition: inset 300ms ease-out, opacity 240ms ease-out;
+            }
+
+            .about-image figcaption {
+                opacity: 0;
+                transform: translateY(-4px);
+                transition: opacity 200ms ease-out, transform 280ms ease-out;
+            }
+
+            .about-image:is(:hover, :focus-visible)::before {
+                inset: -1px;
+                opacity: 1;
+            }
+
+            .about-image:is(:hover, :focus-visible) figcaption {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .featured-work { border-top: var(--rule-heavy); }
@@ -708,6 +768,19 @@
         }
 
         .artist-link { font-size: inherit; }
+
+        .artist-link-arrow {
+            display: inline-block;
+            width: 0.55em;
+            height: 0.55em;
+            margin-left: 0.2em;
+            /* vertical-align: 0.35em; */
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
 
         .subtitle {
             margin-top: 5px;

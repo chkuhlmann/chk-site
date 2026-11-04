@@ -4,25 +4,9 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://calebkuhlmann.studio/</loc>
-  </url>
-  <url>
-    <loc>https://calebkuhlmann.studio/blog/</loc>
-  </url>
-  <url>
-    <loc>https://calebkuhlmann.studio/credits/</loc>
-  </url>
-  <url>
-    <loc>https://calebkuhlmann.studio/contact/</loc>
-  </url>
-  <url>
-    <loc>https://calebkuhlmann.studio/lessons/</loc>
-  </url>
-  {% for post in collections.blog %}
-  <url>
-    <loc>https://calebkuhlmann.studio{{ post.url }}</loc>
-    <lastmod>{{ post.date | dateToIso }}</lastmod>
-  </url>
-  {% endfor %}
+  {%- for entry in collections.all %}
+  {%- if entry.data.layout and not entry.data.unlisted and entry.url %}
+  <url><loc>{{ site.url }}{{ entry.url | escape }}</loc></url>
+  {%- endif %}
+  {%- endfor %}
 </urlset>

@@ -1,6 +1,8 @@
 const { excerptText } = require("./lib/blog-utils");
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.ignores.add("src/README.md");
+
   // Pass through the admin interface and all browser assets.
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/assets");

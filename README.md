@@ -60,6 +60,17 @@ Decap CMS is available from `/admin/`. Its configuration is in `src/admin/config
 
 Site-wide data lives in `src/_data/`, layouts and reusable templates live in `src/_includes/`, and browser assets live in `src/assets/`.
 
+### Search metadata
+
+Page titles and descriptions live in page front matter. The shared metadata
+template and `src/_data/eleventyComputed.js` generate canonical URLs, social
+previews, and JSON-LD from that data. Site defaults live in `src/_data/site.json`.
+The homepage and Service structured data share `src/_data/services.json`.
+Custom post images can use `image` and `imageAlt` in front matter.
+
+Unlisted pages keep their noindex directive and omit structured data.
+The admin page is also marked noindex.
+
 ### Website images
 
 Keep full-resolution photo masters in `image-sources/`, outside the published

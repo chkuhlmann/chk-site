@@ -1,0 +1,24 @@
+    <title>{{ seo.title | escape }}</title>
+    <meta name="description" content="{{ seo.description | escape }}">
+    {% if unlisted %}<meta name="robots" content="noindex">{% endif %}
+    <link rel="canonical" href="{{ seo.canonical | escape }}">
+    <meta property="og:site_name" content="{{ site.name | escape }}">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="{{ seo.title | escape }}">
+    <meta property="og:description" content="{{ seo.description | escape }}">
+    <meta property="og:type" content="{{ socialType | default('website') | escape }}">
+    <meta property="og:url" content="{{ seo.canonical | escape }}">
+    <meta property="og:image" content="{{ seo.image | escape }}">
+    {% if seo.imageAlt %}<meta property="og:image:alt" content="{{ seo.imageAlt | escape }}">{% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ seo.title | escape }}">
+    <meta name="twitter:description" content="{{ seo.description | escape }}">
+    <meta name="twitter:image" content="{{ seo.image | escape }}">
+    {% if seo.imageAlt %}<meta name="twitter:image:alt" content="{{ seo.imageAlt | escape }}">{% endif %}
+    {% if socialType == "article" %}
+    <meta property="article:published_time" content="{{ (date or page.date) | dateToIso }}">
+    <meta name="author" content="{{ site.name | escape }}">
+    {% endif %}
+    {% if not unlisted %}
+    <script type="application/ld+json">{{ seo.structuredData | jsonLd | safe }}</script>
+    {% endif %}

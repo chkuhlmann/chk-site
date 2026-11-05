@@ -32,6 +32,11 @@ module.exports = function(eleventyConfig) {
     return excerptText(html, limit);
   });
 
+  // Keep embedded JSON data from closing its script element.
+  eleventyConfig.addFilter("jsonLd", value =>
+    JSON.stringify(value).replace(/</g, "\\u003c")
+  );
+
   // Create a blog collection from the 'blog' folder
   eleventyConfig.addCollection("blog", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/blog/*.{md,MD}").sort((a, b) => {

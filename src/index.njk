@@ -2,9 +2,8 @@
 layout: layouts/base.njk
 permalink: /
 isHomepage: true
-title: Caleb Kuhlmann — Music Producer and Audio Engineer
+title: Nashville Music Producer & Audio Engineer | Caleb Kuhlmann
 description: Nashville music producer and audio engineer Caleb Kuhlmann offers production, mixing, recording, and audio consulting for alternative, pop, rock, and independent artists.
-image: /assets/images/caleb-kuhlmann-studio-1400.jpg
 ---
 {% include "components/site-header.njk" %}
 
@@ -62,9 +61,9 @@ image: /assets/images/caleb-kuhlmann-studio-1400.jpg
     <p class="section-number" aria-hidden="true">02</p>
     <h2 id="services-title" class="section-heading">Services</h2>
     <div class="services-list">
-      <article><h3>Production</h3><p>Collaborative song, arrangement, recording, and sonic development from early demos through to finished records.</p></article>
-      <article><h3>Mixing</h3><p>Detailed, emotionally driven mixes that preserve the character and intent of the original performance.</p></article>
-      <article><h3>Engineering</h3><p>Tracking, editing, studio workflow, system troubleshooting, and practical technical support for artists and small creative spaces.</p></article>
+      {% for service in services %}
+      <article id="{{ service.id }}"><h3>{{ service.label | escape }}</h3><p>{{ service.description | escape }}</p></article>
+      {% endfor %}
     </div>
     <p class="section-link"><a data-cursor-tail class="inline-link" href="/contact/#project-inquiry">Ask About a Project <span aria-hidden="true">→</span></a></p>
   </section>

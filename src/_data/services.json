@@ -1,0 +1,20 @@
+[
+  {
+    "id": "production",
+    "label": "Production",
+    "name": "Music production",
+    "description": "Collaborative song, arrangement, recording, and sonic development from early demos through to finished records."
+  },
+  {
+    "id": "mixing",
+    "label": "Mixing",
+    "name": "Mixing",
+    "description": "Detailed, emotionally driven mixes that preserve the character and intent of the original performance."
+  },
+  {
+    "id": "engineering",
+    "label": "Engineering",
+    "name": "Audio engineering",
+    "description": "Tracking, editing, studio workflow, system troubleshooting, and practical technical support for artists and small creative spaces."
+  }
+]

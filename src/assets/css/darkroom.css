@@ -49,6 +49,53 @@ body::before {
 
 ::selection { background: var(--phosphor); color: var(--bg-color); }
 
+/* Hover enlarges the rectangle while its top-left hotspot stays fixed. */
+.crt-cursor {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 19px;
+    z-index: 10000;
+    pointer-events: none;
+    filter: drop-shadow(0 0 3px rgba(var(--glow), .8)) drop-shadow(0 0 8px rgba(var(--glow), .45));
+    animation: cursor-pulse 1s step-end infinite;
+}
+.crt-cursor::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--phosphor);
+    transform-origin: 0 0;
+    transition: scale 100ms ease-out;
+}
+.crt-cursor.is-pointer {
+    opacity: 1;
+    animation: none;
+}
+.crt-cursor.is-pointer::before {
+    scale: 1.1;
+}
+.crt-cursor.is-pressed::before { scale: .9; }
+@keyframes cursor-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .2; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+    html.crt-cursor-active, html.crt-cursor-active * { cursor: none !important; }
+    html.crt-cursor-active :is(textarea, input:not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]), [contenteditable]:not([contenteditable="false"])) {
+        cursor: text !important;
+    }
+    html.crt-cursor-active :is([disabled], [aria-disabled="true"], [inert], iframe, video, audio) {
+        cursor: auto !important;
+    }
+    .crt-cursor-active .crt-cursor { display: block; }
+}
+@media (prefers-reduced-motion: reduce), (forced-colors: active), (hover: none), (pointer: coarse) {
+    .crt-cursor { display: none !important; }
+}
+
 .site-header {
     position: relative;
     border-bottom-color: var(--border-color);
@@ -104,21 +151,6 @@ body::before {
     opacity: .65;
 }
 .hero .eyebrow { color: var(--muted); }
-.section-cursor {
-    visibility: hidden;
-    pointer-events: none;
-    display: inline-block;
-    width: .47em;
-    height: .94em;
-    margin-left: .55em;
-    vertical-align: -.08em;
-    background: var(--phosphor);
-    box-shadow: 0 0 9px rgba(var(--glow), .75);
-}
-.section-cursor.is-active {
-    visibility: visible;
-    animation: signal-cursor 1.1s step-end infinite;
-}
 .hero h1 { position: relative; text-wrap: pretty; text-shadow: 0 0 32px rgba(var(--glow), .12); }
 .hero-frequency {
     color: var(--phosphor);
@@ -193,7 +225,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline-color: va
     .work-item:hover h3, .work-item:focus-within h3 { text-shadow: -1px 0 var(--edge-a), 1px 0 var(--edge-b), 0 0 14px rgba(var(--glow), .45); }
 }
 
-@keyframes signal-cursor { 50% { opacity: 0; } }
 @keyframes chromatic-lock {
     0%, 28% { text-shadow: -2px 0 var(--edge-a), 2px 0 var(--edge-b), 0 0 10px rgba(var(--glow), .4); }
     14%, 42% { text-shadow: 1px 0 var(--edge-a), -1px 0 var(--edge-b); }
@@ -230,7 +261,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline-color: va
     *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 @media (forced-colors: active) {
-    body::before, .section-cursor, .hero::after { display: none; }
+    body::before, .hero::after { display: none; }
     .hero-frequency, .section-heading, .site-nav a[aria-current="page"], a:hover { color: CanvasText; text-shadow: none; animation: none; }
     a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline-color: Highlight; }
 }

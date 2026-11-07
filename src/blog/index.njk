@@ -15,11 +15,11 @@ permalink: /blog/
                     <div>{{ post.data.category | default('General') }}</div>
                 </header>
                 <div class="blog-entry-content">
-                    <p data-cursor-tail>{{ post.data.description | default(post.templateContent | excerptText) }}</p>
+                    <p>{{ post.data.description | default(post.templateContent | excerptText) }}</p>
                 </div>
             </article>
             {% endfor %}
             {% else %}
-            <p data-cursor-tail>No entries found. Check back soon.</p>
+            <p>No entries found. Check back soon.</p>
             {% endif %}
         </div>

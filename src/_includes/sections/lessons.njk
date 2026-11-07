@@ -7,7 +7,7 @@
             <p>My goal is to help students understand what they are hearing, use their tools intentionally, and build a creative process they can eventually carry on without me.</p>
         </div>
         <div class="cta-group">
-            <a data-cursor-tail class="button-link" href="#lessons-inquiry">Request a Consultation</a>
+            <a class="button-link" href="#lessons-inquiry">Request a Consultation</a>
         </div>
     </section>
 
@@ -23,7 +23,7 @@
             </article>
             {% endfor %}
         </div>
-        <p class="lesson-note" data-cursor-tail>Complete beginners are welcome. Students do not need to play an instrument or already own professional equipment.</p>
+        <p class="lesson-note">Complete beginners are welcome. Students do not need to play an instrument or already own professional equipment.</p>
     </section>
 
     <section class="lesson-section lesson-topics-section" aria-labelledby="topics-title">
@@ -34,14 +34,14 @@
         </div>
         <ul class="lesson-list">
             {% for topic in lessons.topics %}
-            <li{% if loop.last %} data-cursor-tail{% endif %}>{{ topic | safe }}</li>
+            <li>{{ topic | safe }}</li>
             {% endfor %}
         </ul>
     </section>
 
     <aside class="lesson-manifesto" aria-label="Teaching philosophy">
         <p class="eyebrow">The approach</p>
-        <p data-cursor-tail>Understand what you’re hearing. Use the tools intentionally. Build a process you can carry on without me.</p>
+        <p>Understand what you’re hearing. Use the tools intentionally. Build a process you can carry on without me.</p>
     </aside>
 
     <section class="lesson-section lesson-process" aria-labelledby="process-title">
@@ -49,7 +49,7 @@
         <h2 id="process-title" class="section-heading">How Lessons Work</h2>
         <div class="lesson-process-grid">
             <p>We start with a free 20-minute phone or video consultation and a short intake form. The first lesson includes an informal assessment and a practical hands-on activity.</p>
-            <p data-cursor-tail>From there, we build a learning direction around essential audio concepts and a real project or clearly defined goal. Students operate the DAW for most of the lesson; my job is to demonstrate, guide, ask useful questions, and help them understand their choices.</p>
+            <p>From there, we build a learning direction around essential audio concepts and a real project or clearly defined goal. Students operate the DAW for most of the lesson; my job is to demonstrate, guide, ask useful questions, and help them understand their choices.</p>
         </div>
     </section>
 
@@ -67,7 +67,7 @@
             </article>
             {% endfor %}
         </div>
-        <p class="lesson-note" data-cursor-tail>Lessons are offered one-on-one and by appointment.</p>
+        <p class="lesson-note">Lessons are offered one-on-one and by appointment.</p>
     </section>
 
     <section class="lesson-section studio-section" aria-labelledby="studio-title">
@@ -81,7 +81,7 @@
                 <li>{{ feature | safe }}</li>
                 {% endfor %}
             </ul>
-            <p class="lesson-note" data-cursor-tail>Cats live on the property but are kept outside the studio during lessons. Please mention any significant animal allergies before scheduling.</p>
+            <p class="lesson-note">Cats live on the property but are kept outside the studio during lessons. Please mention any significant animal allergies before scheduling.</p>
         </div>
     </section>
 
@@ -94,7 +94,7 @@
         </div>
         <ul class="parent-policies">
             {% for policy in lessons.parentPolicies %}
-            <li{% if loop.last %} data-cursor-tail{% endif %}>{{ policy | safe }}</li>
+            <li>{{ policy | safe }}</li>
             {% endfor %}
         </ul>
     </section>
@@ -110,7 +110,6 @@
             </details>
             {% endfor %}
         </div>
-        <span data-cursor-tail></span>
     </section>
 
     <section class="lesson-inquiry" id="lessons-inquiry" aria-labelledby="inquiry-title">
@@ -122,7 +121,7 @@
             <p><label for="lesson-name">Name</label><input id="lesson-name" type="text" name="name" autocomplete="name" required></p>
             <p><label for="lesson-email">Email</label><input id="lesson-email" type="email" name="email" autocomplete="email" required></p>
             <p><label for="lesson-message">Student age, experience, and goals</label><textarea id="lesson-message" name="message" rows="5" required></textarea></p>
-            <p><button data-cursor-tail class="button-link" type="submit">Send Inquiry</button></p>
+            <p><button class="button-link" type="submit">Send Inquiry</button></p>
         </form>
     </section>
 </article>

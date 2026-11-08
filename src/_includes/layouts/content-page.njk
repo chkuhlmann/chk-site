@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/assets/js/head.js"></script>
+    <script src="{{ "/assets/js/head.js" | assetUrl }}"></script>
 {% include "components/seo.njk" %}
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/darkroom.css">
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | assetUrl }}">
+    <link rel="stylesheet" href="{{ "/assets/css/darkroom.css" | assetUrl }}">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
 {{ content | safe }}
     </main>
 </div>
-    <script src="/assets/js/crt-cursor.js"></script>
-    <script src="/assets/js/navigation.js"></script>
+    <script src="{{ "/assets/js/crt-cursor.js" | assetUrl }}"></script>
+    <script src="{{ "/assets/js/navigation.js" | assetUrl }}"></script>
 </body>
 </html>

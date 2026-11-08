@@ -1,4 +1,7 @@
 const { excerptText } = require("./lib/blog-utils");
+const { createHash } = require("node:crypto");
+const { readFileSync } = require("node:fs");
+const path = require("node:path");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.ignores.add("src/README.md");
@@ -6,6 +9,13 @@ module.exports = function(eleventyConfig) {
   // Pass through the admin interface and all browser assets.
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/assets");
+
+  // New asset contents get a new cache key at both the CDN and the browser.
+  eleventyConfig.addFilter("assetUrl", assetPath => {
+    const content = readFileSync(path.join(__dirname, "src", assetPath));
+    const version = createHash("sha256").update(content).digest("hex").slice(0, 12);
+    return `${assetPath}?v=${version}`;
+  });
 
   // Preserve the portrait's original public URL for compatibility.
   eleventyConfig.addPassthroughCopy({

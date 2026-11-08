@@ -25,7 +25,7 @@ html {
 
 body {
     background: transparent;
-    padding-top: 48px;
+    padding-top: 0;
     padding-bottom: 70px;
 }
 
@@ -49,35 +49,60 @@ body::before {
 
 ::selection { background: var(--phosphor); color: var(--bg-color); }
 
-/* Hover enlarges the rectangle while its top-left hotspot stays fixed. */
+/* The fixed origin tracks the mouse; the terminal outline expands around it. */
 .crt-cursor {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    width: 10px;
-    height: 19px;
+    width: 0;
+    height: 0;
     z-index: 10000;
     pointer-events: none;
-    filter: drop-shadow(0 0 3px rgba(var(--glow), .8)) drop-shadow(0 0 8px rgba(var(--glow), .45));
     animation: cursor-pulse 1s step-end infinite;
 }
 .crt-cursor::before {
     content: "";
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 10px;
+    height: 19px;
+    border: 2px solid var(--phosphor);
+    background-color: var(--phosphor);
+    box-shadow: 0 0 4px rgba(var(--glow), .8), 0 0 12px rgba(var(--glow), .4);
+    transform: translate(-50%, -50%);
+    transition: width .2s ease, height .2s ease, background-color .2s ease,
+        box-shadow .2s ease;
+}
+/* A small phosphor point keeps the click location clear inside the expanded frame. */
+.crt-cursor::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
     background: var(--phosphor);
-    transform-origin: 0 0;
-    transition: scale 100ms ease-out;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .2s ease;
 }
 .crt-cursor.is-pointer {
     opacity: 1;
     animation: none;
 }
 .crt-cursor.is-pointer::before {
-    scale: 1.1;
+    width: 22px;
+    height: 32px;
+    background-color: rgba(var(--glow), .12);
+    background-image: repeating-linear-gradient(0deg, transparent 0 3px, rgba(var(--glow), .09) 3px 4px);
+    box-shadow: 0 0 5px rgba(var(--glow), .85), 0 0 18px rgba(var(--glow), .45),
+        inset 0 0 8px rgba(var(--glow), .12);
 }
-.crt-cursor.is-pressed::before { scale: .9; }
+.crt-cursor.is-pointer::after { opacity: 1; }
+.crt-cursor.is-pressed::before { transform: translate(-50%, -50%) scale(.9); }
 @keyframes cursor-pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: .2; }
@@ -243,7 +268,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline-color: va
     .subtitle { font-size: .9em; }
 }
 @media (max-width: 600px) {
-    body { padding-top: 28px; }
     .site-header { gap: 12px; padding-bottom: 12px; }
     .site-header::after { left: calc(50% - 23px); }
     .site-nav a { margin-left: 0; }
@@ -262,6 +286,63 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline-color: va
 }
 @media (forced-colors: active) {
     body::before, .hero::after { display: none; }
+    .header-backdrop {
+        background: Canvas;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
     .hero-frequency, .section-heading, .site-nav a[aria-current="page"], a:hover { color: CanvasText; text-shadow: none; animation: none; }
     a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline-color: Highlight; }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero > * { animation: power-on .75s steps(7, end) both; }
+  .hero > :nth-child(2) { animation-delay: .12s; }
+  .hero > :nth-child(3) { animation-delay: .30s; }
+  .hero > :nth-child(4) { animation-delay: .45s; }
+}
+@keyframes power-on {
+  0%   { opacity: 0; filter: brightness(2.4) blur(3px); transform: translateY(6px) scaleY(.97); }
+  45%  { opacity: 1; }
+  100% { opacity: 1; filter: none; transform: none; }
+}
+
+[data-reveal] {
+  opacity: 0; translate: 0 14px;
+  /* re-declare the hover transitions from darkroom.css so they aren't overridden */
+  transition: opacity .6s ease, translate .6s ease, background .25s ease, box-shadow .25s ease;
+  transition-delay: calc(var(--i, 0) * 70ms), calc(var(--i, 0) * 70ms), 0s, 0s;
+}
+[data-reveal].is-in { opacity: 1; translate: 0 0; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  margin-inline: -20px; padding-inline: 20px; padding-top: 14px;
+  background: transparent;
+}
+.header-backdrop {
+  position: absolute;
+  z-index: -1;
+  inset: 0 auto 0 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: rgba(2, 6, 12, .72);
+}
+@supports ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))) {
+  .header-backdrop {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
+html { scroll-padding-top: 110px; } /* was 35px; keeps anchors from hiding under the header */
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .site-header::before {
+      content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+      background: var(--phosphor); box-shadow: 0 0 10px rgba(var(--glow), .65);
+      transform-origin: 0 50%; animation: read-progress linear both; animation-timeline: scroll(root);
+    }
+  }
+}
+@keyframes read-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }

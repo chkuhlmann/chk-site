@@ -1,4 +1,6 @@
     <title>{{ seo.title | escape }}</title>
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#02060c">
     <meta name="description" content="{{ seo.description | escape }}">
     {% if unlisted %}<meta name="robots" content="noindex">{% endif %}
     <link rel="canonical" href="{{ seo.canonical | escape }}">

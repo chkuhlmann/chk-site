@@ -1,0 +1,100 @@
+/* Homepage-only enhancements; the shared editorial and hover styles stay intact. */
+html.homepage-page { scroll-padding-top: 150px; }
+.homepage-page body { padding-top: 0; }
+.homepage-page .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding-top: 16px;
+    background: transparent;
+}
+.homepage-page .site-header::after { bottom: 0; }
+@supports ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
+    .homepage-page .header-backdrop {
+        background: rgba(2, 6, 12, .72);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+    .homepage .hero > * {
+        animation: homepage-power-on 480ms ease-out backwards;
+    }
+    .homepage .hero > :nth-child(2) { animation-delay: 80ms; }
+    .homepage .hero > :nth-child(3) { animation-delay: 160ms; }
+    .homepage .hero > :nth-child(4) { animation-delay: 240ms; }
+    .homepage .hero > :focus-within { animation: none; }
+
+    .homepage [data-reveal] {
+        /* Keep the existing hover transitions; translate does not replace transform. */
+        transition: background .25s ease, box-shadow .25s ease, transform .25s ease,
+            opacity .5s ease, translate .5s ease;
+    }
+    .homepage [data-reveal="pending"] {
+        opacity: 0;
+        translate: 0 10px;
+    }
+    .homepage [data-reveal="visible"],
+    .homepage [data-reveal]:focus-within {
+        opacity: 1;
+        translate: 0 0;
+    }
+    .homepage [data-reveal]:focus-within {
+        transition: background .25s ease, box-shadow .25s ease, transform .25s ease;
+    }
+
+    @supports (animation-timeline: scroll()) {
+        .homepage-page .site-header::after {
+            left: 0;
+            width: 100%;
+            transform-origin: left;
+            animation: homepage-progress 1s linear both;
+            animation-timeline: scroll(root block);
+        }
+    }
+}
+@keyframes homepage-power-on {
+    from { opacity: .15; translate: 0 5px; }
+    to { opacity: 1; translate: 0 0; }
+}
+@keyframes homepage-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+@media (max-width: 600px) {
+    html.homepage-page { scroll-padding-top: 180px; }
+    .homepage-page .site-header { padding-top: 12px; }
+    /* The dropdown must not shift anchor destinations while it closes. */
+    .homepage-page.js .site-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--bg-color);
+        border-bottom: 1px solid var(--border-color);
+        overflow-y: auto;
+    }
+    .homepage-page.js .site-nav.show { max-height: min(500px, calc(100svh - 180px)); }
+    .homepage-page:not(.js) .menu-toggle { display: none; }
+    .homepage-page:not(.js) .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0 16px;
+    }
+    .homepage-page:not(.js) .site-nav a { font-size: 1.2em; border-bottom: 0; }
+}
+@media (forced-colors: active) {
+    .homepage-page .site-header, .homepage-page.js .site-nav {
+        background: Canvas;
+        border-bottom-color: CanvasText;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+    .homepage-page .site-header::after { display: none; }
+}
+@media print {
+    .homepage-page .site-header { position: static; }
+    .homepage [data-reveal] { opacity: 1; translate: none; }
+}

@@ -15,10 +15,6 @@ display_url: https://calebkuhlmann.studio
 media_folder: "src/assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
-media_library:
-  config:
-    max_file_size: 5000000
-
 collections:
   - name: "blog"
     label: "Blog"
@@ -88,3 +84,8 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
+        # Configure the built-in uploader on the field; top-level media_library
+        # is reserved for named external integrations.
+        media_library:
+          config:
+            max_file_size: 5000000

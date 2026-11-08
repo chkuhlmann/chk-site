@@ -89,12 +89,36 @@ Dependabot checks npm and GitHub Actions dependencies weekly and opens update pu
 
 ### Credits and unlisted pages
 
-Edit credits in the existing Google Sheet. A push to main or a manual run of
-the Pages workflow refreshes the credits and deploys the verified build. After
-a Sheet-only edit, run the workflow to publish it. A failed refresh stops the
-deployment so the previous discography stays live. Local and pull request
-builds use the versioned snapshot. Run `python3 scripts/sync-credits.py` to
-refresh that snapshot and include it in a commit.
+Edit the published copy of the credits Sheet configured in `config/credits-source.json`.
+Keep the `Artist`, `Track`, `Service`, and `Release` headers. Use ` | ` between
+collaborating artists (leave ampersands inside band names), and repeat the
+preferred album title in `Release` for songs that should share one cover.
+No Spotify links or image/date columns are required.
+
+Every push to `main` or manual Pages workflow run fetches the latest Sheet,
+resolves its releases through Spotify, groups credits by release, and builds
+the finished gallery. No separate sync command is needed before pushing.
+Google's published CSV can take a short time to reflect an edit; save the
+Sheet and allow it to update before pushing.
+
+One-time setup: publish the credits tab as CSV (the configured URL is already
+verified), then add the repository Actions secrets `SPOTIFY_CLIENT_ID` and
+`SPOTIFY_CLIENT_SECRET`. Secrets are used only during the build. The public
+page has no credentials, API calls, review controls, or loading states.
+
+Matching prefers full albums over singles with the same release title, then
+the earliest matching edition. All specified collaborators must match.
+Unmatched/unavailable releases remain in the Sheet, are omitted from the
+gallery, and are retried automatically on the next publishing run. Network,
+authentication, rate-limit, invalid-Sheet, and all-unmatched failures stop the
+deployment, preserving the last published site.
+
+`npm run build` and pull-request builds use `src/_data/releases.json` without
+network access. To refresh a local build, run `npm run build:live`; local
+credentials are read from the Git-ignored `.env.spotify.local`. The source
+Sheet snapshot is stored separately in `data/credits-sheet.json` for inspection.
+`npm run preview:credits` previews the same finished gallery at
+`http://127.0.0.1:8091/credits-preview/`; that route is excluded from production.
 
 The blog and lessons remain available by direct URL. The `unlisted` flag in
 the blog directory data and lessons page excludes them from the sitemap and

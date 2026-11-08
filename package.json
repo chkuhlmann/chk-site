@@ -5,7 +5,11 @@
   "scripts": {
     "test": "npm run build",
     "build": "eleventy",
-    "start": "eleventy --serve"
+    "sync:credits": "node scripts/sync-releases.mjs",
+    "build:live": "npm run sync:credits && npm run build",
+    "start": "eleventy --serve",
+    "preview:credits": "SPOTIFY_CREDITS_PREVIEW=1 eleventy --output=.cache/spotify-preview && node --watch scripts/spotify-preview-server.mjs",
+    "test:spotify": "node --test scripts/spotify-preview.test.mjs"
   },
   "repository": {
     "type": "git",

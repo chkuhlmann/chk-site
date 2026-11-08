@@ -1,0 +1,482 @@
+{
+  "spreadsheetId": "1S1UHNqTp7ACPp1daB-2NcCvBWs5bZgkwGKiQHoHwTmo",
+  "sheetName": "Sheet1",
+  "range": "Sheet1!A1:H110",
+  "sourceUrl": "https://docs.google.com/spreadsheets/d/1S1UHNqTp7ACPp1daB-2NcCvBWs5bZgkwGKiQHoHwTmo/edit",
+  "values": [
+    [
+      "Artist",
+      "Track",
+      "Service",
+      "Release"
+    ],
+    [
+      "Rope Swing",
+      "CMYK 60 19 1 4",
+      "Mixing, Production, Instrumentation, Composition, Engineering",
+      "The Old North State"
+    ],
+    [
+      "Rope Swing",
+      "11:11",
+      "Mixing, Production, Instrumentation, Composition, Engineering",
+      "The Old North State"
+    ],
+    [
+      "Rope Swing",
+      "02 Subaru",
+      "Mixing, Composition, Production, Instrumentation, Engineering",
+      "The Old North State"
+    ],
+    [
+      "Rope Swing",
+      "Montreat",
+      "Mixing, Production, Instrumentation, Composition, Engineering",
+      "The Old North State"
+    ],
+    [
+      "Rope Swing",
+      "Southport",
+      "Production",
+      "The Old North State"
+    ],
+    [
+      "Rope Swing",
+      "4.99 (Plus Tax)",
+      "Mixing, Production, Instrumentation, Composition, Engineering",
+      "The Old North State"
+    ],
+    [
+      "Rope Swing",
+      "Doctor Strange",
+      "Mixing, Production, Instrumentation, Composition, Engineering",
+      "The Old North State"
+    ],
+    [
+      "Rope Swing",
+      "Cabin",
+      "Mixing, Production, Instrumentation, Composition, Engineering",
+      "The Old North State"
+    ],
+    [
+      "Rope Swing",
+      "The One With Ross's Wedding Part 2",
+      "Mixing, Production, Instrumentation, Composition, Engineering",
+      "The Old North State"
+    ],
+    [
+      "Rope Swing",
+      "The Mortality Rate in America",
+      "Mixing, Production, Instrumentation, Composition, Engineering",
+      "The Old North State"
+    ],
+    [
+      "Vanosdale",
+      "Patience",
+      "Mixing, Instrumentation",
+      "Coin Toss"
+    ],
+    [
+      "Vanosdale",
+      "Timefly",
+      "Mixing, Instrumentation",
+      "Coin Toss"
+    ],
+    [
+      "NAMO",
+      "The Gap",
+      "Composition",
+      "NAMO"
+    ],
+    [
+      "Ella Mine",
+      "Wheel of Love",
+      "Instrumentation",
+      "Dream War"
+    ],
+    [
+      "Ella Mine",
+      "Tender World I.",
+      "Instrumentation",
+      "Dream War"
+    ],
+    [
+      "Ella Mine",
+      "Water's Rise",
+      "Instrumentation",
+      "Dream War"
+    ],
+    [
+      "Ella Mine",
+      "Sound + Fury",
+      "Instrumentation",
+      "Dream War"
+    ],
+    [
+      "Ella Mine",
+      "Wolves (Ved Døra Mi)",
+      "Instrumentation",
+      "Dream War"
+    ],
+    [
+      "Ella Mine",
+      "Dream War",
+      "Instrumentation",
+      "Dream War"
+    ],
+    [
+      "Ella Mine",
+      "Bridge Under Water",
+      "Instrumentation",
+      "Dream War"
+    ],
+    [
+      "Ella Mine",
+      "Outro / Dream Again",
+      "Instrumentation",
+      "Dream War"
+    ],
+    [
+      "Ella Mine",
+      "Intro / Tedious + Brief",
+      "Instrumentation",
+      "Dream War"
+    ],
+    [
+      "Ella Mine",
+      "(NightShriek)",
+      "Instrumentation",
+      "Dream War"
+    ],
+    [
+      "Ella Mine",
+      "Tender World II.",
+      "Instrumentation",
+      "Dream War"
+    ],
+    [
+      "Olivia Grasso",
+      "Every Room",
+      "Mixing, Production, Instrumentation, Engineering",
+      "Every Room"
+    ],
+    [
+      "Olivia Grasso",
+      "Statue",
+      "Production",
+      "Statue"
+    ],
+    [
+      "Emily Lloyd",
+      "Rayland Baxter",
+      "Mixing, Production, Instrumentation, Engineering",
+      "Fifth Year"
+    ],
+    [
+      "Emily Lloyd",
+      "I'm At My Grandma's for Thanksgiving",
+      "Mixing, Production, Instrumentation, Engineering",
+      "Fifth Year"
+    ],
+    [
+      "mercury",
+      "I Don't Know You Like I Used To",
+      "Mixing, Production",
+      "Fifth Year"
+    ],
+    [
+      "Emily Lloyd",
+      "Gravity (You Keep Me Spinnin' Round)",
+      "Mixing, Production, Instrumentation, Composition, Engineering",
+      "Fifth Year"
+    ],
+    [
+      "Emily Lloyd",
+      "Adjusting",
+      "Mixing, Production, Instrumentation, Engineering",
+      "Fifth Year"
+    ],
+    [
+      "Emily Lloyd",
+      "What Happened to Me",
+      "Mixing, Production, Instrumentation, Engineering",
+      "Fifth Year"
+    ],
+    [
+      "Emily Lloyd",
+      "What Happened to Me - Acoustic",
+      "Mixing, Mastering, Production, Engineering",
+      "What Happened to Me - Acoustic"
+    ],
+    [
+      "Tiffany Johnson",
+      "Warning Label",
+      "Mixing",
+      "Warning Label"
+    ],
+    [
+      "mercury",
+      "Moment",
+      "Mixing",
+      "Moment"
+    ],
+    [
+      "GREENER",
+      "DIRT",
+      "Mastering",
+      "YOU ARE NOTHING"
+    ],
+    [
+      "GREENER",
+      "FALLING",
+      "Mastering",
+      "YOU ARE NOTHING"
+    ],
+    [
+      "GREENER",
+      "ZACK",
+      "Mastering",
+      "YOU ARE NOTHING"
+    ],
+    [
+      "GREENER",
+      "CAN'T WAIT TO BREAK",
+      "Mastering",
+      "YOU ARE NOTHING"
+    ],
+    [
+      "Small Time",
+      "Black Cloud",
+      "Engineering, Instrumentation",
+      "Tough Party"
+    ],
+    [
+      "Eden Joel",
+      "Deadweight",
+      "Engineering",
+      "Deadweight"
+    ],
+    [
+      "Henry J. Star",
+      "Greenway",
+      "Mixing, Production, Engineering, Instrumentation",
+      "The Soft Apocalypse"
+    ],
+    [
+      "Henry J. Star",
+      "Ember",
+      "Mixing, Engineering",
+      "The Soft Apocalypse"
+    ],
+    [
+      "Henry J. Star",
+      "Petrichor",
+      "Mixing, Engineering",
+      "The Soft Apocalypse"
+    ],
+    [
+      "Vincent Mason",
+      "Days Are Numbered",
+      "Mixing",
+      "There I Go"
+    ],
+    [
+      "Henry J. Star",
+      "Field Fire",
+      "Mixing",
+      "The Soft Apocalypse"
+    ],
+    [
+      "Henry J. Star",
+      "Ruin",
+      "Mixing",
+      "The Soft Apocalypse"
+    ],
+    [
+      "Henry J. Star",
+      "Circle",
+      "Mixing, Engineering",
+      "The Soft Apocalypse"
+    ],
+    [
+      "Henry J. Star",
+      "Bitter End",
+      "Mixing, Engineering",
+      "The Soft Apocalypse"
+    ],
+    [
+      "Henry J. Star",
+      "New Sky",
+      "Mixing, Production, Instrumentation, Engineering",
+      "The Soft Apocalypse"
+    ],
+    [
+      "Henry J. Star",
+      "Wallflower",
+      "Mixing, Production, Instrumentation, Engineering",
+      "The soft Apocalypse"
+    ],
+    [
+      "Henry J. Star",
+      "Oathkeeper",
+      "Mixing",
+      "The soft Apocalypse"
+    ],
+    [
+      "Vincent Mason",
+      "Little Miss",
+      "Mixing",
+      "There I Go"
+    ],
+    [
+      "Vincent Mason",
+      "Damned If I Do",
+      "Mixing",
+      "There I Go"
+    ],
+    [
+      "Vincent Mason",
+      "Sink or Swim",
+      "Mixing",
+      "There I Go"
+    ],
+    [
+      "Vincent Mason",
+      "Sit With It",
+      "Mixing",
+      "There I Go"
+    ],
+    [
+      "Vincent Mason",
+      "There I Go",
+      "Mixing",
+      "There I Go"
+    ],
+    [
+      "Vincent Mason",
+      "Anything Took Everything",
+      "Mixing",
+      "There I Go"
+    ],
+    [
+      "Vincent Mason",
+      "Old Flame",
+      "Mixing",
+      "There I Go"
+    ],
+    [
+      "Vincent Mason",
+      "American Spirit",
+      "Mixing",
+      "There I Go"
+    ],
+    [
+      "book NOT brooke",
+      "Elise/Alone",
+      "Mixing",
+      "Dancer First"
+    ],
+    [
+      "Small Time",
+      "I Saw You",
+      "Engineering, Instrumentation",
+      "Tough Party"
+    ],
+    [
+      "book NOT brooke",
+      "Nobody Dances Anymore",
+      "Mixing",
+      "Dancer First"
+    ],
+    [
+      "book NOT brooke",
+      "Ugly California",
+      "Mixing",
+      "Dancer First"
+    ],
+    [
+      "book NOT brooke",
+      "RU 8",
+      "Mixing",
+      "Dancer First"
+    ],
+    [
+      "book NOT brooke",
+      "Monkey Ball (B-A-N-A-N-A-N-A-S)",
+      "Mixing",
+      "Dancer First"
+    ],
+    [
+      "book NOT brooke",
+      "Counting to 8",
+      "Mixing",
+      "Dancer First"
+    ],
+    [
+      "book NOT brooke",
+      "O.U. Oh Yeah",
+      "Mixing",
+      "Dancer First"
+    ],
+    [
+      "book NOT brooke",
+      "Bloody Mary",
+      "Mixing",
+      "Dancer First"
+    ],
+    [
+      "book NOT brooke",
+      "I Do The Worm",
+      "Mixing",
+      "Dancer First"
+    ],
+    [
+      "book NOT brooke",
+      "The Plunge",
+      "Mixing",
+      "Dancer First"
+    ],
+    [
+      "book NOT brooke",
+      "Hot Trend!",
+      "Mixing",
+      "Dancer First"
+    ],
+    [
+      "Silvie",
+      "Excuses",
+      "Mixing",
+      "Excuses"
+    ],
+    [
+      "Vincent Mason",
+      "Don't Ask Me",
+      "Mixing",
+      "Don't Ask Me"
+    ],
+    [
+      "Mary Malu",
+      "You're The One That I Want",
+      "Mixing",
+      "You're The One That I Want"
+    ],
+    [
+      "Mary Malu",
+      "Apple Red",
+      "Mixing",
+      "Apple Red"
+    ],
+    [
+      "book NOT brooke | Venus & the Flytraps",
+      "Ctrl Alt CHERRY Delete",
+      "Mixing, Engineering",
+      "Ctrl Alt CHERRY Delete"
+    ],
+    [
+      "Nic Fair",
+      "Manuka Honey",
+      "Production",
+      "Manuka Honey"
+    ]
+  ]
+}

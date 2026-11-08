@@ -1,0 +1,55 @@
+.preview-eyebrow { color: var(--phosphor); text-transform: uppercase; letter-spacing: .16em; font-size: .75rem; }
+.credits-preview #preview-title { font-family: var(--font-headline); font-size: clamp(2.7rem, 7vw, 4.8rem); font-weight: 400; line-height: 1.1; margin: 18px 0; border: 0; }
+.preview-intro { max-width: 40rem; color: var(--muted); margin-bottom: 40px; }
+.showcase-toolbar { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; border-top: var(--rule-heavy); padding-top: 16px; font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; }
+.showcase-toolbar p { margin: 0; }
+.showcase-toolbar span { color: var(--muted); }
+.preview-status { font-size: .72rem; color: var(--muted); margin: 10px 0 26px; min-height: 1.6em; }
+.release-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 25px; align-items: start; }
+.release-card { min-width: 0; }
+.release-cover { aspect-ratio: 1; background: rgba(var(--glow), .045); display: grid; place-items: center; border: 1px solid var(--border-color); }
+.release-cover:has(img) { border: 0; background: transparent; }
+.cover-placeholder { color: var(--border-color); font-family: var(--font-headline); font-size: 4rem; }
+.release-cover a { display: block; width: 100%; height: 100%; line-height: 0; }
+.release-cover img { display: block; width: 100%; height: 100%; aspect-ratio: 1; object-fit: contain; filter: none; border-radius: 0; }
+.release-cover a:focus-visible { outline: 2px solid var(--phosphor); outline-offset: 5px; }
+.release-caption { padding-top: 15px; }
+.release-artist { color: var(--muted); font-size: .76rem; line-height: 1.5; margin: 0 0 4px; overflow-wrap: anywhere; }
+.release-caption h2 { font-family: var(--font-display); font-size: 1.7rem; line-height: 1.2; font-weight: 400; margin: 0 0 10px; overflow-wrap: anywhere; }
+.release-date { font-size: .68rem; color: var(--muted); margin: 0 0 10px; }
+.release-role { font-size: .73rem; color: var(--phosphor); margin: 0; line-height: 1.7; }
+.track-credits { margin-top: 8px; font-size: .7rem; }
+.track-credits summary { min-height: 36px; padding: 8px 0; cursor: pointer; color: var(--muted); }
+.track-credits ul { margin: 0 0 12px; padding: 0; list-style: none; }
+.track-credits li { border-top: var(--rule); padding: 10px 0; }
+.track-credits li strong, .track-credits li span { display: block; }
+.track-credits li span { color: var(--muted); margin-top: 3px; }
+.release-link a { font-family: var(--font-body); font-size: .7rem; display: inline-flex; align-items: center; gap: 7px; min-height: 36px; text-shadow: none; }
+.release-link svg { width: 21px; height: 21px; fill: currentColor; }
+.review-panel, .preview-tools { margin-top: 32px; padding-top: 18px; border-top: var(--rule); font-size: .78rem; }
+.review-panel[hidden] { display: none; }
+.review-panel > summary, .preview-tools > summary { cursor: pointer; min-height: 44px; }
+.review-intro, .preview-tools p { color: var(--muted); }
+.review-entry { border-top: var(--rule); padding: 20px 0; }
+.review-entry h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.4rem; margin: 0; }
+.review-entry p { margin: 6px 0; }
+.review-entry .release-card { margin-top: 14px; }
+.review-entry .release-cover, .review-entry .release-caption > :not(.track-credits) { display: none; }
+.preview-choice { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding: 12px 0; }
+.preview-choice > span { flex: 1 1 180px; }
+.preview-choice a { min-height: 44px; display: flex; align-items: center; font-size: .8rem; }
+.credits-preview button { font: inherit; font-size: .8rem; color: var(--text-color); background: var(--bg-color); border: var(--rule); padding: 12px 16px; min-height: 44px; cursor: pointer; }
+.credits-preview button:hover { border-color: var(--phosphor); }
+.credits-preview button:disabled { opacity: .6; cursor: wait; }
+.preview-footnote { font-size: .7rem; color: var(--muted); border-top: var(--rule); padding-top: 22px; margin-top: 32px; }
+@media (hover: hover) { .release-card:has(.release-cover a:hover) h2 { color: var(--phosphor); } }
+@media (max-width: 600px) {
+  .site-header { margin-inline: -16px; padding-inline: 16px; }
+  .release-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 16px; }
+  .release-caption h2 { font-size: 1.4rem; }
+  .release-artist { font-size: .7rem; }
+  .release-role { font-size: .68rem; }
+  .release-date { font-size: .64rem; }
+  .preview-intro { font-size: .9rem; }
+}
+@media (max-width: 340px) { .release-grid { grid-template-columns: 1fr; } }

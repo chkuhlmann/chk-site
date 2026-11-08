@@ -5,6 +5,9 @@ const path = require("node:path");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.ignores.add("src/README.md");
+  if (process.env.SPOTIFY_CREDITS_PREVIEW !== "1") {
+    eleventyConfig.ignores.add("src/credits-preview/**");
+  }
 
   // Pass through the admin interface and all browser assets.
   eleventyConfig.addPassthroughCopy("src/admin");
@@ -36,6 +39,14 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("dateToIso", function(dateObj) {
     return dateObj ? new Date(dateObj).toISOString() : "";
+  });
+
+  eleventyConfig.addFilter("releaseDate", value => {
+    if (/^\d{4}$/.test(value)) return value;
+    const monthOnly = /^\d{4}-\d{2}$/.test(value);
+    const date = new Date(`${value}${monthOnly ? '-01' : ''}T00:00:00Z`);
+    return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short',
+      ...(monthOnly ? {} : {day: 'numeric'}), timeZone: 'UTC' }).format(date);
   });
 
   eleventyConfig.addFilter("excerptText", function(html, limit = 240) {

@@ -1,0 +1,682 @@
+[
+  {
+    "id": "2KCDM4gqmHXiiHBKlaDdHw",
+    "title": "Manuka Honey",
+    "artists": [
+      "Nic Fair"
+    ],
+    "releaseDate": "2026-10-23",
+    "releaseType": "single",
+    "totalTracks": 1,
+    "image": "https://i.scdn.co/image/ab67616d0000b2738367355ed147b79608cd982d",
+    "url": "https://open.spotify.com/album/2KCDM4gqmHXiiHBKlaDdHw",
+    "roles": [
+      "Production"
+    ],
+    "tracks": [
+      {
+        "title": "Manuka Honey",
+        "role": "Production"
+      }
+    ]
+  },
+  {
+    "id": "2WkGOjUlaihCXowXSiBEVp",
+    "title": "Ctrl Alt CHERRY Delete",
+    "artists": [
+      "Venus & the Flytraps",
+      "book NOT brooke"
+    ],
+    "releaseDate": "2026-06-05",
+    "releaseType": "single",
+    "totalTracks": 1,
+    "image": "https://i.scdn.co/image/ab67616d0000b273c66a45c846b928c747e585a0",
+    "url": "https://open.spotify.com/album/2WkGOjUlaihCXowXSiBEVp",
+    "roles": [
+      "Mixing",
+      "Engineering"
+    ],
+    "tracks": [
+      {
+        "title": "Ctrl Alt CHERRY Delete",
+        "role": "Mixing, Engineering"
+      }
+    ]
+  },
+  {
+    "id": "6Y3LuG1yznmsX5xzwvj1Ug",
+    "title": "Apple Red",
+    "artists": [
+      "Mary Malu"
+    ],
+    "releaseDate": "2026-05-29",
+    "releaseType": "single",
+    "totalTracks": 1,
+    "image": "https://i.scdn.co/image/ab67616d0000b2738fc34d741ed301f5f79e9685",
+    "url": "https://open.spotify.com/album/6Y3LuG1yznmsX5xzwvj1Ug",
+    "roles": [
+      "Mixing"
+    ],
+    "tracks": [
+      {
+        "title": "Apple Red",
+        "role": "Mixing"
+      }
+    ]
+  },
+  {
+    "id": "1RzExWaoDAhD1wF96zKEHt",
+    "title": "You're The One That I Want",
+    "artists": [
+      "Mary Malu"
+    ],
+    "releaseDate": "2026-04-24",
+    "releaseType": "single",
+    "totalTracks": 1,
+    "image": "https://i.scdn.co/image/ab67616d0000b27312e4c147e199e0ee77ad0ca9",
+    "url": "https://open.spotify.com/album/1RzExWaoDAhD1wF96zKEHt",
+    "roles": [
+      "Mixing"
+    ],
+    "tracks": [
+      {
+        "title": "You're The One That I Want",
+        "role": "Mixing"
+      }
+    ]
+  },
+  {
+    "id": "5ASOGXccuPZ6uxIBrjatme",
+    "title": "Don't Ask Me",
+    "artists": [
+      "Vincent Mason"
+    ],
+    "releaseDate": "2026-04-17",
+    "releaseType": "single",
+    "totalTracks": 1,
+    "image": "https://i.scdn.co/image/ab67616d0000b27360db4769aaa608feae2ab7b2",
+    "url": "https://open.spotify.com/album/5ASOGXccuPZ6uxIBrjatme",
+    "roles": [
+      "Mixing"
+    ],
+    "tracks": [
+      {
+        "title": "Don't Ask Me",
+        "role": "Mixing"
+      }
+    ]
+  },
+  {
+    "id": "61k7guGWb96CBe8uABJxU5",
+    "title": "Excuses",
+    "artists": [
+      "Silvie"
+    ],
+    "releaseDate": "2026-04-10",
+    "releaseType": "single",
+    "totalTracks": 2,
+    "image": "https://i.scdn.co/image/ab67616d0000b273d5ccb9ed026509ab7d6fd28a",
+    "url": "https://open.spotify.com/album/61k7guGWb96CBe8uABJxU5",
+    "roles": [
+      "Mixing"
+    ],
+    "tracks": [
+      {
+        "title": "Excuses",
+        "role": "Mixing"
+      }
+    ]
+  },
+  {
+    "id": "4u13nvmCyiX26JEbLMi3xT",
+    "title": "Dancer First",
+    "artists": [
+      "book NOT brooke"
+    ],
+    "releaseDate": "2026-03-13",
+    "releaseType": "album",
+    "totalTracks": 11,
+    "image": "https://i.scdn.co/image/ab67616d0000b2730d70d868ea02b7beb0d0c2e3",
+    "url": "https://open.spotify.com/album/4u13nvmCyiX26JEbLMi3xT",
+    "roles": [
+      "Mixing"
+    ],
+    "tracks": [
+      {
+        "title": "Elise/Alone",
+        "role": "Mixing"
+      },
+      {
+        "title": "Nobody Dances Anymore",
+        "role": "Mixing"
+      },
+      {
+        "title": "Ugly California",
+        "role": "Mixing"
+      },
+      {
+        "title": "RU 8",
+        "role": "Mixing"
+      },
+      {
+        "title": "Monkey Ball (B-A-N-A-N-A-N-A-S)",
+        "role": "Mixing"
+      },
+      {
+        "title": "Counting to 8",
+        "role": "Mixing"
+      },
+      {
+        "title": "O.U. Oh Yeah",
+        "role": "Mixing"
+      },
+      {
+        "title": "Bloody Mary",
+        "role": "Mixing"
+      },
+      {
+        "title": "I Do The Worm",
+        "role": "Mixing"
+      },
+      {
+        "title": "The Plunge",
+        "role": "Mixing"
+      },
+      {
+        "title": "Hot Trend!",
+        "role": "Mixing"
+      }
+    ]
+  },
+  {
+    "id": "1yZ0TjQcIKq7rDgvOqGv69",
+    "title": "Tough Party",
+    "artists": [
+      "Small Time"
+    ],
+    "releaseDate": "2026-01-09",
+    "releaseType": "single",
+    "totalTracks": 5,
+    "image": "https://i.scdn.co/image/ab67616d0000b273ce6ea0c0de548b3478b670a0",
+    "url": "https://open.spotify.com/album/1yZ0TjQcIKq7rDgvOqGv69",
+    "roles": [
+      "Engineering",
+      "Instrumentation"
+    ],
+    "tracks": [
+      {
+        "title": "Black Cloud",
+        "role": "Engineering, Instrumentation"
+      },
+      {
+        "title": "I Saw You",
+        "role": "Engineering, Instrumentation"
+      }
+    ]
+  },
+  {
+    "id": "1BuczKI8NR9VdbRkjP0KZg",
+    "title": "There I Go",
+    "artists": [
+      "Vincent Mason"
+    ],
+    "releaseDate": "2025-11-07",
+    "releaseType": "album",
+    "totalTracks": 14,
+    "image": "https://i.scdn.co/image/ab67616d0000b273c47a2b1f5ba679998a0cf7d5",
+    "url": "https://open.spotify.com/album/1BuczKI8NR9VdbRkjP0KZg",
+    "roles": [
+      "Mixing"
+    ],
+    "tracks": [
+      {
+        "title": "Days Are Numbered",
+        "role": "Mixing"
+      },
+      {
+        "title": "Little Miss",
+        "role": "Mixing"
+      },
+      {
+        "title": "Damned If I Do",
+        "role": "Mixing"
+      },
+      {
+        "title": "Sink or Swim",
+        "role": "Mixing"
+      },
+      {
+        "title": "Sit With It",
+        "role": "Mixing"
+      },
+      {
+        "title": "There I Go",
+        "role": "Mixing"
+      },
+      {
+        "title": "Anything Took Everything",
+        "role": "Mixing"
+      },
+      {
+        "title": "Old Flame",
+        "role": "Mixing"
+      },
+      {
+        "title": "American Spirit",
+        "role": "Mixing"
+      }
+    ]
+  },
+  {
+    "id": "56ssd7iAvuIDEjQ0B600W4",
+    "title": "The Soft Apocalypse",
+    "artists": [
+      "Henry J. Star"
+    ],
+    "releaseDate": "2025-10-17",
+    "releaseType": "album",
+    "totalTracks": 10,
+    "image": "https://i.scdn.co/image/ab67616d0000b27301540f61c9d55dae4fca8a51",
+    "url": "https://open.spotify.com/album/56ssd7iAvuIDEjQ0B600W4",
+    "roles": [
+      "Mixing",
+      "Production",
+      "Engineering",
+      "Instrumentation"
+    ],
+    "tracks": [
+      {
+        "title": "Greenway",
+        "role": "Mixing, Production, Engineering, Instrumentation"
+      },
+      {
+        "title": "Ember",
+        "role": "Mixing, Engineering"
+      },
+      {
+        "title": "Petrichor",
+        "role": "Mixing, Engineering"
+      },
+      {
+        "title": "Field Fire",
+        "role": "Mixing"
+      },
+      {
+        "title": "Ruin",
+        "role": "Mixing"
+      },
+      {
+        "title": "Circle",
+        "role": "Mixing, Engineering"
+      },
+      {
+        "title": "Bitter End",
+        "role": "Mixing, Engineering"
+      },
+      {
+        "title": "New Sky",
+        "role": "Mixing, Production, Instrumentation, Engineering"
+      },
+      {
+        "title": "Wallflower",
+        "role": "Mixing, Production, Instrumentation, Engineering"
+      },
+      {
+        "title": "Oathkeeper",
+        "role": "Mixing"
+      }
+    ]
+  },
+  {
+    "id": "221sUavIY7AKaD2193wBLL",
+    "title": "Deadweight",
+    "artists": [
+      "Eden Joel"
+    ],
+    "releaseDate": "2025-05-28",
+    "releaseType": "single",
+    "totalTracks": 1,
+    "image": "https://i.scdn.co/image/ab67616d0000b273f500a48d237231feded7af60",
+    "url": "https://open.spotify.com/album/221sUavIY7AKaD2193wBLL",
+    "roles": [
+      "Engineering"
+    ],
+    "tracks": [
+      {
+        "title": "Deadweight",
+        "role": "Engineering"
+      }
+    ]
+  },
+  {
+    "id": "5prtu09cEQHnmdqfPP0Bne",
+    "title": "YOU ARE NOTHING",
+    "artists": [
+      "GREENER"
+    ],
+    "releaseDate": "2024-05-10",
+    "releaseType": "single",
+    "totalTracks": 4,
+    "image": "https://i.scdn.co/image/ab67616d0000b273c9042d6b4b59c933e1995b4d",
+    "url": "https://open.spotify.com/album/5prtu09cEQHnmdqfPP0Bne",
+    "roles": [
+      "Mastering"
+    ],
+    "tracks": [
+      {
+        "title": "DIRT",
+        "role": "Mastering"
+      },
+      {
+        "title": "FALLING",
+        "role": "Mastering"
+      },
+      {
+        "title": "ZACK",
+        "role": "Mastering"
+      },
+      {
+        "title": "CAN'T WAIT TO BREAK",
+        "role": "Mastering"
+      }
+    ]
+  },
+  {
+    "id": "065PikyGtRLJntRjAtt2wt",
+    "title": "Moment",
+    "artists": [
+      "mercury"
+    ],
+    "releaseDate": "2022-08-05",
+    "releaseType": "single",
+    "totalTracks": 1,
+    "image": "https://i.scdn.co/image/ab67616d0000b2731e45e43493e65a7a5ed4923c",
+    "url": "https://open.spotify.com/album/065PikyGtRLJntRjAtt2wt",
+    "roles": [
+      "Mixing"
+    ],
+    "tracks": [
+      {
+        "title": "Moment",
+        "role": "Mixing"
+      }
+    ]
+  },
+  {
+    "id": "13ohK4LiRMBJR8Kg0qnKZh",
+    "title": "Warning Label",
+    "artists": [
+      "Tiffany Johnson"
+    ],
+    "releaseDate": "2022-05-27",
+    "releaseType": "single",
+    "totalTracks": 1,
+    "image": "https://i.scdn.co/image/ab67616d0000b273e4f3ff8edfed5f1af3397dad",
+    "url": "https://open.spotify.com/album/13ohK4LiRMBJR8Kg0qnKZh",
+    "roles": [
+      "Mixing"
+    ],
+    "tracks": [
+      {
+        "title": "Warning Label",
+        "role": "Mixing"
+      }
+    ]
+  },
+  {
+    "id": "6PHjYkOu5nYjH5ql0Ha6kG",
+    "title": "What Happened to Me (Acoustic)",
+    "artists": [
+      "Emily Lloyd"
+    ],
+    "releaseDate": "2022-05-20",
+    "releaseType": "single",
+    "totalTracks": 1,
+    "image": "https://i.scdn.co/image/ab67616d0000b27357a1e8ef24455ada798804bf",
+    "url": "https://open.spotify.com/album/6PHjYkOu5nYjH5ql0Ha6kG",
+    "roles": [
+      "Mixing",
+      "Mastering",
+      "Production",
+      "Engineering"
+    ],
+    "tracks": [
+      {
+        "title": "What Happened to Me - Acoustic",
+        "role": "Mixing, Mastering, Production, Engineering"
+      }
+    ]
+  },
+  {
+    "id": "4avcooU7MCxoRD9yTNBqj0",
+    "title": "Fifth Year",
+    "artists": [
+      "Emily Lloyd"
+    ],
+    "releaseDate": "2022-03-11",
+    "releaseType": "single",
+    "totalTracks": 5,
+    "image": "https://i.scdn.co/image/ab67616d0000b2735f6d35a1bd7c2454a252444f",
+    "url": "https://open.spotify.com/album/4avcooU7MCxoRD9yTNBqj0",
+    "roles": [
+      "Mixing",
+      "Production",
+      "Instrumentation",
+      "Engineering",
+      "Composition"
+    ],
+    "tracks": [
+      {
+        "title": "Rayland Baxter",
+        "role": "Mixing, Production, Instrumentation, Engineering"
+      },
+      {
+        "title": "I'm At My Grandma's for Thanksgiving",
+        "role": "Mixing, Production, Instrumentation, Engineering"
+      },
+      {
+        "title": "Gravity (You Keep Me Spinnin' Round)",
+        "role": "Mixing, Production, Instrumentation, Composition, Engineering"
+      },
+      {
+        "title": "Adjusting",
+        "role": "Mixing, Production, Instrumentation, Engineering"
+      },
+      {
+        "title": "What Happened to Me",
+        "role": "Mixing, Production, Instrumentation, Engineering"
+      }
+    ]
+  },
+  {
+    "id": "4QBf8Jle0QZJGNeYT2qqSA",
+    "title": "I Don’t Know You Like I Used To",
+    "artists": [
+      "mercury"
+    ],
+    "releaseDate": "2022-02-05",
+    "releaseType": "single",
+    "totalTracks": 1,
+    "image": "https://i.scdn.co/image/ab67616d0000b27390bc8dd82f871af5f4109811",
+    "url": "https://open.spotify.com/album/4QBf8Jle0QZJGNeYT2qqSA",
+    "roles": [
+      "Mixing",
+      "Production"
+    ],
+    "tracks": [
+      {
+        "title": "I Don't Know You Like I Used To",
+        "role": "Mixing, Production"
+      }
+    ]
+  },
+  {
+    "id": "2AS0qBa2zLU0jfRwXWiPdd",
+    "title": "Dream War",
+    "artists": [
+      "Ella Mine"
+    ],
+    "releaseDate": "2020-08-07",
+    "releaseType": "album",
+    "totalTracks": 19,
+    "image": "https://i.scdn.co/image/ab67616d0000b273dbf0f2ed7d95451c36c91406",
+    "url": "https://open.spotify.com/album/2AS0qBa2zLU0jfRwXWiPdd",
+    "roles": [
+      "Instrumentation"
+    ],
+    "tracks": [
+      {
+        "title": "Wheel of Love",
+        "role": "Instrumentation"
+      },
+      {
+        "title": "Tender World I.",
+        "role": "Instrumentation"
+      },
+      {
+        "title": "Water's Rise",
+        "role": "Instrumentation"
+      },
+      {
+        "title": "Sound + Fury",
+        "role": "Instrumentation"
+      },
+      {
+        "title": "Wolves (Ved Døra Mi)",
+        "role": "Instrumentation"
+      },
+      {
+        "title": "Dream War",
+        "role": "Instrumentation"
+      },
+      {
+        "title": "Bridge Under Water",
+        "role": "Instrumentation"
+      },
+      {
+        "title": "Outro / Dream Again",
+        "role": "Instrumentation"
+      },
+      {
+        "title": "Intro / Tedious + Brief",
+        "role": "Instrumentation"
+      },
+      {
+        "title": "(NightShriek)",
+        "role": "Instrumentation"
+      },
+      {
+        "title": "Tender World II.",
+        "role": "Instrumentation"
+      }
+    ]
+  },
+  {
+    "id": "57OLwwcsfjlcBB1TKjYWoJ",
+    "title": "NAMO",
+    "artists": [
+      "NAMO"
+    ],
+    "releaseDate": "2020-04-03",
+    "releaseType": "album",
+    "totalTracks": 10,
+    "image": "https://i.scdn.co/image/ab67616d0000b2733e30d84f339f1ce440295547",
+    "url": "https://open.spotify.com/album/57OLwwcsfjlcBB1TKjYWoJ",
+    "roles": [
+      "Composition"
+    ],
+    "tracks": [
+      {
+        "title": "The Gap",
+        "role": "Composition"
+      }
+    ]
+  },
+  {
+    "id": "44iOqWU8hvkf8qtLuyS9WI",
+    "title": "Coin Toss",
+    "artists": [
+      "Vanosdale"
+    ],
+    "releaseDate": "2020-03-28",
+    "releaseType": "single",
+    "totalTracks": 2,
+    "image": "https://i.scdn.co/image/ab67616d0000b27393035a9169efe90615cc0db8",
+    "url": "https://open.spotify.com/album/44iOqWU8hvkf8qtLuyS9WI",
+    "roles": [
+      "Mixing",
+      "Instrumentation"
+    ],
+    "tracks": [
+      {
+        "title": "Patience",
+        "role": "Mixing, Instrumentation"
+      },
+      {
+        "title": "Timefly",
+        "role": "Mixing, Instrumentation"
+      }
+    ]
+  },
+  {
+    "id": "0pbnboyLdBzLzznZcwHBqj",
+    "title": "The Old North State",
+    "artists": [
+      "Rope Swing"
+    ],
+    "releaseDate": "2019-11-01",
+    "releaseType": "album",
+    "totalTracks": 11,
+    "image": "https://i.scdn.co/image/ab67616d0000b273492051a9a864a380095eb20a",
+    "url": "https://open.spotify.com/album/0pbnboyLdBzLzznZcwHBqj",
+    "roles": [
+      "Mixing",
+      "Production",
+      "Instrumentation",
+      "Composition",
+      "Engineering"
+    ],
+    "tracks": [
+      {
+        "title": "CMYK 60 19 1 4",
+        "role": "Mixing, Production, Instrumentation, Composition, Engineering"
+      },
+      {
+        "title": "11:11",
+        "role": "Mixing, Production, Instrumentation, Composition, Engineering"
+      },
+      {
+        "title": "02 Subaru",
+        "role": "Mixing, Composition, Production, Instrumentation, Engineering"
+      },
+      {
+        "title": "Montreat",
+        "role": "Mixing, Production, Instrumentation, Composition, Engineering"
+      },
+      {
+        "title": "Southport",
+        "role": "Production"
+      },
+      {
+        "title": "4.99 (Plus Tax)",
+        "role": "Mixing, Production, Instrumentation, Composition, Engineering"
+      },
+      {
+        "title": "Doctor Strange",
+        "role": "Mixing, Production, Instrumentation, Composition, Engineering"
+      },
+      {
+        "title": "Cabin",
+        "role": "Mixing, Production, Instrumentation, Composition, Engineering"
+      },
+      {
+        "title": "The One With Ross's Wedding Part 2",
+        "role": "Mixing, Production, Instrumentation, Composition, Engineering"
+      },
+      {
+        "title": "The Mortality Rate in America",
+        "role": "Mixing, Production, Instrumentation, Composition, Engineering"
+      }
+    ]
+  }
+]

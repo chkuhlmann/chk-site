@@ -879,6 +879,7 @@
         }
         .contact-form input[type="text"],
         .contact-form input[type="email"],
+        .contact-form select,
         .contact-form textarea {
             width: 100%;
             padding: 9px 0 8px;
@@ -894,8 +895,27 @@
             border-radius: 0;
             -webkit-appearance: none;
         }
+        .contact-form select {
+            min-height: var(--control-target);
+            padding: 9px 36px 8px 10px;
+            border: 1px solid var(--border-color);
+            background-image:
+                linear-gradient(45deg, transparent 50%, currentColor 50%),
+                linear-gradient(135deg, currentColor 50%, transparent 50%);
+            background-position:
+                calc(100% - 16px) 50%,
+                calc(100% - 11px) 50%;
+            background-repeat: no-repeat;
+            background-size: 5px 5px;
+            appearance: none;
+        }
+        .contact-form select option {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
         .contact-form input[type="text"]:focus-visible,
         .contact-form input[type="email"]:focus-visible,
+        .contact-form select:focus-visible,
         .contact-form textarea:focus-visible {
             border-bottom-color: transparent;
             box-shadow: -1px 1px 0 var(--glitch-red),
@@ -1128,6 +1148,7 @@
             .blog-entry-title { font-size: 1.5em; }
             .contact-form input[type="text"],
             .contact-form input[type="email"],
+            .contact-form select,
             .contact-form textarea { font-size: 16px; }
         }
 

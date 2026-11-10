@@ -213,16 +213,21 @@ body::before {
 .contact-form button::before, .contact-form button::after,
 .button-link::before, .button-link::after { display: none; }
 .inline-link, .text-cta { text-underline-offset: 5px; }
-.contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
+.contact-form input[type="text"], .contact-form input[type="email"], .contact-form select, .contact-form textarea {
     padding: 12px 10px;
-    background: rgba(var(--glow), .025);
+    background-color: rgba(var(--glow), .025);
     transition: background .2s ease, box-shadow .2s ease;
+}
+.contact-form select {
+    padding-right: 36px;
+    border-color: var(--phosphor);
 }
 .contact-form input[type="text"]:focus-visible,
 .contact-form input[type="email"]:focus-visible,
+.contact-form select:focus-visible,
 .contact-form textarea:focus-visible {
     outline: 2px solid var(--phosphor);
-    background: rgba(var(--glow), .05);
+    background-color: rgba(var(--glow), .05);
     box-shadow: 0 0 18px rgba(var(--glow), .1);
 }
 .spotify-inline-widget::before { border-color: var(--edge-a); filter: none; box-shadow: 0 0 20px rgba(var(--glow), .12); }

@@ -9,6 +9,7 @@ html.homepage-page { scroll-padding-top: 150px; }
     background: transparent;
 }
 .homepage-page .site-header::after { bottom: 0; }
+.homepage .hero { padding-top: 16px; }
 @supports ((backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px))) {
     .homepage-page .header-backdrop {
         background: rgba(2, 6, 12, .72);
@@ -66,6 +67,7 @@ html.homepage-page { scroll-padding-top: 150px; }
 @media (max-width: 600px) {
     html.homepage-page { scroll-padding-top: 180px; }
     .homepage-page .site-header { padding-top: 12px; }
+    .homepage .hero { padding-top: 12px; }
     /* The dropdown must not shift anchor destinations while it closes. */
     .homepage-page.js .site-nav {
         position: absolute;
